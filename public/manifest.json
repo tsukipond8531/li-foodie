@@ -1,0 +1,26 @@
+{
+  "short_name": "LiFoode",
+  "name": "LiFoode : Food destination",
+  "description": "Family restaurant",
+  "icons": [
+    {
+      "src": "icon/favicon.ico",
+      "sizes": "16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "icon/logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icon/logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

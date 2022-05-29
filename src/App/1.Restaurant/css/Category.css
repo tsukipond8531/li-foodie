@@ -1,0 +1,7 @@
+*{ margin: 0; padding: 0; box-sizing: border-box;}
+
+.box{
+    top: 15vh;
+    position: fixed;
+    z-index: 30;
+}

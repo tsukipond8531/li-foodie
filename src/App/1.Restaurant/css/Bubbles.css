@@ -1,0 +1,65 @@
+.bubbles img{
+    width: 50px;
+    animation: bubble 7s linear infinite;
+}
+.bubbles {
+    width: 98%;
+    display: flex;
+    justify-content: space-around;
+    justify-items: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: -5;
+}
+@keyframes bubble {
+    0%{
+        transform: translateY(0);
+        opacity: 0;
+    }
+    70%{ opacity: 1;}
+    100%{
+        transform: translateY(95vh);
+        opacity: 1;
+    }
+}
+.bubbles img:nth-child(1) {
+    animation-delay: 2s;
+    width: 20px;
+}
+.bubbles img:nth-child(2) {
+    animation-delay: 1s;
+    width: 45px;
+}
+.bubbles img:nth-child(3) {
+    animation-delay: 3.5s;
+    width: 15px;
+}
+.bubbles img:nth-child(4) {
+    animation-delay: 4.6s;
+    width: 35px;
+}
+.bubbles img:nth-child(5) {
+    animation-delay: 1s;
+    width: 10px;
+}
+.bubbles img:nth-child(6) {
+    animation-delay: 2s;
+    width: 28px;
+}
+.bubbles img:nth-child(7) {
+    animation-delay: 6s;
+    width: 40px;
+}
+.bubbles img:nth-child(8) {
+    animation-delay: 1.4s;
+    width: 15px;
+}
+.bubbles img:nth-child(9) {
+    animation-delay: 4.4s;
+    width: 37px;
+}
+.bubbles img:nth-child(10) {
+    animation-delay: 3s;
+    width: 28px;
+}
