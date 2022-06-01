@@ -1,5 +1,5 @@
 import React from 'react'
-import { Help, OfferSlide} from './_COMPONENT'
+import { Help, OfferSlide } from './_COMPONENT'
 
 
 export function WelcomeTuts(props) {

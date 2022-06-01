@@ -3,7 +3,7 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  z-index: -10;
+  z-index: -30;
 }
 .BubbleDot {
   position: relative;
@@ -12,24 +12,19 @@
 }
 .BubbleDot span {
   position: relative;
-  height: 30px;
-  width: 30px;
+  height: 8px;
+  width: 8px;
   border-radius: 50%;
-  /* background: #4fc3dc;
-  box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #4fc3dc, 0 0 100px #4fc3dc; */
   animation: dot 15s linear infinite;
 }
-/* .BubbleDot span:nth-child(even) {
-  background: #ff2d75;
-  box-shadow: 0 0 0 10px #ff2d7544, 0 0 50px #ff2d75, 0 0 100px #ff2d75;
-} */
+
 @keyframes dot {
   0% {
-    transform: translateY(100vh) scale(.2);
-    opacity: 1;
+    transform: translateY(0vh) scale(.5);
+    opacity: .5;
   }
   100% {
-    transform: translateY(0vh) scale(1);
-    opacity: .5;
+    transform: translateY(100vh) scale(1);
+    opacity: 1;
   }
 }

@@ -15,7 +15,7 @@ export function LandingComponent1() {
                 </h1>
                 <div className='mt-8 ml-4 flex flex-col w-fit h-auto'>                  
                     <Link to='/home' exact='true' className='m-2'>
-                        <button className='min-w-full text-center py-2 bg-white bg-opacity-10 border-b border-black hover:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:bg-opacity-100 rounded-sm shadow-xl shadow-black txt7 capitalize font-bold text-xl text-amber-300 hover:text-black'>
+                        <button className='min-w-full text-center py-2 border-b border-black bg-gradient-to-r from-rose-500 via-red-600 to-orange-500 rounded-sm shadow-xl shadow-black txt7 capitalize font-bold text-xl text-black'>
                             <ReactTypingEffect
                                 text={['get started...','sign in !','sign up !']}
                                 speed={200} typingDelay={1000} eraseSpeed={100} eraseDelay={1000}

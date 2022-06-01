@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react';
 import { Route, Routes } from 'react-router-dom';
 import "../1.Restaurant/css/FontFamily.css"
-import {AuthProvider,HaveProfileProvider,Order_ReviewProvider, Auth_Route, Profile_Route, Home, About, Contact, Branches, Signup, Profile, Navbar, Cart, Activity, Restaurant, Login, ForgotPassword, CreateProfile, Payment, FinalizeOrder, Bubbles, Landing, Error404, UpdateProfile } from './_ALL'
+import {AuthProvider,HaveProfileProvider,Order_ReviewProvider, Auth_Route, Profile_Route, Home, About, Contact, Branches, Signup, Profile, Navbar, Cart, Activity, Restaurant, Login, ForgotPassword, CreateProfile, Payment, FinalizeOrder, Bubbles, Landing, Error404, UpdateProfile, BubbleDot} from './_ALL'
 
 const LiFoodie = () => {
 
@@ -19,6 +19,7 @@ const LiFoodie = () => {
                 <Order_ReviewProvider>
                     <Navbar/>
                     <Bubbles/>
+                    <BubbleDot/>
                     <Routes>
                         <Route path='*' element={<Error404/>}/>
                         <Route path='/' element={<Landing/>}/>
