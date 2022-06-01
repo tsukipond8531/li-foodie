@@ -1,6 +1,6 @@
 .bubbles img{
     width: 50px;
-    animation: bubble 7s linear infinite;
+    animation: bubble 10s linear infinite;
 }
 .bubbles {
     width: 98%;
