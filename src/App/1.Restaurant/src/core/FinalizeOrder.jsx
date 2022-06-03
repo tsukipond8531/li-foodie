@@ -116,7 +116,7 @@ export function FinalizeOrder() {
             const userName = profileData.name;
             const orderItems = list2
             const data = {status,userName,userEmail,userPhNo,totalAmount,shippingAddress,orderItems,exclusive}
-            await placeOrder(data,uid,token)
+            // await placeOrder(data,uid,token)
             navigate('/payment',{state: {val: grandTotal}})
         } catch(err) {
             setError(err)
@@ -202,7 +202,7 @@ export function FinalizeOrder() {
                                 <h1 className='ml-2'>Tip : <span className='txt5'>₹{tip}</span></h1>
                                 <div className='sm:w-80 w-full px-6'>
                                     <ThemeProvider theme={Theme}>
-                                        <Slider aria-label="Temperature" defaultValue={10} getAriaValueText={adjustTip}
+                                        <Slider aria-label="adjust tip" defaultValue={10} getAriaValueText={adjustTip}
                                                 valueLabelDisplay="auto" step={5} min={0} max={100} marks color='neutral'
                                         />
                                     </ThemeProvider>
@@ -241,7 +241,7 @@ export function FinalizeOrder() {
                                     FormHelperTextProps={{ style: { fontSize: 12} }}    
                                 />                             
                             </div>
-                            <div className='flex justify-end p-2'>
+                            <div className='flex justify-end px-2 mb-2'>
                                 <ThemeProvider theme={Theme}>
                                     <Button endIcon={<SendIcon/>} variant='contained' color='vio' aria-label='payment' type='submit'>
                                         Pay now

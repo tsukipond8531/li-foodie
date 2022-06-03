@@ -66,20 +66,20 @@ const Login = () => {
                         InputProps={{  }}
                         InputLabelProps={{ style: { fontSize: 18, fontWeight: 600 } }}
                         FormHelperTextProps={{ style: { fontSize: 12} }}
-                      />
+                    />
                   </ThemeProvider>
                 </div>
                 <div className="mt-2">
                  <ThemeProvider theme={Theme}>
                   <TextField
-                          helperText="Please enter your password" variant="standard" color="black" fullWidth={true}
-                          label='password'
-                          inputRef={passRef} required autoComplete="off"
-                          type={showPassword ? 'text' : 'password'}
-                          InputProps={{ style: { fontSize: 15, fontWeight: 600 } }}
-                          InputLabelProps={{ style: { fontSize: 18, fontWeight: 600 } }}
-                          FormHelperTextProps={{ style: { fontSize: 12} }}
-                      />
+                      helperText="Please enter your password" variant="standard" color="black" fullWidth={true}
+                      label='password'
+                      inputRef={passRef} required autoComplete="off"
+                      type={showPassword ? 'text' : 'password'}
+                      InputProps={{ style: { fontSize: 15, fontWeight: 600 } }}
+                      InputLabelProps={{ style: { fontSize: 18, fontWeight: 600 } }}
+                      FormHelperTextProps={{ style: { fontSize: 12} }}
+                  />
                  </ThemeProvider>
                   <div className="mt-2 mb-4">
                     <IconButton 

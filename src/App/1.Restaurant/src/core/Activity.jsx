@@ -59,7 +59,7 @@ const Activity = () => {
                             </div>
                         </ThemeProvider>
                     </div>
-                    <h1 className='text-center'>Please reload the page incase you don't find your resent activity.</h1>
+                    <h1 className='text-center text-xs txt1'>*Please reload the page incase you don't find your resent activity.</h1>
                 </div>
                 {/* hl7 order section */}
                 {showOrder && <div className='p-6'>

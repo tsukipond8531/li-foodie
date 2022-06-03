@@ -7,11 +7,10 @@ const Branches = () => {
       <section className="container px-5 mx-auto flex flex-col">
         <div className="mt-36 mb-20 flex flex-wrap w-full flex-col items-center text-center">
           <h1 className="txt5 sm:text-4xl text-2xl font-black pb-2 text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-amber-500">
-            Pitchfork Kickstarter Taxidermy
+            All our branches across all over India
           </h1>
-          <p className="txt8 lg:w-1/2 w-full leading-relaxed text-gray-500">
-            Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
-            gentrify, subway tile poke farm-to-table.
+          <p className="txt8 lg:w-1/2 w-full leading-relaxed text-black md:text-gray-500">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum dignissimos fugiat fugit beatae impedit laudantium.
           </p>
         </div>
         <section className="flex flex-wrap -m-4">
@@ -26,8 +25,7 @@ const Branches = () => {
                 Shooting Stars
               </h2>
               <p className="text-zinc-300 txt2 text-lg">
-                Fingerstache flexitarian street art 8-bit waist co, subway
-                tile poke farm.
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ratione.
               </p>
             </div>
           </div>
@@ -44,8 +42,7 @@ const Branches = () => {
                 The Catalyzer
               </h2>
               <p className="text-zinc-300 txt2 text-lg">
-                Fingerstache flexitarian street art 8-bit waist co, subway
-                tile poke farm.
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ratione.
               </p>
             </div>
           </div>
@@ -61,8 +58,7 @@ const Branches = () => {
                 Neptune
               </h2>
               <p className="text-zinc-300 txt2 text-lg">
-                Fingerstache flexitarian street art 8-bit waist co, subway
-                tile poke farm.
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ratione.
               </p>
             </div>
           </div>
@@ -77,8 +73,7 @@ const Branches = () => {
                 Melanchole
               </h2>
               <p className="text-zinc-300 txt2 text-lg">
-                Fingerstache flexitarian street art 8-bit waist co, subway
-                tile poke farm.
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ratione.
               </p>
             </div>
           </div>
@@ -93,8 +88,7 @@ const Branches = () => {
                 Bunker
               </h2>
               <p className="text-zinc-300 txt2 text-lg">
-                Fingerstache flexitarian street art 8-bit waist co, subway
-                tile poke farm.
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ratione.
               </p>
             </div>
           </div>
@@ -109,8 +103,7 @@ const Branches = () => {
                 Ramona Falls
               </h2>
               <p className="text-zinc-300 txt2 text-lg">
-                Fingerstache flexitarian street art 8-bit waist co, subway
-                tile poke farm.
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, ratione.
               </p>
             </div>
           </div>
