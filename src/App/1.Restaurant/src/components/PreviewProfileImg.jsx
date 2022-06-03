@@ -10,6 +10,6 @@ export function PreviewProfileImg(props) {
         setPreview(reader.result) 
     }
     return (
-        <img src={preview} alt={preview} className="w-24 h-24"/>
+        <img src={preview} alt={preview} className="w-28 h-28"/>
     )
 }

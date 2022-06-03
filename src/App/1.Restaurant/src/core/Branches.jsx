@@ -15,7 +15,7 @@ const Branches = () => {
           </p>
         </div>
         <section className="flex flex-wrap -m-4">
-          <div className="xl:w-1/3 md:w-1/2 p-4">
+          <div className="xl:w-1/3 md:w-1/2 p-4 transition duration-300 hover:-translate-y-2 ease-in-out">
             <div className="p-6 rounded-xl bg-zinc-900 bg-opacity-90 shadow-2xl shadow-black">
               <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-4">
                 <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-6 h-6" viewBox="0 0 24 24">
@@ -31,7 +31,7 @@ const Branches = () => {
               </p>
             </div>
           </div>
-          <div className="xl:w-1/3 md:w-1/2 p-4">
+          <div className="xl:w-1/3 md:w-1/2 p-4 transition duration-300 hover:-translate-y-2 ease-in-out">
             <div className="p-6 rounded-xl bg-zinc-900 bg-opacity-90 shadow-2xl shadow-black">
               <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-4">
                 <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-6 h-6" viewBox="0 0 24 24">
@@ -49,7 +49,7 @@ const Branches = () => {
               </p>
             </div>
           </div>
-          <div className="xl:w-1/3 md:w-1/2 p-4">
+          <div className="xl:w-1/3 md:w-1/2 p-4 transition duration-300 hover:-translate-y-2 ease-in-out">
             <div className="p-6 rounded-xl bg-zinc-900 bg-opacity-90 shadow-2xl shadow-black">
               <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-4">
                 <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-6 h-6" viewBox="0 0 24 24">
@@ -66,7 +66,7 @@ const Branches = () => {
               </p>
             </div>
           </div>
-          <div className="xl:w-1/3 md:w-1/2 p-4">
+          <div className="xl:w-1/3 md:w-1/2 p-4 transition duration-300 hover:-translate-y-2 ease-in-out">
             <div className="p-6 rounded-xl bg-zinc-900 bg-opacity-90 shadow-2xl shadow-black">
               <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-4">
                 <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-6 h-6" viewBox="0 0 24 24">
@@ -82,7 +82,7 @@ const Branches = () => {
               </p>
             </div>
           </div>
-          <div className="xl:w-1/3 md:w-1/2 p-4">
+          <div className="xl:w-1/3 md:w-1/2 p-4 transition duration-300 hover:-translate-y-2 ease-in-out">
             <div className="p-6 rounded-xl bg-zinc-900 bg-opacity-90 shadow-2xl shadow-black">
               <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-4">
                 <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-6 h-6" viewBox="0 0 24 24">
@@ -98,7 +98,7 @@ const Branches = () => {
               </p>
             </div>
           </div>
-          <div className="xl:w-1/3 md:w-1/2 p-4">
+          <div className="xl:w-1/3 md:w-1/2 p-4 transition duration-300 hover:-translate-y-2 ease-in-out">
             <div className="p-6 rounded-xl bg-zinc-900 bg-opacity-90 shadow-2xl shadow-black">
               <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-4">
                 <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-6 h-6" viewBox="0 0 24 24">

@@ -57,7 +57,7 @@ const Home = () => {
                             {/* Hl2       no profile found     */}
                             {!show && <div className="txt8 mt-10 flex w-full flex-col">
                                 <p className="txt7">Welcome guest 😄. We are glad to welcome you at <b>LiFoodie!</b>. To access the restaurant you need to complete your profile first, trust me it will not take a long. 👨‍🍳</p><br/>
-                                <p className="txt7"><b>Your email: </b><span className="text-yellow-400 md:text-rose-500 italic font-bold">{currentUser.email}</span></p>
+                                <p className="txt7"><b>Your email: </b><span className="text-indigo-600 md:text-rose-500 italic font-bold">{currentUser.email}</span></p>
                                 <div className="w-full mt-16 text-center">
                                     <Link to="/create-profile" exact='true'
                                         className="txt7 font-bold text-xl text-gray-800 mt-3 cursor-pointer">Complete your profile : 

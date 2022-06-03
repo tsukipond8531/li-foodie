@@ -4,7 +4,7 @@ import { Food } from '../../API/FoodDB';
 import { Svg8 } from '../svg/svg';
 import { useOrder_Review } from '../Context/Order_and_ReviewContext';
 import { useHaveProfile } from '../Context/HaveProfileContext';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, tableCellClasses, styled, Slider , Button, createTheme, ThemeProvider, Alert, Dialog, DialogActions, DialogContent, DialogTitle, Slide} from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, tableCellClasses, styled, Slider , Button, createTheme, ThemeProvider, Alert, Dialog, DialogActions, DialogContent, DialogTitle, Slide, TextField} from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import { Blob } from '../components/_COMPONENT'
 
@@ -95,23 +95,25 @@ export function FinalizeOrder() {
     useEffect(() => {
         setGrandTotal(total + gst + tip)
     },[tip]);
-    //hl1     place order ...........
+    //hl7 if user changes shipping address stuff    
     const {placeOrder} = useOrder_Review();
     const { profileData }= useHaveProfile()
     const [error, setError] = useState()
+    const [userPhNo, setUserPhNo] = useState(profileData.ph_no);
+    const [shippingAddress, setShippingAddress] = useState(profileData.address);
 
-    async function putOrder() {
+    //hl1     place order ...........
+    async function putOrder(e) {
+        e.preventDefault()
         setError('')
         const token = [...Array(24)].map(() => Math.floor(Math.random() * 21).toString(26)).join('');
         try{
             const exclusive = 'order'; 
             const status = 'ok';
-            const shippingAddress = profileData.address;
             const totalAmount = Math.round(grandTotal);
             const uid = profileData.uid;
             const userEmail = profileData.email;
             const userName = profileData.name;
-            const userPhNo = profileData.ph_no;
             const orderItems = list2
             const data = {status,userName,userEmail,userPhNo,totalAmount,shippingAddress,orderItems,exclusive}
             await placeOrder(data,uid,token)
@@ -158,7 +160,7 @@ export function FinalizeOrder() {
             <section className='relative w-full min-h-screen flex justify-center sm:px-4 px-2'>
                 <div className='sm:mt-36 mt-24 flex-1 h-full max-w-4xl mx-auto shadow-2xl bg-gradient-to-br from-pink-300 via-cyan-300 to-green-400 shadow-zinc-900 rounded-2xl overflow-hidden py-2 '>
                     <div className="flex w-full h-auto justify-center text-2xl mt-2">
-                        <h1 className='txt8'>Order Summary</h1>
+                        <h1 className='txt1 text-bold'>Order Summary</h1>
                     </div>
                     {error && <Alert severity="error" variant="outlined">{error}</Alert>}
                     <div className='w-full flex justify-center mt-2 sm:px-4 px-1'>
@@ -187,31 +189,66 @@ export function FinalizeOrder() {
                             </Table>
                         </TableContainer>
                     </div>
-                    <div className='relative w-full mt-4 sm:px-4 px-0'>
-                        <div className='border-t-2 border-slate-800'>
-                            <h1 className='ml-2 mt-1'>Order Amount :<span className='txt5'> ₹{orderAmount}</span></h1>
-                            <h1 className='ml-2'>sgst 2.5% : <span className='txt5'>₹{parseFloat(gst/2).toFixed(2)}</span></h1>
-                            <h1 className='ml-2'>cgst 2.5% : <span className='txt5'>₹{parseFloat(gst/2).toFixed(2)}</span></h1>
-                            <h1 className='ml-2'>Tip : <span className='txt5'>₹{tip}</span></h1>
-                            <div className=' sm:w-80 w-full px-3'>
-                                <ThemeProvider theme={Theme}>
-                                    <Slider aria-label="Temperature" defaultValue={10} getAriaValueText={adjustTip}
-                                            valueLabelDisplay="auto" step={5} min={0} max={100} marks color='neutral'
-                                    />
-                                </ThemeProvider>
+                    <div className='relative w-full mt-4 sm:px-4 px-1'>
+                        <div className='border-t-2 border-slate-800 flex flex-col md:flex-row md:justify-between'>
+                            <div className='flex py-auto justify-center flex-col'>
+                                <h1 className='ml-2 mt-1'>Order Amount :<span className='txt5'> ₹{orderAmount}</span></h1>
+                                <h1 className='ml-2'>
+                                    <span>sgst 2.5% : </span><span className='txt5'>₹{parseFloat(gst/2).toFixed(2)}</span>
+                                    <span className='ml-2'>cgst 2.5% : </span><span className='txt5'>₹{parseFloat(gst/2).toFixed(2)}</span>
+                                </h1>
                             </div>
-                            <h1 className="txt1 text-2xl text-blue-600 my-1">
-                                {`Total payable amount : `}<br/>
-                                <span className='txt3 mx-2'>
-                                    {"₹"+Math.round(grandTotal)}
-                                </span>
-                            </h1> 
+                            <div>
+                                <h1 className='ml-2'>Tip : <span className='txt5'>₹{tip}</span></h1>
+                                <div className='sm:w-80 w-full px-6'>
+                                    <ThemeProvider theme={Theme}>
+                                        <Slider aria-label="Temperature" defaultValue={10} getAriaValueText={adjustTip}
+                                                valueLabelDisplay="auto" step={5} min={0} max={100} marks color='neutral'
+                                        />
+                                    </ThemeProvider>
+                                </div>
+                                <h1 className="ml-2 txt1 text-xl md:text-2xl text-blue-600">
+                                    {`Total payable amount :`}
+                                    <span className='txt3 mx-2'>
+                                        {"₹"+Math.round(grandTotal)}
+                                    </span>
+                                </h1> 
+                            </div>
                         </div>
-                        <div className='absolute bottom-0 right-0 mr-2'>
-                            <ThemeProvider theme={Theme}>
-                                <Button endIcon={<SendIcon/>} variant='contained' color='vio' onClick={putOrder}  aria-label='payment'>Pay now</Button>
-                            </ThemeProvider>             
-                        </div> 
+                        {/* Hl2   change shipping address stuff    */}
+                        <form className='mt-2 flex flex-col' autoComplete="off" onSubmit={putOrder}>
+                            <h1 className='txt7 text-xl md:text-2xl text-left ml-2 font-bold text-indigo-500 underline'>
+                                Shipping Details
+                            </h1>
+                            <p className='text-xs mt-1 ml-2 w-56 h-auto txt1'>*please check the order details carefully before payment</p>
+                            <div className='px-6 md:px-2 mt-4'>
+                                <TextField value={userPhNo} onChange={(e) => {setUserPhNo(e.target.value)}} 
+                                    color='primary' variant='standard'
+                                    helperText="Please enter your phone number"
+                                    label="Phone Number" type="text" required
+                                    InputProps={{ style: { fontSize: 15, fontWeight: 600 } }}
+                                    InputLabelProps={{ style: { fontSize: 18, fontWeight: 600 } }}
+                                    FormHelperTextProps={{ style: { fontSize: 12} }}    
+                                />                          
+                            </div>
+                            <div className='px-6 md:px-2 mt-2'>
+                                <TextField value={shippingAddress} onChange={(e) => {setShippingAddress(e.target.value)}} 
+                                    color='secondary' variant='standard'
+                                    helperText="Please enter your address"
+                                    label="shipping address" type="text" required
+                                    InputProps={{ style: { fontSize: 15, fontWeight: 600 } }}
+                                    InputLabelProps={{ style: { fontSize: 18, fontWeight: 600 } }}
+                                    FormHelperTextProps={{ style: { fontSize: 12} }}    
+                                />                             
+                            </div>
+                            <div className='flex justify-end p-2'>
+                                <ThemeProvider theme={Theme}>
+                                    <Button endIcon={<SendIcon/>} variant='contained' color='vio' aria-label='payment' type='submit'>
+                                        Pay now
+                                    </Button>
+                                </ThemeProvider>             
+                            </div> 
+                        </form>
                     </div>        
                 </div>
                 {/* Hl3     svg ......................................*/}

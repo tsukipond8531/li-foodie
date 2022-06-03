@@ -64,8 +64,8 @@ const Login = () => {
                         autoComplete="user-email"
                         label="email" type="email"
                         InputProps={{  }}
-                        InputLabelProps={{ style: { fontSize: 18, fontWeight: 800 } }}
-                        FormHelperTextProps={{ style: { fontSize: 12, fontWeight: 800 } }}
+                        InputLabelProps={{ style: { fontSize: 18, fontWeight: 600 } }}
+                        FormHelperTextProps={{ style: { fontSize: 12} }}
                       />
                   </ThemeProvider>
                 </div>
@@ -77,8 +77,8 @@ const Login = () => {
                           inputRef={passRef} required autoComplete="off"
                           type={showPassword ? 'text' : 'password'}
                           InputProps={{ style: { fontSize: 15, fontWeight: 600 } }}
-                          InputLabelProps={{ style: { fontSize: 18, fontWeight: 800 } }}
-                          FormHelperTextProps={{ style: { fontSize: 12, fontWeight: 800 } }}
+                          InputLabelProps={{ style: { fontSize: 18, fontWeight: 600 } }}
+                          FormHelperTextProps={{ style: { fontSize: 12} }}
                       />
                  </ThemeProvider>
                   <div className="mt-2 mb-4">
@@ -123,10 +123,10 @@ const Login = () => {
             />
         </div>
         <div className="fixed w-96 sm:w-30r h-96 sm:h-30r rounded-full -right-40 top-96 shadow-black shadow-2xl"
-          style={{background: 'linear-gradient(#0072ff,#061161,#190A05'}}>
+          style={{background: 'linear-gradient(#0072ff,#061161,#190A05)'}}>
         </div>
         <div className="fixed w-96 sm:w-30r h-96 sm:h-30r rounded-full -right-40 top-96"
-          style={{background: 'linear-gradient(#0072ff,#061161,#190A05',filter:'blur(200px)'}}>
+          style={{background: 'linear-gradient(#0072ff,#061161,#190A05)',filter:'blur(200px)'}}>
         </div>
         <div className='fixed sm:-bottom-12 -bottom-40 sm:-left-12 -left-20 w-72 h-72 rounded-full shadow-black shadow-2x'
           style={{background: 'linear-gradient(#fc6767,#ec008c)'}}>

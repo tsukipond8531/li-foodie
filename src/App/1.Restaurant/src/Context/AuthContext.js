@@ -1,6 +1,6 @@
 import React,{ useContext, useEffect, useState } from 'react'
 import { auth } from '../Firebase';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, onAuthStateChanged, deleteUser } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, onAuthStateChanged, deleteUser, sendEmailVerification } from 'firebase/auth';
 
 
 const AuthContext = React.createContext();
@@ -31,6 +31,10 @@ export function AuthProvider({children}) {
         return sendPasswordResetEmail(auth,email)
     }
 
+    function emailVerification (user) {
+        return sendEmailVerification(user)
+    }
+
     function deleteUserAccount (uid) {
         logout()
         return deleteUser(uid)
@@ -50,6 +54,7 @@ export function AuthProvider({children}) {
         signup,
         logout,
         resetPassword,
+        emailVerification,
         deleteUserAccount,
     }
     return (

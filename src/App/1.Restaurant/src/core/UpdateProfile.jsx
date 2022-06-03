@@ -129,8 +129,9 @@ const UpdateProfile = () => {
                             <TextField helperText="Please enter your full name" variant="standard" fullWidth={true} color='black' 
                                 value={name} onChange={(e) => {setName(e.target.value)}}  required
                                 label="name" type="text"
-                                InputLabelProps={{ style: { fontSize: 18, fontWeight: 800 } }}
-                                FormHelperTextProps={{ style: { fontSize: 12, fontWeight: 800 } }}
+                                InputProps={{ style: { fontSize: 15, fontWeight: 600 } }}
+                                InputLabelProps={{ style: { fontSize: 18, fontWeight: 600 } }}
+                                FormHelperTextProps={{ style: { fontSize: 12} }}
                             />
                         </ThemeProvider>
                     </div>
@@ -138,9 +139,10 @@ const UpdateProfile = () => {
                         <ThemeProvider theme={Theme}>
                             <TextField helperText="Please enter your phone no" variant="standard" fullWidth={true} color='black'
                                 value={phno} onChange={(e) => {setPhno(e.target.value)}} required
-                                label="phone number" type="text"                           
-                                InputLabelProps={{ style: { fontSize: 18, fontWeight: 800 } }}
-                                FormHelperTextProps={{ style: { fontSize: 12, fontWeight: 800 } }}
+                                label="phone number" type="text"
+                                InputProps={{ style: { fontSize: 15, fontWeight: 600 } }}                           
+                                InputLabelProps={{ style: { fontSize: 18, fontWeight: 600 } }}
+                                FormHelperTextProps={{ style: { fontSize: 12} }}
                             />
                         </ThemeProvider>
                     </div>
@@ -149,8 +151,9 @@ const UpdateProfile = () => {
                             <TextField helperText="Please enter your full address" variant="standard" fullWidth={true}      color='black' 
                                 value={address} onChange={(e) => {setAddress(e.target.value)}} required
                                 label="address" type="text"
-                                InputLabelProps={{ style: { fontSize: 18, fontWeight: 800 } }}
-                                FormHelperTextProps={{ style: { fontSize: 12, fontWeight: 800 } }}
+                                InputProps={{ style: { fontSize: 15, fontWeight: 600 } }}
+                                InputLabelProps={{ style: { fontSize: 18, fontWeight: 600 } }}
+                                FormHelperTextProps={{ style: { fontSize: 12} }}
                             />
                         </ThemeProvider>
                     </div>                  

@@ -67,8 +67,8 @@ const ForgotPassword = () => {
                         inputRef={emailRef} required
                         label="email" type="email"
                         InputProps={{ style: { fontSize: 15, fontWeight: 600 } }}
-                        InputLabelProps={{ style: { fontSize: 18, fontWeight: 800 } }}
-                        FormHelperTextProps={{ style: { fontSize: 12, fontWeight: 800 } }}
+                        InputLabelProps={{ style: { fontSize: 18, fontWeight: 600 } }}
+                        FormHelperTextProps={{ style: { fontSize: 12} }}
                       />
                   </ThemeProvider>
                 </div>

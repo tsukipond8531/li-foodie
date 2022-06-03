@@ -30,7 +30,6 @@ const Signup = () => {
   async function handleSubmit(e) {
     e.preventDefault()
 
-    
     if(passRef.current.value !== cPassRef.current.value) {
       return setError('Password mismatched');
     }
@@ -68,8 +67,8 @@ const Signup = () => {
                         inputRef={emailRef} required
                         label="email" type="email"
                         InputProps={{ style: { fontSize: 15, fontWeight: 600 } }}
-                        InputLabelProps={{ style: { fontSize: 18, fontWeight: 800 } }}
-                        FormHelperTextProps={{ style: { fontSize: 12, fontWeight: 800 } }}
+                        InputLabelProps={{ style: { fontSize: 18, fontWeight: 600 } }}
+                        FormHelperTextProps={{ style: { fontSize: 12} }}
                       />
                   </ThemeProvider>
                 </div>
@@ -80,8 +79,8 @@ const Signup = () => {
                           inputRef={passRef} required autoComplete="off" 
                           label="password" type={showPassword ? 'text' : 'password'}
                           InputProps={{ style: { fontSize: 15, fontWeight: 600 } }}
-                          InputLabelProps={{ style: { fontSize: 18, fontWeight: 800 } }}
-                          FormHelperTextProps={{ style: { fontSize: 12, fontWeight: 800 } }}
+                          InputLabelProps={{ style: { fontSize: 18, fontWeight: 600 } }}
+                          FormHelperTextProps={{ style: { fontSize: 12} }}
                       />
                   </ThemeProvider>
                 </div>
@@ -92,8 +91,8 @@ const Signup = () => {
                       inputRef={cPassRef} required autoComplete="off"
                       label="confirm password" type={showPassword ? 'text' : 'password'}
                       InputProps={{ style: { fontSize: 15, fontWeight: 600 } }}
-                      InputLabelProps={{ style: { fontSize: 18, fontWeight: 800 } }}
-                      FormHelperTextProps={{ style: { fontSize: 12, fontWeight: 800 } }}
+                      InputLabelProps={{ style: { fontSize: 18, fontWeight: 600 } }}
+                      FormHelperTextProps={{ style: { fontSize: 12} }}
                     />
                   </ThemeProvider>
                   <div className="mt-2">
