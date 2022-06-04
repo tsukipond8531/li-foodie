@@ -77,7 +77,7 @@ export function Payment() {
               </p>
             </div>
             <p className='mt-4 mx-4 txt1 text-lg'>
-              If you have any suggestions for improvement of this project or having new idea for other projects fell free to connect with me any time. Thank you ❤️
+              If you have any suggestions for improvement of this project or having new idea for other projects feel free to connect with me any time. Thank you ❤️
             </p>
             <div className='flex justify-between w-64 ml-8 my-4'>
               <a href='https://github.com/Moinak-Majumdar' target='_blank'>
@@ -116,7 +116,7 @@ export function Payment() {
               </div>
               <form className='ml-4 w-fit h-auto' autoComplete='off' onSubmit={sendReview}>
                 <div className='w-fit h-auto bg-slate-50 bg-opacity-50'>
-                  <TextField inputRef={reviewRef} label='write an review..' multiline={true} maxRows={3} placeholder='please brother! have some mercy. :)' color='secondary' required/>
+                  <TextField inputRef={reviewRef} label='write a review..' multiline={true} maxRows={3} placeholder='please brother! have some mercy. :)' color='secondary' required/>
                 </div>
                 <div className='mt-2'>
                   <Button type='submit' variant='contained' color='info' startIcon={<DynamicFeed/>}>

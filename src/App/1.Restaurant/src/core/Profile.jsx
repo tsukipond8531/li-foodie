@@ -51,7 +51,7 @@ const Profile = () => {
     },[user_Have_Profile])
 
     //hl2   delete user account 
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
     function handleOpen() { setOpen(true);};
     function handleClose() {setOpen(false);};
 
@@ -84,22 +84,22 @@ const Profile = () => {
                     {error && <Alert severity="error" variant="outlined">{error}</Alert>}
                 </div> 
                 <h1 className='text-center text-3xl txt2 font-bold'>Your Profile</h1>
-                <div className='flex justify-start mt-4'>
-                    <img src={profileData.imgUrl} className='w-32 j-32 rounded-xl mt-4 mx-4'></img>
-                    <div className='my-auto ml-4'>
-                        <h1 className='text-3xl txt7 font-bold text-indigo-500'>{profileData.name}</h1>
-                        <h1 className='text-xl txt1'><b>email:</b><span className='txt7 text-indigo-500'>{` ${profileData.email}`}</span></h1>
-                        <h1 className='text-xl txt1'><b>phone no:</b><span className='txt7 text-indigo-500'>{` ${profileData.ph_no}`}</span></h1>
+                <div className='flex justify-start mt-4 flex-col md:flex-row'>
+                    <img src={profileData.imgUrl} className='w-32 j-32 rounded-xl mt-4 mx-auto md:mx-4'></img>
+                    <div className='ml-4 mt-4 md:mt-0 flex flex-col justify-center'>
+                        <h1 className='text-2xl md:text-3xl txt7 font-bold text-indigo-500'>{profileData.name}</h1>
+                        <h1 className='text-lg md:text-xl txt1'><b>email:</b><span className='txt7 text-indigo-500'>{` ${profileData.email}`}</span></h1>
+                        <h1 className='text-lg md:text-xl txt1'><b>phone no:</b><span className='txt7 text-indigo-500'>{` ${profileData.ph_no}`}</span></h1>
                     </div>
                 </div>
                 <div className='mt-8'>
-                    <h1 className='text-xl txt1'><b>UID:</b><span className='text-rose-500'>{` ${profileData.uid}`}</span></h1>
-                    <h1 className='text-xl txt1'><b>Shipping Address:</b><span className='txt7 text-indigo-500'>{` ${profileData.address}`}</span></h1>
-                    <h1 className='text-xl txt1'><b>Lifoodie member since:</b><span className='txt7 text-indigo-500'>
+                    <h1 className='md:text-xl txt1'><b>UID:</b><span className='text-rose-500'>{` ${profileData.uid}`}</span></h1>
+                    <h1 className='md:text-xl txt1'><b>Shipping Address:</b><span className='txt7 text-indigo-500'>{` ${profileData.address}`}</span></h1>
+                    <h1 className='md:text-xl txt1'><b>Lifoodie member since:</b><span className='txt7 text-indigo-500'>
                     {` ${profileData.time}`}</span></h1>
                 </div>
                 <div className='mt-8 text-center'>
-                    <Link exact='true' to='/update-profile' state={{from: [profileData.name, profileData.ph_no, profileData.address, profileData.imgUrl]}} className='text-xl txt1 font-bold text-gray-600 hover:underline'>
+                    <Link exact='true' to='/update-profile' state={{from: [profileData.name, profileData.ph_no, profileData.address, profileData.imgUrl]}} className='md:text-xl txt1 font-bold text-gray-600 hover:underline'>
                         Update your profile
                         <span className='ml-2 text-blue-500 underline'>Update Profile</span>
                     </Link>

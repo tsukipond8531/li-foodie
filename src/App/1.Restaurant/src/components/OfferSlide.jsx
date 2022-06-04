@@ -12,7 +12,7 @@ export function OfferSlide(props) {
     return (
         <section className='w-full h-auto flex flex-col'>
             <h1 className='mx-auto text-2xl txt1 text-amber-400 font-bold'>Hurry!!<span className='text-orange-100'> Only for today</span></h1>
-            <Swiper spaceBetween={30} centeredSlides={true}
+            <Swiper spaceBetween={30} centeredSlides={true} loop={true}
                 autoplay={{delay: 2500,disableOnInteraction: false}}
                 effect={"cube"} grabCursor={true} 
                 cubeEffect={{shadow: true,slideShadows: true, shadowOffset: 20,  shadowScale: 0.94,}}

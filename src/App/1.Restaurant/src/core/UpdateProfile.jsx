@@ -5,7 +5,7 @@ import { ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
 import { db, storage } from '../Firebase'
 import { TextField, Alert, IconButton, Tooltip, createTheme, ThemeProvider, Button} from "@mui/material";
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
-import {RandomImg, PreviewProfileImg } from "../components/_COMPONENT"
+import { PreviewProfileImg } from "../components/_COMPONENT"
 import { useAuth } from "../Context/AuthContext";
 
 //hl6    custom mui........
@@ -49,7 +49,6 @@ const UpdateProfile = () => {
                 email: currentUser.email,
                 time: `${new Date().toDateString()} ${new Date().toLocaleTimeString()}`
             }
-            // createProfile(currentUser.uid, name.current.value, phno.current.value, address.current.value, currentUser.email,img,serverTimestamp())
             const imgName =`${data.name}_${img.name}`;
             const storageRef = ref(storage, imgName);
             const uploadTask = uploadBytesResumable(storageRef, img);
@@ -98,30 +97,36 @@ const UpdateProfile = () => {
   return (
     <>
       <section className="w-full h-auto mt-32 md:mt-40 flex justify-center p-4">
-        <div className='flex-1 h-full max-w-4xl mx-auto bg-gradient-to-b from-slate-300 via-gray-200 to-zinc-400 rounded-2xl shadow-2xl shadow-slate-900 overflow-hidden'>
+        <div className='flex-1 h-full max-w-4xl mx-auto bg-gradient-to-b from-amber-400 via-yellow-500 to-orange-400 rounded-2xl shadow-2xl shadow-slate-900 overflow-hidden'>
         <div className="flex flex-col md:flex-row">
             <div className="h-48 md:h-auto md:w-1/2">
-              <RandomImg/>
+              <img src={require(`../../css/images/others/burgerBg.png`)} className="h-full w-full object-contain" alt="update-profile-side-image" loading='lazy'/>
             </div>
             <form className="flex items-center justify-center p-4 sm:p-12 md:w-1/2" autoComplete="off" onSubmit={handelSubmit}>
                 <div className="w-full">
                     <h1 className="text-2xl text-center txt2">Update your profile</h1>
                     <div className="mt-2">
                         {error && <Alert severity="error" variant="outlined">{error}</Alert>}
-                    </div>  
+                    </div> 
+                    <p className="mt-2 text-center"><span className='text-black font-bold'>Your email:</span><span>{currentUser.email}</span></p> 
                     <div className="w-full flex justify-between mt-4">
                         <div className="rounded-3xl overflow-hidden flex justify-center items-center">
                            {img && <PreviewProfileImg file={img}/>}
-                           {!img && <img className="h-24 w-24" src={prevData[3]}/>}                        
+                           {!img && <img className="h-28 w-28" src={prevData[3]}/>}                        
                         </div>
                         <div className="flex items-center flex-col">
-                            <p><b className="text-blue-500">Your email:</b><span>{currentUser.email}</span></p>
+                            <p className="mt-2 text-center">
+                                <span className='text-black font-bold'>Email status:</span>
+                                <span>{(currentUser.emailVerified)?' Verified':' Unverified'}</span>
+                            </p> 
                             <input hidden type="file" ref={imgRef} accept="image/*" name="image-upload" id="input" onChange={(e) => {setImg(e.target.files[0])}} disabled={loading}/> 
-                            <IconButton color="primary" aria-label="upload profile picture" onClick={() => {imgRef.current.click()}}>
-                                <Tooltip title="Upload profile picture 📷">
-                                    <AddAPhotoIcon fontSize="large"/>
-                                </Tooltip>
-                            </IconButton>
+                            <ThemeProvider theme={Theme}>
+                                <IconButton color="black" aria-label="upload profile picture" onClick={() => {imgRef.current.click()}}>
+                                    <Tooltip title="Upload profile picture 📷">
+                                        <AddAPhotoIcon fontSize="large"/>
+                                    </Tooltip>
+                                </IconButton>
+                            </ThemeProvider>
                         </div>
                     </div>
                     <div className="mt-2">

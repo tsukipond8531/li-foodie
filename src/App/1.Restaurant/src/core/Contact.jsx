@@ -98,7 +98,7 @@ const Contact = () => {
                         <p className="leading-normal my-5 mx-auto txt1">
                                 Santinagar Palta. <br/>North 24 Pgs West Bengal, India
                         </p>
-                        <div className='bg-slate-100 w-fit mx-auto rounded-xl bg-opacity-30'>
+                        <div className='bg-slate-800 w-fit mx-auto rounded-lg shadow-2xl shadow-black'>
                             <SocialMedia/>
                         </div>
                     </div>
