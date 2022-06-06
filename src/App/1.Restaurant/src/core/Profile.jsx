@@ -5,8 +5,7 @@ import { useAuth } from '../Context/AuthContext';
 import { Alert, Tooltip, createTheme, ThemeProvider, Button, Dialog, DialogActions, DialogContent, DialogTitle, Slide } from "@mui/material";
 import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
 import { Blob } from '../components/_COMPONENT'
-import { doc, deleteDoc } from "firebase/firestore";
-import { db } from '../Firebase';
+
 
 const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -30,7 +29,7 @@ const Profile = () => {
 
     const navigate = useNavigate();
     const [error, setError] = useState('');
-    const { currentUser, deleteUserAccount } = useAuth();
+    const { currentUser, deleteUserAccount, logout } = useAuth();
     const { haveProfile, user_Have_Profile, profileData } = useHaveProfile();
     const [show, setShow] = useState(false) // show will be true if user have already created his profile.
    
@@ -57,7 +56,8 @@ const Profile = () => {
 
     async function deleteAcc () {
         try {
-           // await deleteDoc(doc(db, profileData.uid, ))
+           await deleteUserAccount(currentUser.uid)
+           .then(() => {logout()})
         } catch(err) {
             setError(err)
         }
@@ -68,7 +68,7 @@ const Profile = () => {
     <>
         <section className="min-h-screen w-full flex flex-col p-4">
             {/* hl7     user have no profile */}
-            {!show && <div className='mt-40 max-w-2xl mx-auto p-6 md:p-12 flex justify-center flex-col bg-white shadow-2xl shadow-black rounded-sm'>
+            {!show && <div className='mt-40 max-w-2xl mx-auto p-6 md:p-12 flex justify-center flex-col bg-yellow-300 shadow-2xl shadow-black rounded-sm'>
                 <h1 className='text-6xl text-indigo-600 txt7 font-bold'>
                     <span className='text-pink-600 animate-pulse mr-4'>opps!</span> 
                     you need to compleat your profile first buddy .
@@ -79,7 +79,7 @@ const Profile = () => {
                 </Link>     
             </div>}
             {/* hl6     user have  profile */}
-            {show && <div className='mx-auto mt-32 max-w-4xl p-6 md:p-12 bg-gradient-to-b from-slate-300 via-gray-200 to-zinc-400 shadow-2xl shadow-slate-900 rounded-xl'>
+            {show && <div className='mx-auto mt-32 max-w-4xl p-6 md:p-12 bg-gradient-to-b from-yellow-300 via-amber-300 to-orange-400 shadow-2xl shadow-slate-900 rounded-xl'>
                 <div className="mt-4">
                     {error && <Alert severity="error" variant="outlined">{error}</Alert>}
                 </div> 
@@ -87,7 +87,7 @@ const Profile = () => {
                 <div className='flex justify-start mt-4 flex-col md:flex-row'>
                     <img src={profileData.imgUrl} className='w-32 j-32 rounded-xl mt-4 mx-auto md:mx-4'></img>
                     <div className='ml-4 mt-4 md:mt-0 flex flex-col justify-center'>
-                        <h1 className='text-2xl md:text-3xl txt7 font-bold text-indigo-500'>{profileData.name}</h1>
+                        <h1 className='text-2xl md:text-3xl txt7 font-bold text-indigo-600'>{profileData.name}</h1>
                         <h1 className='text-lg md:text-xl txt1'><b>email:</b><span className='txt7 text-indigo-500'>{` ${profileData.email}`}</span></h1>
                         <h1 className='text-lg md:text-xl txt1'><b>phone no:</b><span className='txt7 text-indigo-500'>{` ${profileData.ph_no}`}</span></h1>
                     </div>

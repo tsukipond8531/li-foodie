@@ -97,10 +97,10 @@ const UpdateProfile = () => {
   return (
     <>
       <section className="w-full h-auto mt-32 md:mt-40 flex justify-center p-4">
-        <div className='flex-1 h-full max-w-4xl mx-auto bg-gradient-to-b from-amber-400 via-yellow-500 to-orange-400 rounded-2xl shadow-2xl shadow-slate-900 overflow-hidden'>
+        <div className='flex-1 h-full max-w-4xl mx-auto bg-gradient-to-b from-amber-300 via-yellow-400 to-orange-400 rounded-2xl shadow-2xl shadow-slate-900 overflow-hidden'>
         <div className="flex flex-col md:flex-row">
-            <div className="h-48 md:h-auto md:w-1/2">
-              <img src={require(`../../css/images/others/burgerBg.png`)} className="h-full w-full object-contain" alt="update-profile-side-image" loading='lazy'/>
+            <div className="h-0 md:h-auto md:w-1/2">
+              <img src={require(`../../css/images/others/foodBg4.png`)} className="h-full w-full object-contain" alt="update-profile-side-image" loading='lazy'/>
             </div>
             <form className="flex items-center justify-center p-4 sm:p-12 md:w-1/2" autoComplete="off" onSubmit={handelSubmit}>
                 <div className="w-full">
