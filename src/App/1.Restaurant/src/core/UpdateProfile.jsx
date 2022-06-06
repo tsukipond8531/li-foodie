@@ -44,13 +44,13 @@ const UpdateProfile = () => {
             const data = {
                 uid: currentUser.uid,
                 name: name,
-                ph_no: phno,
+                phone_Number: phno,
                 address: address,
                 email: currentUser.email,
                 time: `${new Date().toDateString()} ${new Date().toLocaleTimeString()}`
             }
-            const imgName =`${data.name}_${img.name}`;
-            const storageRef = ref(storage, imgName);
+            const photo_Name =`${data.name}_${img.name}`;
+            const storageRef = ref(storage, photo_Name);
             const uploadTask = uploadBytesResumable(storageRef, img);
             uploadTask.on('state_changed', 
                 (snapshot) => {
@@ -71,8 +71,8 @@ const UpdateProfile = () => {
                 }, 
                 () => {
                     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                        const imgUrl = downloadURL;
-                        const userData = {...data,imgUrl,imgName}
+                        const photo_Url = downloadURL;
+                        const userData = {...data,photo_Url,photo_Name}
                         uploadUser(userData)
                     })
                 }

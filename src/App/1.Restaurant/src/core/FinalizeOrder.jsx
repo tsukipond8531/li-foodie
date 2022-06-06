@@ -99,7 +99,7 @@ export function FinalizeOrder() {
     const {placeOrder} = useOrder_Review();
     const { profileData }= useHaveProfile()
     const [error, setError] = useState()
-    const [userPhNo, setUserPhNo] = useState(profileData.ph_no);
+    const [userPhNo, setUserPhNo] = useState(profileData.phone_Number);
     const [shippingAddress, setShippingAddress] = useState(profileData.address);
 
     //hl1     place order ...........

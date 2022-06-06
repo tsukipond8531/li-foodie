@@ -31,7 +31,6 @@ const Login = () => {
     try {
       setError('')
       setLoading(true)
-      console.log(emailRef.current.value, passRef.current.value)
       await login(emailRef.current.value, passRef.current.value)
       navigate('/home')
     } catch(err) {

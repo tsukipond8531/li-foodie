@@ -21,6 +21,7 @@ export function AuthProvider({children}) {
 
     function login (email, password) {
         return signInWithEmailAndPassword(auth,email, password)
+        console.log(currentUser)
     }
 
     function logout () {
@@ -39,8 +40,8 @@ export function AuthProvider({children}) {
         return deleteUser(uid)
     }
 
-    function updateAccount (uid, data) {
-        return updateProfile(uid, data)
+    function updateAccount (data) {
+        return updateProfile(auth.currentUser,{...data})
     }
 
     useEffect(() => {

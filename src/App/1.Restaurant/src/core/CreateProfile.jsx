@@ -32,7 +32,7 @@ const CreateProfile = () => {
     const [error, setError] = useState('')
     const [disable, setDisable] = useState(true)
     const [display, setDisplay] = useState(true)
-    const { currentUser, emailVerification } = useAuth();
+    const { currentUser, emailVerification, updateAccount } = useAuth();
     const [img, setImg] = useState(null)
 
     useEffect(() => {
@@ -67,14 +67,14 @@ const CreateProfile = () => {
             const data = {
                 uid: currentUser.uid,
                 name: name.current.value,
-                ph_no: phno.current.value,
+                phone_Number: phno.current.value,
                 address: address.current.value,
                 email: currentUser.email,
                 time: `${new Date().toDateString()} ${new Date().toLocaleTimeString()}`
             }
             // createProfile(currentUser.uid, name.current.value, phno.current.value, address.current.value, currentUser.email,img,serverTimestamp())
-            const imgName =`${data.name}_${img.name}`;
-            const storageRef = ref(storage, imgName);
+            const photo_Name =`${data.name}_${img.name}`;
+            const storageRef = ref(storage, photo_Name);
             const uploadTask = uploadBytesResumable(storageRef, img);
             uploadTask.on('state_changed', 
                 (snapshot) => {
@@ -95,8 +95,8 @@ const CreateProfile = () => {
                 }, 
                 () => {
                     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                        const imgUrl = downloadURL;
-                        const userData = {...data,imgUrl,imgName}
+                        const photo_Url = downloadURL;
+                        const userData = {...data,photo_Url,photo_Name}
                         uploadUser(userData)
                     })
                 }
@@ -111,6 +111,7 @@ const CreateProfile = () => {
                     setDisable(false)
                 }
             }
+           
         } 
         catch(err) {
             setError(err.code)

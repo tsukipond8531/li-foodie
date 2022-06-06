@@ -85,11 +85,11 @@ const Profile = () => {
                 </div> 
                 <h1 className='text-center text-3xl txt2 font-bold'>Your Profile</h1>
                 <div className='flex justify-start mt-4 flex-col md:flex-row'>
-                    <img src={profileData.imgUrl} className='w-32 j-32 rounded-xl mt-4 mx-auto md:mx-4'></img>
+                    <img src={profileData.photo_Url} className='w-32 j-32 rounded-xl mt-4 mx-auto md:mx-4'></img>
                     <div className='ml-4 mt-4 md:mt-0 flex flex-col justify-center'>
                         <h1 className='text-2xl md:text-3xl txt7 font-bold text-indigo-600'>{profileData.name}</h1>
                         <h1 className='text-lg md:text-xl txt1'><b>email:</b><span className='txt7 text-indigo-500'>{` ${profileData.email}`}</span></h1>
-                        <h1 className='text-lg md:text-xl txt1'><b>phone no:</b><span className='txt7 text-indigo-500'>{` ${profileData.ph_no}`}</span></h1>
+                        <h1 className='text-lg md:text-xl txt1'><b>phone no:</b><span className='txt7 text-indigo-500'>{` ${profileData.phone_Number}`}</span></h1>
                     </div>
                 </div>
                 <div className='mt-8'>
