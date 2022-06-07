@@ -29,7 +29,8 @@ In this app I tried to build all the key feature of an e-commerce website. Howev
 4.<a href='https://www.npmjs.com/package/react-parallax-tilt' target='_blank'>react-parallax-tilt</a>
 <h2>Shout out to</h2>
 <h4>
-5.<a href='https://tailwindcss.com/' target='_blank'>tailwindcss</a> <br/>
-6.<a href='https://mui.com/' target='_blank'>mui</a> <br/>
-7.<a href='https://firebase.google.com/' target='_blank'>firebase</a>
+  5.<a href='https://tailwindcss.com/' target='_blank'>tailwindcss</a> <br/>
+  6.<a href='https://mui.com/' target='_blank'>mui</a> <br/>
+  7.<a href='https://firebase.google.com/' target='_blank'>firebase</a> </br>
+  8.<a href='https://pixabay.com/'>pixabay</a>
 </h4>
