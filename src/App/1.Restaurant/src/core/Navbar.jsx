@@ -85,9 +85,9 @@ const Navbar = () =>{
                         </li>    
                         {/* HL2 hamburger button */}
                         <li className='absolute top-0 right-0 pt-2 pr-2 flex ml-4 justify-end items-center xl:hidden cursor-pointer'>
-                            <button onClick={()=> setShowMediaIcons(!showMediaIcons)} aria-label='show more'>
+                            <Button onClick={()=> setShowMediaIcons(!showMediaIcons)} aria-label='show more' aria-describedby='show more'>
                                 <MenuOpen fontSize='large' className={showMediaIcons?"text-green-500 -rotate-90":"text-red-600 text-2xl"}/>
-                            </button>
+                            </Button>
                         </li>
                     </ul>
                 </section>

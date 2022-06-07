@@ -5,13 +5,6 @@ import {AuthProvider,HaveProfileProvider,Order_ReviewProvider, Auth_Route, Profi
 
 const LiFoodie = () => {
 
-    useEffect(() => {
-        document.title='LiFoodie.com';
-        document.body.style.background = "linear-gradient(to bottom left, #04293A, #064663, #dddddd)";
-        document.body.style.backgroundAttachment = 'fixed';
-    });
-
-    
     return(
     <React.Fragment>
         <AuthProvider>
