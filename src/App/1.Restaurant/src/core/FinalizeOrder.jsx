@@ -116,7 +116,7 @@ export function FinalizeOrder() {
             const userName = profileData.name;
             const orderItems = list2
             const data = {status,userName,userEmail,userPhNo,totalAmount,shippingAddress,orderItems,exclusive}
-            // await placeOrder(data,uid,token)
+            await placeOrder(data,uid,token)
             navigate('/payment',{state: {val: grandTotal}})
         } catch(err) {
             setError(err)

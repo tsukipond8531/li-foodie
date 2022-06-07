@@ -1,6 +1,6 @@
 import React, { useState, useRef} from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
 import { db, storage } from '../Firebase'
 import { TextField, Alert, IconButton, Tooltip, createTheme, ThemeProvider, Button} from "@mui/material";
@@ -78,8 +78,9 @@ const UpdateProfile = () => {
                 }
             )
             async function  uploadUser(args) {
+                const docRef = doc(db, data.uid, 'userInfo')
                 try {
-                    await setDoc(doc(db, data.uid, 'userInfo'), {
+                    await updateDoc(docRef, {
                         ...args
                     }).then(navigate('/home'))
                 } catch(err) {
@@ -104,18 +105,18 @@ const UpdateProfile = () => {
             </div>
             <form className="flex items-center justify-center p-4 sm:p-12 md:w-1/2" autoComplete="off" onSubmit={handelSubmit}>
                 <div className="w-full">
-                    <h1 className="text-2xl text-center txt2">Update your profile</h1>
+                    <h1 className="text-2xl text-center txt2 font-bold">Update your profile</h1>
                     <div className="mt-2">
                         {error && <Alert severity="error" variant="outlined">{error}</Alert>}
                     </div> 
-                    <p className="mt-2 text-center"><span className='text-black font-bold'>Your email:</span><span>{currentUser.email}</span></p> 
+                    <p className="mt-4 text-center text-sm md:text-base"><span className='text-black font-bold'>Your email:</span><span>{currentUser.email}</span></p> 
                     <div className="w-full flex justify-between mt-4">
                         <div className="rounded-3xl overflow-hidden flex justify-center items-center">
                            {img && <PreviewProfileImg file={img}/>}
                            {!img && <img className="h-28 w-28" src={prevData[3]}/>}                        
                         </div>
                         <div className="flex items-center flex-col">
-                            <p className="mt-2 text-center">
+                            <p className="mt-2 text-center text-sm md:text-base">
                                 <span className='text-black font-bold'>Email status:</span>
                                 <span>{(currentUser.emailVerified)?' Verified':' Unverified'}</span>
                             </p> 

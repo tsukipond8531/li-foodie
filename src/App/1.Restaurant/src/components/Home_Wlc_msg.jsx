@@ -12,7 +12,7 @@ const Home_Wlc_msg = () => {
                 <p className='txt7'>Hello <b className='capitalize text-indigo-800'>{profileData.name}</b>, nice to see you again. We are glad to inform you that we have some special discount menu for you, dont forget to check this out.👨‍🍳</p><br/>
                 <p className='txt7'>Once again welcome to <b>LiFoodie</b></p><br/>
                 <p className='txt7'><b>Shipping Address: </b><span className='text-blue-800 font-semibold'>{profileData.address}</span></p>
-                <p className='txt7'><b>Contact Number: </b><span className='text-blue-800 font-semibold'>{profileData.ph_no}</span></p>
+                <p className='txt7'><b>Contact Number: </b><span className='text-blue-800 font-semibold'>{profileData.phone_Number}</span></p>
             </div>}
             <div className="my-4 w-full flex justify-center">
                 <Link to='/restaurant' state={{from : []}}

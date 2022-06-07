@@ -2,34 +2,14 @@ import React, { useState, useEffect, forwardRef} from 'react';
 import {Link, useNavigate} from 'react-router-dom'
 import { useHaveProfile} from '../Context/HaveProfileContext'
 import { useAuth } from '../Context/AuthContext';
-import { Alert, Tooltip, createTheme, ThemeProvider, Button, Dialog, DialogActions, DialogContent, DialogTitle, Slide } from "@mui/material";
-import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
+import { Alert } from "@mui/material";
 import { Blob } from '../components/_COMPONENT'
-
-
-const Transition = forwardRef(function Transition(props, ref) {
-    return <Slide direction="up" ref={ref} {...props} />;
-  });
-//hl4    custom mui........
-const Theme = createTheme({
-    palette: {
-      red: {
-          main: '#f50057',
-          contrastText: '#fff'
-      },
-      blue: {
-        main: '#2962ff',
-        contrastText: '#fff'
-      },
-    }
-  })   
-
 
 const Profile = () => {
 
     const navigate = useNavigate();
     const [error, setError] = useState('');
-    const { currentUser, deleteUserAccount, logout } = useAuth();
+    const { currentUser } = useAuth();
     const { haveProfile, user_Have_Profile, profileData } = useHaveProfile();
     const [show, setShow] = useState(false) // show will be true if user have already created his profile.
    
@@ -53,15 +33,6 @@ const Profile = () => {
     const [open, setOpen] = useState(false);
     function handleOpen() { setOpen(true);};
     function handleClose() {setOpen(false);};
-
-    async function deleteAcc () {
-        try {
-           await deleteUserAccount(currentUser.uid)
-           .then(() => {logout()})
-        } catch(err) {
-            setError(err)
-        }
-    }
 
     
     return(
@@ -99,38 +70,11 @@ const Profile = () => {
                     {` ${profileData.time}`}</span></h1>
                 </div>
                 <div className='mt-8 text-center'>
-                    <Link exact='true' to='/update-profile' state={{from: [profileData.name, profileData.ph_no, profileData.address, profileData.imgUrl]}} className='md:text-xl txt1 font-bold text-gray-600 hover:underline'>
+                    <Link exact='true' to='/update-profile' state={{from: [profileData.name, profileData.phone_Number, profileData.address, profileData.photo_Url]}} className='txt1 font-bold text-gray-800 hover:underline'>
                         Update your profile
                         <span className='ml-2 text-blue-500 underline'>Update Profile</span>
                     </Link>
-                    <br/>
-                    <button onClick={handleOpen} className='mt-8 text-xl txt1 text-gray-600 hover:text-rose-600 hover:underline'>
-                        Delete Your Account
-                    </button>
                 </div>
-                <Dialog open={open} TransitionComponent={Transition} keepMounted onClose={handleClose} aria-describedby="alert-dialog-slide-description" className='bg-slate-800 bg-opacity-50'>
-                    <DialogTitle>{"Do you want to delete your LiFoodie account?"}</DialogTitle>
-                    <DialogContent>
-                        <p className='txt1'>
-                            We are really very upset <b>{profileData.name}</b>.<br/>
-                            Your opinion is always our first priority, however you can tell use whats wrong. <br/>
-                            Please help us by your valuable suggestions. 😄 <br/>
-                            <Link exact='true' to='/contact' className='text-xl txt1 underline text-indigo-500'>Suggest us</Link>
-                        </p>
-                    </DialogContent>
-                    <DialogActions>
-                        <ThemeProvider theme={Theme}>
-                            <Button onClick={handleClose} variant='outlined' color='blue'>
-                                cancel
-                            </Button>
-                            <Tooltip title='delete account'>
-                                <Button onClick={deleteAcc} variant='contained' color='red'>
-                                    <DeleteSweepIcon/>
-                                </Button>
-                            </Tooltip>
-                        </ThemeProvider>
-                    </DialogActions>
-                </Dialog>
             </div>}
             <div key='bg' className="relative min-w-full h-full -z-20">
                 <div className="fixed top-80 -right-32 h-96 w-96 sm:w-30r sm:h-30r rounded-full bg-gradient-to-b from-slate-100 via-blue-500 to-indigo-900 -z-20 shadow-black shadow-xl"></div>

@@ -110,7 +110,7 @@ const Contact = () => {
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText id="lol - description">
-                        <span className='text-lg txt8 text-zinc-900'>Hello user thanks for connecting with use. Your query have been send to LiFoodie team, wait for them to reply soon.<br/>
+                        <span className='text-lg txt8 text-zinc-900'>Hello user thanks for connecting with us. Your query have been send to LiFoodie team, wait for them to reply soon.<br/>
                         <b>PS: </b>stay safe stay happy ❤️</span>
                     </DialogContentText>
                 </DialogContent>
