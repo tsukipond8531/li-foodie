@@ -1,6 +1,6 @@
 <h3>Ecomerce restaurant progressive web app (pwa) with react and firebase.</h3>
 
-<h1>check : <a href='https://lifoodie-dev.web.app/'>LiFoodie</a></h1>
+<h1>check : <a href='https://lifoodie-dev.web.app/' target='_blank'>LiFoodie</a></h1>
 <p>In this app I tried to achieve parallax and glass morphism design. App deployed on <b>firebase</b> check the above link to visit the app.</br>
 
 First you need to create an account with email and password, then <b>login</b> with that account.
@@ -23,13 +23,13 @@ In this app I tried to build all the key feature of an e-commerce website. Howev
 
 <hr/>
 <h2>npm packages are used in this project</h2>
-1.<a href='https://www.npmjs.com/package/react-toastify'>React-Toastify</a> <br/>
-2.<a href='https://www.npmjs.com/package/react-typing-effect'>react-typing-effect</a> <br/>
-3.<a href='https://www.npmjs.com/package/react-parallax'>react-parallax</a> <br/>
-4.<a href='https://www.npmjs.com/package/react-parallax-tilt'>react-parallax-tilt</a>
+1.<a href='https://www.npmjs.com/package/react-toastify' target='_blank'>React-Toastify</a> <br/>
+2.<a href='https://www.npmjs.com/package/react-typing-effect' target='_blank'>react-typing-effect</a> <br/>
+3.<a href='https://www.npmjs.com/package/react-parallax' target='_blank'>react-parallax</a> <br/>
+4.<a href='https://www.npmjs.com/package/react-parallax-tilt' target='_blank'>react-parallax-tilt</a>
 <h2>Shout out to</h2>
 <h4>
-5.<a href='https://tailwindcss.com/'>tailwindcss</a> <br/>
-6.<a href='https://mui.com/'>mui</a> <br/>
-7.<a href='https://firebase.google.com/'>firebase</a>
+5.<a href='https://tailwindcss.com/' target='_blank'>tailwindcss</a> <br/>
+6.<a href='https://mui.com/' target='_blank'>mui</a> <br/>
+7.<a href='https://firebase.google.com/' target='_blank'>firebase</a>
 </h4>
