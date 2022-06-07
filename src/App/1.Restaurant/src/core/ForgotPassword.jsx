@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
-import CakeIcon from '@mui/icons-material/Cake';
 import { TextField, Alert, ThemeProvider, createTheme, Button } from '@mui/material';
 import { RandomImg, Blob} from "../components/_COMPONENT";
 import { useAuth } from "../Context/AuthContext";
@@ -52,7 +51,7 @@ const ForgotPassword = () => {
               className="flex items-center justify-center p-6 sm:p-12 md:w-1/2 ">
               <div className="w-full">
                 <div className="flex justify-center">
-                  <CakeIcon className="text-indigo-600" fontSize="large"/>
+                  <img src='./icon/logo512.png' className='h-12 w-12'/>
                 </div>
                 <h1 className="mb-4 text-2xl font-bold text-center text-gray-700">
                   Reset Password

@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { NavLink, useNavigate, Link } from 'react-router-dom';
-import { MenuOpen, Cake, AccountCircleSharp, NoAccountsSharp, Logout, AssignmentInd, Update } from '@mui/icons-material';
+import { MenuOpen, AccountCircleSharp, NoAccountsSharp, Logout, AssignmentInd, Update } from '@mui/icons-material';
 import { Menu, MenuItem, Button, Tooltip, Badge, styled, createTheme, ThemeProvider} from '@mui/material';
 import "../../css/navbar.css";
 import { useAuth } from "../Context/AuthContext";
@@ -61,7 +61,7 @@ const Navbar = () =>{
                 {/*Hl1 logo */}
                 <div className='xl:px-16 lg:px-5 inline-flex justify-center items-center'> 
                     <Link to='/' className='cursor-pointer w-fit flex items-center'>
-                        <Cake fontSize='large' className="text-indigo-600"/>  
+                        <img src='./icon/logo512.png' className='h-12 w-12'/>
                         <h1 className='txt4 text-6xl font-normal px-1 animate-pulse'>
                             <span>L</span>i
                             <span>F</span>oodie

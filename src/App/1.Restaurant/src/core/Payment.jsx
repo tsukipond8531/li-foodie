@@ -1,7 +1,7 @@
 import React, { useState, forwardRef , useRef} from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Button, Tooltip ,TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Slide, Alert} from '@mui/material';
-import { Facebook, GitHub, Email, Phone, LinkedIn, QuestionMark, DynamicFeed } from '@mui/icons-material';
+import { Facebook, GitHub, Email, Phone, LinkedIn, QuestionMark, DynamicFeed, WhatsappOutlined } from '@mui/icons-material';
 import { Svg8 } from '../svg/svg';
 import { useOrder_Review } from '../Context/Order_and_ReviewContext';
 import { useHaveProfile } from '../Context/HaveProfileContext';
@@ -59,8 +59,8 @@ export function Payment() {
               <p className='mt-4 txt1 text-lg px-2'>
                 Thanks for choosing LiFoodie.🌺 
               </p>
-              <p className='mt-4 txt5 ml-2'>
-                Thanks everyone who have here, this page will be completed after adding some payment getway for paying  <span className='mx-2 font-bold text-indigo-500'>{`₹${amount}`}</span>, but I have decided to end this project here. 😄 Maybe I will  work further more in future. Before ending I would like to thanks 
+              <p className='mt-4 txt2 font-semibold ml-2'>
+                Thanks everyone for reaching till here, this page will be completed after adding some payment getway for paying  <span className='mx-2 font-bold text-indigo-500'>{`₹${amount}`}</span>, but I have decided to end this project here. 😄 Maybe I will  work further more in future. Before ending I would like to thanks 
                 <span className='ml-2 txt1 font-bold'>
                 1.<a href='https://swiperjs.com/' target='_blank' className='txt1 mx-2 text-blue-500 underline font-bold'>swiper</a>
                 2.<a href='https://github.com/jscottsmith/react-scroll-parallax' target='_blank' className='txt1 mx-2 text-blue-500 underline font-bold'>react-scroll-parallax</a>  
@@ -80,30 +80,35 @@ export function Payment() {
               If you have any suggestions for improvement of this project or having new idea for other projects feel free to connect with me any time. Thank you ❤️
             </p>
             <div className='flex justify-between w-64 ml-8 my-4'>
-              <a href='https://github.com/Moinak-Majumdar' target='_blank'>
+              <a href='https://github.com/Moinak-Majumdar' target='_blank' rel="noreferrer">
                 <Tooltip title='github'>
                   <GitHub/>
                 </Tooltip>                  
               </a>
-              <a href='mailto:moinak2000@gmail.com'>
+              <a href='mailto:moinak2000@gmail.com' rel="noreferrer">
                 <Tooltip title='gmail'>
                   <Email/>
                 </Tooltip>                  
               </a>
               <a href='tel:9804139678'>
-                <Tooltip title='contact number'>
+                <Tooltip title='contact number' rel="noreferrer">
                   <Phone/>
                 </Tooltip>                  
               </a>
-              <a href='https://www.facebook.com/moinak.majumdar.9' target='_blank'>
+              <a href='https://www.facebook.com/moinak.majumdar.9' target='_blank' rel="noreferrer">
                 <Tooltip title='facebook'>
                   <Facebook/>
                 </Tooltip>                  
               </a>
-              <a href='https://www.linkedin.com/in/moinak-majumdar-b7a85b238/' target='_blank'>
+              <a href='https://www.linkedin.com/in/moinak-majumdar-b7a85b238/' target='_blank' rel="noreferrer">
                 <Tooltip title='linkedin'>
                   <LinkedIn/>
                 </Tooltip>                  
+              </a>
+              <a href='https://api.whatsapp.com/send?phone=+919804139678&text=Hi' target='_blank' rel="noreferrer">
+                <Tooltip title="whatsapp">
+                    <WhatsappOutlined/>
+                </Tooltip>
               </a>
             </div>
             <div className='w-full mt-4 relative'>
