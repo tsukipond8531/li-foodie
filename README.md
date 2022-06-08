@@ -4,7 +4,9 @@
 <p>In this app I tried to achieve parallax and glass morphism design. App deployed on <b>firebase</b> check the above link to visit the app.</br>
 
 First you need to create an account with email and password, then <b>login</b> with that account.
-After login you need to complete your profile by adding the necessary details after that you can access the restaurant. However, you can change your address every time before placing orders also you can update your profile information <b>(photo, name, address, phone number)</b> anytime.
+After login you need to complete your profile by adding the necessary details after that you can access the restaurant. However, you can change your address every time before placing orders also you can update your profile information <b>(photo, name, address, phone number)</b> anytime at <b>PROFILE</b> tab.
+
+Also, you can check your previous orders and previous reviews under <b>MY ACTIVITY</b> tab.
 
 In this app I tried to build all the key feature of an e-commerce website. However, I will love to improve this app in the future. All advices are appreciated.
 </p>
