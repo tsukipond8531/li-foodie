@@ -13,18 +13,19 @@ In this app I tried to build all the key feature of an e-commerce website. Howev
 <h2>Thank you.</h2>
 <hr/>
 
-![Screenshot (85)](https://user-images.githubusercontent.com/99950805/172386167-38f01902-dbdc-4d34-8042-a82d6f14987a.png)
-![Screenshot (86)](https://user-images.githubusercontent.com/99950805/172386178-2735bbe4-659f-45e3-993e-6587c4b7f967.png)
-![Screenshot (99)](https://user-images.githubusercontent.com/99950805/172691246-c6fa63dd-446a-4355-ae76-671b60b58580.png)
-![Screenshot (95)](https://user-images.githubusercontent.com/99950805/172690724-01b81517-a8b0-4ad8-8a71-e808e892b8be.png)
-![Screenshot (96)](https://user-images.githubusercontent.com/99950805/172690727-3c72303f-ce20-4361-a529-8b9e90ebc923.png)
-![Screenshot (90)](https://user-images.githubusercontent.com/99950805/172386189-7f4348aa-bedc-4943-9d9e-acd5acbeffff.png)
-![Screenshot (91)](https://user-images.githubusercontent.com/99950805/172386190-b8b36e67-506d-47d2-be98-d5fc122bc50d.png)
-![Screenshot (87)](https://user-images.githubusercontent.com/99950805/172386181-00afb1a5-69a5-4322-acc6-e22b24270a44.png)
-![Screenshot (88)](https://user-images.githubusercontent.com/99950805/172386184-8ebd5067-c087-45fc-aae6-f1e744b42a8d.png)
-![Screenshot (89)](https://user-images.githubusercontent.com/99950805/172386187-1ef2f25b-af10-4593-bdb7-f5d885bb0858.png)
-![Screenshot (92)](https://user-images.githubusercontent.com/99950805/172386194-5e78d2ee-95e7-4088-ae76-faea46d5d2fb.png)
-![Screenshot (93)](https://user-images.githubusercontent.com/99950805/172386196-fa71ccd0-4e2f-425e-8b99-be1df3968f23.png)
+![Screenshot (100)](https://user-images.githubusercontent.com/99950805/172692767-a375650b-7d6e-460a-8ce6-c592ec1f270c.png)
+![Screenshot (101)](https://user-images.githubusercontent.com/99950805/172692934-62254f2d-004d-4e1e-bae5-0e92250a6d91.png)
+![Screenshot (99)](https://user-images.githubusercontent.com/99950805/172692766-296f9b29-6843-4fbc-8b25-08c6da60ee12.png)
+![Screenshot (95)](https://user-images.githubusercontent.com/99950805/172692762-98cb9d1f-c0f5-4457-8355-fda31ffcc695.png)
+![Screenshot (96)](https://user-images.githubusercontent.com/99950805/172692763-698391c3-c00c-4eeb-822a-d5ad0bf9d472.png)
+![Screenshot (107)](https://user-images.githubusercontent.com/99950805/172692755-449e13e1-cbe7-4895-a3fa-ca4096878704.png)
+![Screenshot (108)](https://user-images.githubusercontent.com/99950805/172692758-ff2de5f3-28fa-4815-9fb6-470e7b3aff8b.png)
+![Screenshot (102)](https://user-images.githubusercontent.com/99950805/172692747-5d60e389-a244-42f3-958e-ddb4d192b2b9.png)
+![Screenshot (103)](https://user-images.githubusercontent.com/99950805/172692748-c5961804-4dbd-4f8f-acda-1208701ef7ea.png)
+![Screenshot (104)](https://user-images.githubusercontent.com/99950805/172692749-f8be31f6-c33f-4174-8e6e-9c83d0e93d3f.png)
+![Screenshot (105)](https://user-images.githubusercontent.com/99950805/172692752-1762f78f-cd66-494e-9a38-0a506fabfc72.png)
+![Screenshot (106)](https://user-images.githubusercontent.com/99950805/172692753-1b1185da-9c43-40eb-a9a1-fda7abb08ed4.png)
+
 
 <hr/>
 <h2>npm packages are used in this project</h2>
