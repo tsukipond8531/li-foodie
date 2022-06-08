@@ -15,6 +15,9 @@ In this app I tried to build all the key feature of an e-commerce website. Howev
 
 ![Screenshot (85)](https://user-images.githubusercontent.com/99950805/172386167-38f01902-dbdc-4d34-8042-a82d6f14987a.png)
 ![Screenshot (86)](https://user-images.githubusercontent.com/99950805/172386178-2735bbe4-659f-45e3-993e-6587c4b7f967.png)
+![Screenshot (99)](https://user-images.githubusercontent.com/99950805/172691246-c6fa63dd-446a-4355-ae76-671b60b58580.png)
+![Screenshot (95)](https://user-images.githubusercontent.com/99950805/172690724-01b81517-a8b0-4ad8-8a71-e808e892b8be.png)
+![Screenshot (96)](https://user-images.githubusercontent.com/99950805/172690727-3c72303f-ce20-4361-a529-8b9e90ebc923.png)
 ![Screenshot (90)](https://user-images.githubusercontent.com/99950805/172386189-7f4348aa-bedc-4943-9d9e-acd5acbeffff.png)
 ![Screenshot (91)](https://user-images.githubusercontent.com/99950805/172386190-b8b36e67-506d-47d2-be98-d5fc122bc50d.png)
 ![Screenshot (87)](https://user-images.githubusercontent.com/99950805/172386181-00afb1a5-69a5-4322-acc6-e22b24270a44.png)
