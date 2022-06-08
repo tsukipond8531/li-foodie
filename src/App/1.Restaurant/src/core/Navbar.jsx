@@ -61,8 +61,8 @@ const Navbar = () =>{
                 {/*Hl1 logo */}
                 <div className='xl:px-16 lg:px-5 inline-flex justify-center items-center'> 
                     <Link to='/' className='cursor-pointer w-fit flex items-center'>
-                        <img src='./icon/logo512.png' className='h-12 w-12'/>
-                        <h1 className='txt4 text-6xl font-normal px-1 animate-pulse'>
+                        <img src='./icon/icon.png' className='h-12 w-12 animate-pulse'/>
+                        <h1 className='txt4 text-6xl font-normal px-1'>
                             <span>L</span>i
                             <span>F</span>oodie
                         </h1>    

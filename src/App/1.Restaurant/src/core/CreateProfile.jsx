@@ -17,7 +17,6 @@ const Theme = createTheme({
           main: '#000000',
           contrastText: '#fff'
       },
-  
     }
   })  
 
@@ -32,7 +31,7 @@ const CreateProfile = () => {
     const [error, setError] = useState('')
     const [disable, setDisable] = useState(true)
     const [display, setDisplay] = useState(true)
-    const { currentUser, emailVerification, updateAccount } = useAuth();
+    const { currentUser, emailVerification } = useAuth();
     const [img, setImg] = useState(null)
 
     useEffect(() => {
@@ -52,7 +51,7 @@ const CreateProfile = () => {
 
         try {
             await emailVerification(currentUser)
-                .then(setError('please check your inbox for further information and reload the page after verification'))
+                .then(setError('please check your inbox(spam) for further information and reload the page after verification'))
         } catch(err) {
             setError(err.code)
         }
@@ -137,18 +136,22 @@ const CreateProfile = () => {
                     <div className="w-full flex  mt-4">
                         <div className="rounded-xl overflow-hidden flex justify-center items-center">
                            {img && <PreviewProfileImg file={img}/>}
-                           {!img && <img className="h-28 w-28" src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'/>}                        
+                           {!img && <div className="h-28 w-28 border border-black bg-slate-300 rounded-xl flex justify-center items-center p-2">
+                                <span className="txt1 w-fit font-bold">Profile image is required*</span>
+                           </div>}                        
                         </div>
                         <div className="flex items-center justify-center mx-auto flex-col px-2">
                             <p><b className="text-blue-500 text-xl txt2">Email status:</b>
                                 {display? <span className="ml-2">Unverified <Cancel color="error"/></span> : <span className="ml-2">Verified <DoneAll color="success"/></span>}
                             </p>
                             <input hidden type="file" ref={imgRef} accept="image/*" name="image-upload" id="input" onChange={(e) => {setImg(e.target.files[0])}} disabled={disable}/> 
-                            <IconButton color="primary" aria-label="upload profile picture" onClick={() => {imgRef.current.click()}} required>
-                                <Tooltip title="Upload profile picture 📷">
-                                    <AddAPhoto fontSize="large"/>
-                                </Tooltip>
-                            </IconButton>
+                            <ThemeProvider theme={Theme}>
+                                <IconButton color="black" aria-label="upload profile picture" onClick={() => {imgRef.current.click()}} required>
+                                    <Tooltip title="Upload profile picture 📷">
+                                        <AddAPhoto fontSize="large"/>
+                                    </Tooltip>
+                                </IconButton>
+                            </ThemeProvider>
                         </div>
                     </div>
                     {/* hl1 verifying user email  */}

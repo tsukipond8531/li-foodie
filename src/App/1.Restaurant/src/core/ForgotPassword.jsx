@@ -32,7 +32,7 @@ const ForgotPassword = () => {
       setMessage('')
       setLoading(true)
       await resetPassword(emailRef.current.value)
-      setMessage('Check your inbox for further instructions');
+      setMessage('Check your inbox(spam) for further instructions');
     } catch(err) {
       setError(err.code)
     }
@@ -51,13 +51,13 @@ const ForgotPassword = () => {
               className="flex items-center justify-center p-6 sm:p-12 md:w-1/2 ">
               <div className="w-full">
                 <div className="flex justify-center">
-                  <img src='./icon/logo512.png' className='h-12 w-12'/>
+                  <img src='./icon/icon.png' className='h-12 w-12'/>
                 </div>
                 <h1 className="mb-4 text-2xl font-bold text-center text-gray-700">
                   Reset Password
                 </h1>
                   {error && <Alert severity="error" >{error}</Alert>}
-                  {message && <Alert severity="" >{message}</Alert>}
+                  {message && <Alert severity="warning" >{message}</Alert>}
                 <div className="my-4">
                   <ThemeProvider theme={Theme}>
                     <TextField
