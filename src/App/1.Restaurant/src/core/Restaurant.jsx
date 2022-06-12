@@ -109,12 +109,14 @@ const Restaurant = () =>{
                 filter4 = {filterItem4} 
                 filter5 = {filterItem5}
                 offer = {filterItem6}
-            />
-            <WelcomeTuts
-                key = 'welcomeTuts' 
                 showHelp = {showHelp}
                 offer_List = {offer_List}
             />
+            {/* <WelcomeTuts
+                key = 'welcomeTuts' 
+                showHelp = {showHelp}
+                offer_List = {offer_List}
+            /> */}
             <section className={showItems?"":"hidden"} key='menu_items'>
                 <div className="pb-20 h-auto w-full absolute top-40 flex justify-center items-center ">
                     <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16">

@@ -1,9 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useHaveProfile } from "../Context/HaveProfileContext";
 import { FoodBank, ShoppingCart, RoomService } from "@mui/icons-material";
 
+const style = {
+    btn : 'bg-yellow-200 rounded-full h-fit w-fit py-1 px-3 m-1 inline-flex justify-center items-center text-indigo-900 italic text-xl txt5 shadow-xl shadow-black',
+}
 
-const Help = () => {
+
+const Help = (props) => {
 
     const {profileData} =  useHaveProfile();
 
@@ -18,9 +23,15 @@ const Help = () => {
                 <p className="txt7 font-bold px-4 mt-2 text-neutral-800">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus sit cumque nam non delectus ea, quo laudantium veniam laboriosam hic ipsa consequuntur qui rerum voluptas atque at. Provident asperiores, quae quia aspernatur cum quas corporis</p>
                 <h2 className="txt7 font-bold px-4 text-amber-400 text-2xl mt-2">Access this sidebar to get :</h2>
                 <div className="mt-2 flex flex-col">
-                    <span className="bg-yellow-200 rounded-full h-fit w-fit py-1 px-3 m-1 inline-flex justify-center items-center text-indigo-900 italic text-xl txt5 shadow-xl shadow-black"> <RoomService className="text-pink-700"/>Our menu</span>
-                    <span className="bg-yellow-200 rounded-full h-fit w-fit py-1 px-3 m-1 inline-flex justify-center items-center text-indigo-900 italic text-xl txt5 shadow-xl shadow-black"> <FoodBank className="text-pink-700"/>Today's special</span>
-                    <span className="bg-yellow-200 rounded-full h-fit w-fit py-1 px-3 m-1 inline-flex justify-center items-center text-indigo-900 italic text-xl txt5 shadow-xl shadow-black"> <ShoppingCart className="text-pink-700"/>Your cart</span>
+                    <button onClick={props.menu} className={style.btn}>
+                         <RoomService className="text-pink-700"/>Our menu
+                    </button>
+                    <button onClick={props.offer} className={style.btn}>
+                         <FoodBank className="text-pink-700"/>Today's special
+                    </button>
+                    <Link to="/cart" state={{ from: props.cart }} className={style.btn}>
+                         <ShoppingCart className="text-pink-700"/>Your cart
+                    </Link>
                 </div>
             </div>
         </React.Fragment>

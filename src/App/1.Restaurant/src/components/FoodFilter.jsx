@@ -2,6 +2,7 @@ import React, { useState, forwardRef } from "react";
 import {Link} from 'react-router-dom'
 import { Tooltip, Dialog, DialogActions, DialogContent, DialogTitle, Slide, Badge, Button} from "@mui/material";
 import { CancelOutlined, FoodBankTwoTone, ShoppingCartCheckoutTwoTone, RoomServiceTwoTone } from "@mui/icons-material";
+import { WelcomeTuts } from "./_COMPONENT";
 
 const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction='right' ref={ref} {...props} />;
@@ -123,6 +124,13 @@ export function FoodFilter(props) {
                     </div>   
                 </Dialog>
             </section>
+            <WelcomeTuts 
+                showHelp = {props.showHelp}
+                offer_List = {props.offer_List}
+                menu = {handleClickOpen}
+                offer = {props.offer}
+                cart = {props.list}
+            />
         </>
     );
 }
