@@ -7,6 +7,8 @@ import { TextField, Alert, IconButton, Tooltip, createTheme, ThemeProvider, Butt
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import { PreviewProfileImg } from "../components/_COMPONENT"
 import { useAuth } from "../Context/AuthContext";
+import { useHaveProfile } from "../Context/HaveProfileContext";
+import { FormatListNumberedRtlTwoTone } from "@mui/icons-material";
 
 //hl6    custom mui........
 const Theme = createTheme({
@@ -32,23 +34,35 @@ const UpdateProfile = () => {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const { currentUser } = useAuth();
+    const { profileData } = useHaveProfile();
     const [img, setImg] = useState(null)
 
+    let data = {
+        uid: currentUser.uid,
+        name: name,
+        phone_Number: phno,
+        address: address,
+        email: currentUser.email,
+        photo_Url:profileData.photo_Url,
+        photo_Name:profileData.photo_Name
+    }
 
-    //HL4 upload image  
     function handelSubmit(e) {
         e.preventDefault()
+
+        if(img === null) {
+            uploadWithoutImage()
+        } else {
+            uploadWithImage()
+        }
+    }
+
+    //HL4 upload profile with  image  
+    function uploadWithImage() { 
         try {
             setError('')
             setLoading(true)
-            const data = {
-                uid: currentUser.uid,
-                name: name,
-                phone_Number: phno,
-                address: address,
-                email: currentUser.email,
-                time: `${new Date().toDateString()} ${new Date().toLocaleTimeString()}`
-            }
+            
             const photo_Name =`${data.name}_${img.name}`;
             const storageRef = ref(storage, photo_Name);
             const uploadTask = uploadBytesResumable(storageRef, img);
@@ -72,8 +86,9 @@ const UpdateProfile = () => {
                 () => {
                     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                         const photo_Url = downloadURL;
-                        const userData = {...data,photo_Url,photo_Name}
-                        uploadUser(userData)
+                        data.photo_Url = photo_Url;
+                        data.photo_Name = photo_Name
+                        uploadUser(data)
                     })
                 }
             )
@@ -92,6 +107,22 @@ const UpdateProfile = () => {
         catch(err) {
             setError(err.code)
             setLoading(false)
+        }
+    }
+
+    //hl4   upload without image    
+    async function uploadWithoutImage () {
+        const docRef = doc(db, data.uid, 'userInfo')
+        try {
+            setError('')
+            setLoading(true)
+
+            await updateDoc(docRef, {
+                ...data
+            }).then(navigate('/home'))
+        } catch(err) {
+            setError(err)
+            setLoading(FormatListNumberedRtlTwoTone)
         }
     }
     

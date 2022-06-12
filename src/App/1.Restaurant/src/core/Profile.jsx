@@ -75,6 +75,11 @@ const Profile = () => {
                         <span className='ml-2 text-blue-500 underline'>Update Profile</span>
                     </Link>
                 </div>
+                <div className='mt-4 text-center'>
+                    <Link exact='true' to='/forgot-password' className='txt1 font-bold text-gray-800 hover:underline hover:text-blue-500'>
+                        forgot password?
+                    </Link>
+                </div>
             </div>}
             <div key='bg' className="relative min-w-full h-full -z-20">
                 <div className="fixed top-80 -right-32 h-96 w-96 sm:w-30r sm:h-30r rounded-full bg-gradient-to-b from-slate-100 via-blue-500 to-indigo-900 -z-20 shadow-black shadow-xl"></div>
