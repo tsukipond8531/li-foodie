@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import {Food} from "../../API/FoodDB";
 import "../../css/Category.css";
 import '../../css/Bubbles.css';
-import { FoodCard, FoodFilter, WelcomeTuts, Blob, Bubbles} from "../components/_COMPONENT";
+import { FoodCard, FoodFilter, Blob } from "../components/_COMPONENT";
 
 
 const Restaurant = () =>{
@@ -31,7 +31,7 @@ const Restaurant = () =>{
 // -----------------------------------//
 // HL1       filtering food          
 // -----------------------------------//
-    const filterItem = (type) =>{
+    const filterItem1 = (type) =>{
         const updatedList = Food.filter((currElm) => {
         return currElm.type === type;
         })
@@ -103,7 +103,7 @@ const Restaurant = () =>{
                 count = {count}
                 showMenu = {showMenu}
                 swap = {swap}
-                filter1 = {filterItem}
+                filter1 = {filterItem1}
                 filter2 = {filterItem2}
                 filter3 = {filterItem3}
                 filter4 = {filterItem4} 
@@ -112,11 +112,6 @@ const Restaurant = () =>{
                 showHelp = {showHelp}
                 offer_List = {offer_List}
             />
-            {/* <WelcomeTuts
-                key = 'welcomeTuts' 
-                showHelp = {showHelp}
-                offer_List = {offer_List}
-            /> */}
             <section className={showItems?"":"hidden"} key='menu_items'>
                 <div className="pb-20 h-auto w-full absolute top-40 flex justify-center items-center ">
                     <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16">

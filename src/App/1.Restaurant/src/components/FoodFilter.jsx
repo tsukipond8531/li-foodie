@@ -7,8 +7,12 @@ import { WelcomeTuts } from "./_COMPONENT";
 const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction='right' ref={ref} {...props} />;
   });
-const menuClass = "capitalize text-xl text-indigo-500 hover:text-rose-600 hover:font-semibold cursor-pointer";
-const menuName=["💗A to Z.","🥪Breakfast and Snacks.","🥣Soup.","🍖Starter.","🍕pizza.","🌯lunch and dinner.","🍩dessert.","🍻drinks.","👌signature.","🥗PureVeg."];
+
+const menuData = {
+    menuClass : 'capitalize text-xl text-indigo-500 hover:text-rose-600 hover:font-semibold cursor-pointer',
+    menuName : ["💗A to Z.","🥪Breakfast and Snacks.","🥣Soup.","🍖Starter.","🍕pizza.","🌯lunch and dinner.","🍩dessert.","🍻drinks.","👌signature.","🥗PureVeg."]
+}
+
 
 export function FoodFilter(props) {
 
@@ -106,16 +110,16 @@ export function FoodFilter(props) {
                         </DialogTitle>
                         <DialogContent >
                             <ul className="txt1 capitalize h-full w-full py-4 flex justify-start flex-col">
-                                <li> <a onClick={() => filter(1)} className={menuClass}> {menuName[8]} </a> </li>
-                                <li> <a onClick={() => filter(2)} className={menuClass}> {menuName[1]} </a> </li>
-                                <li> <a onClick={() => filter(3)} className={menuClass}> {menuName[2]} </a> </li>
-                                <li> <a onClick={() => filter(4)} className={menuClass}> {menuName[3]} </a> </li>
-                                <li> <a onClick={() => filter(5)} className={menuClass}> {menuName[4]} </a> </li>
-                                <li> <a onClick={() => filter(6)} className={menuClass}> {menuName[7]} </a> </li>
-                                <li> <a onClick={() => filter(7)} className={menuClass}> {menuName[6]} </a> </li>
-                                <li> <a onClick={() => filter(8)} className={menuClass}> {menuName[9]} </a> </li>
-                                <li> <a onClick={() => filter(9)} className={menuClass}> {menuName[5]} </a> </li>
-                                <li> <a onClick={() => filter(10)} className={menuClass}> {menuName[0]} </a> </li>
+                                <li> <a onClick={() => filter(1)} className={menuData.menuClass}> {menuData.menuName[8]} </a> </li>
+                                <li> <a onClick={() => filter(2)} className={menuData.menuClass}> {menuData.menuName[1]} </a> </li>
+                                <li> <a onClick={() => filter(3)} className={menuData.menuClass}> {menuData.menuName[2]} </a> </li>
+                                <li> <a onClick={() => filter(4)} className={menuData.menuClass}> {menuData.menuName[3]} </a> </li>
+                                <li> <a onClick={() => filter(5)} className={menuData.menuClass}> {menuData.menuName[4]} </a> </li>
+                                <li> <a onClick={() => filter(6)} className={menuData.menuClass}> {menuData.menuName[7]} </a> </li>
+                                <li> <a onClick={() => filter(7)} className={menuData.menuClass}> {menuData.menuName[6]} </a> </li>
+                                <li> <a onClick={() => filter(8)} className={menuData.menuClass}> {menuData.menuName[9]} </a> </li>
+                                <li> <a onClick={() => filter(9)} className={menuData.menuClass}> {menuData.menuName[5]} </a> </li>
+                                <li> <a onClick={() => filter(10)} className={menuData.menuClass}> {menuData.menuName[0]} </a> </li>
                             </ul>
                         </DialogContent>  
                         <DialogActions>

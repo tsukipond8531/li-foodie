@@ -15,6 +15,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-firebase-hooks": "^5.0.3",
+    "react-google-button": "^0.7.2",
     "react-parallax-tilt": "^1.7.34",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",

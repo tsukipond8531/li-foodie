@@ -23,9 +23,14 @@ const LiFoodie = () => {
                         <Route exact='true' path='/about' element={<About/>}/>
                         <Route exact='true' path='/forgot-password' element={<ForgotPassword/>}/>
                         <Route exact path="/home" element={
-                            <Auth_Route>
+                           <Auth_Route>
                                 <Home/>
-                            </Auth_Route>
+                           </Auth_Route>
+                        }/>
+                        <Route exact='true' path="/restaurant" element={
+                            <Profile_Route>
+                                <Restaurant/>
+                            </Profile_Route>                                                                                     
                         }/>
                         <Route exact='true' path='/profile' element={
                             <Auth_Route>
@@ -36,12 +41,7 @@ const LiFoodie = () => {
                             <Auth_Route>
                                 <CreateProfile/>
                             </Auth_Route>
-                        }/>
-                        <Route exact='true' path="/restaurant" element={
-                            <Profile_Route>                                
-                                <Restaurant/>
-                            </Profile_Route>
-                        }/>
+                        }/>                      
                         <Route exact='true' path='/cart' element={
                             <Profile_Route>
                                 <Cart/>
