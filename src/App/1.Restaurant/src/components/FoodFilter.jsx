@@ -4,6 +4,7 @@ import { Tooltip, Dialog, DialogActions, DialogContent, DialogTitle, Slide, Badg
 import { CancelOutlined, FoodBankTwoTone, ShoppingCartCheckoutTwoTone, RoomServiceTwoTone } from "@mui/icons-material";
 import { WelcomeTuts } from "./_COMPONENT";
 
+
 const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction='right' ref={ref} {...props} />;
   });
@@ -29,7 +30,6 @@ export function FoodFilter(props) {
     };
 
     function filter (args) {
-
         switch(parseInt(args)) {
             case 1 : 
                 props.filter2("signature👌")
@@ -92,7 +92,7 @@ export function FoodFilter(props) {
                             </Tooltip>
                         </button>
                         <Tooltip placement="right-start" title="Your Cart">
-                            <Link to="/cart" state={{ from: props.list }}>
+                            <Link to="/cart">
                                 <Badge badgeContent={props.count} color="secondary" overlap="circular" className="my-2 cursor-pointer">
                                     <ShoppingCartCheckoutTwoTone fontSize="large" className="m-0 text-indigo-600 hover:text-indigo-900"/>
                                 </Badge>

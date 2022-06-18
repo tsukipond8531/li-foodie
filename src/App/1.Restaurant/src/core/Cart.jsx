@@ -1,5 +1,5 @@
-import React,{ useState} from 'react';
-import { useLocation, Link} from 'react-router-dom';
+import React,{ useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -7,13 +7,14 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { FreeMode, Pagination ,Keyboard, Navigation} from "swiper";
 import { Food } from '../../API/FoodDB';
-import { OrderTotal, OrderCard, Checkout, Blob } from '../components/_COMPONENT'
+import { OrderTotal, OrderCard, UpdateCart, Blob } from '../components/_COMPONENT'
 import { Svg8 } from '../svg/svg'; 
+import { useData } from '../Context/DataContext'
 
-const Cart = () => {
-    const state = useLocation().state;
-    let order = [];
-    order = state.from;
+export const Cart = () => {
+   
+    const { getItems } = useData();
+    let order = getItems();
     const items = [... new Set(order)];
     const order_quantity_pair = {};
     for (const element of order) 
@@ -61,16 +62,29 @@ const Cart = () => {
         }
     }
     const [final, setFinal] = useState(grandTotal);
+    const [data, setData ] = useState(order)
     const [chkAdd, setChkAdd] = useState([])
     const [chkRemove, setChkRemove] = useState([])
-    const plus = (amt, item_id) => { 
-        setFinal(final + amt);
-        setChkAdd(chkAdd.concat(item_id))
+  
+    function change(amt, item_id, todo) {
+
+        let temp = [...data];
+        if(todo === 'add') {
+            setFinal(final + amt);
+            setChkAdd(chkAdd.concat(item_id))
+            temp.push(item_id)
+        }
+
+        if(todo === 'remove') {
+            setFinal(final - amt);
+            setChkRemove(chkRemove.concat(item_id))
+            temp.splice(temp.indexOf(item_id), 1)
+        }
+
+        setData(temp);
     }
-    const sub = (amt, item_id,) => {   
-        setFinal(final - amt);
-        setChkRemove(chkRemove.concat(item_id))
-    }
+
+   
     const [finalPay, setFinalPay] = useState([]);
     const pay = (arg) => {
         setFinalPay(arg)
@@ -83,7 +97,7 @@ const Cart = () => {
                     <div className={(items.length == 0 )?'flex justify-center py-20 flex-col':'hidden'}>
                         <h1 className='text-4xl text-bold text-gray-800 mx-4 text-center'>Your cart is empty 😫</h1>
                         <div className='mx-auto mt-8'>
-                            <Link to='/restaurant' state={{from: order}} 
+                            <Link to='/restaurant' 
                                 className="box-border relative z-30 inline-flex items-center justify-center w-auto px-1 py-3 overflow-hidden font-bold text-white transition-all duration-300 bg-indigo-600 rounded-md cursor-pointer group ring-offset-2 ring-1 ring-indigo-300 ring-offset-indigo-200 hover:ring-offset-indigo-500 ease focus:outline-none animate-bounce">
                                 <span className="absolute bottom-0 right-0 w-8 h-20 -mb-8 -mr-5 transition-all duration-300 ease-out transform rotate-45 translate-x-1 bg-white opacity-10 group-hover:translate-x-0"></span>
                                 <span className="absolute top-0 left-0 w-20 h-8 -mt-1 -ml-12 transition-all duration-300 ease-out transform -rotate-45 -translate-x-1 bg-white opacity-10 group-hover:translate-x-0"></span>
@@ -117,20 +131,21 @@ const Cart = () => {
                                                 rate = {currElm.rate}
                                                 offer = {currElm.offer}
                                                 quantity = {currElm.quantity}
-                                                add = {plus}
-                                                reduce = {sub}
+                                                change = {change}
                                         />
                                         </SwiperSlide>
                                     )
                                     })
                                 }
                         </Swiper> 
-                        <OrderTotal key="grandTotal" amount = {final} getTotal={pay}/>
+                        <OrderTotal amount = {final} getTotal={pay}/>
                         <div className='mt-2'>
-                            <Checkout initial={order}
+                            <UpdateCart 
+                                initial={order}
                                 added={chkAdd}
                                 removed={chkRemove}
                                 finalPay={finalPay}
+                                data = { data }
                             />
                         </div>
                     </section>
@@ -156,5 +171,3 @@ const Cart = () => {
         </>
     )
 }
-
-export {Cart};

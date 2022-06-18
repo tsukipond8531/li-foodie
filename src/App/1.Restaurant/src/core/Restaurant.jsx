@@ -1,18 +1,17 @@
-import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useState, useEffect} from "react";
 import {Food} from "../../API/FoodDB";
 import "../../css/Category.css";
-import '../../css/Bubbles.css';
 import { FoodCard, FoodFilter, Blob } from "../components/_COMPONENT";
-
+import { useData} from '../Context/DataContext'
 
 const Restaurant = () =>{
 
-    const [items,updatedItems] = useState(Food);
+    const [food, setFood] = useState(Food);
     const [showMenu, toggleShowMenu] = useState(false);
     const [showItems,toggleShowItems] = useState(false);
-    const [showHelp,toggleShowHelp] = useState(false);
-    const cart_arr = useLocation().state.from; // receive array from cart or receive an empty arr
+    const [showHelp, toggleShowHelp] = useState(false);
+    const { getItems } = useData();
+    const cart_arr =  getItems(); // receive array from cart or receive an empty arr while starting
     const [list, setList] = useState(cart_arr);  //cart
     const [count, setCount] = useState(cart_arr.length);  //cart item count
      
@@ -35,7 +34,7 @@ const Restaurant = () =>{
         const updatedList = Food.filter((currElm) => {
         return currElm.type === type;
         })
-        updatedItems(updatedList);
+        setFood(updatedList);
         toggleShowMenu(!showMenu);
         wlc_food();
     }
@@ -43,7 +42,7 @@ const Restaurant = () =>{
         const updatedList = Food.filter((currElm) => {
             return currElm.tag1 === type;
         })
-        updatedItems(updatedList);
+        setFood(updatedList);
         toggleShowMenu(!showMenu);
         wlc_food();
     }
@@ -54,7 +53,7 @@ const Restaurant = () =>{
                     (currElm.type==="pizza")+
                     (currElm.type==="meal"));
         })
-        updatedItems(updatedList);
+        setFood(updatedList);
         toggleShowMenu(!showMenu);
         wlc_food();
     }
@@ -62,12 +61,12 @@ const Restaurant = () =>{
         const updatedList = Food.filter((currElm) => {
             return currElm.category === type;
         })
-        updatedItems(updatedList.sort());
+        setFood(updatedList.sort());
         toggleShowMenu(!showMenu);
         wlc_food();
     }
     const filterItem5 = () =>{
-        updatedItems(Food);
+        setFood(Food);
         toggleShowMenu(!showMenu);
         wlc_food();
     }
@@ -75,7 +74,7 @@ const Restaurant = () =>{
         const updatedList = Food.filter((currElm) => {
             return currElm.offer > 0;
         })
-        updatedItems(updatedList);
+        setFood(updatedList);
         showItems?temp=5:toggleShowHelp(true)
         wlc_food();
     }
@@ -88,6 +87,9 @@ const Restaurant = () =>{
         setList(list.concat(arr));
         setCount(count+1);
     }
+    useEffect(() => {
+        localStorage.setItem('item-list', JSON.stringify(list))
+    },[list])
 //===================================//
 //HL5       offer list              
 //===================================//
@@ -99,7 +101,6 @@ const Restaurant = () =>{
         <React.Fragment>
             <FoodFilter
                 key='food_filter_&_side_navbar'
-                list = {list}
                 count = {count}
                 showMenu = {showMenu}
                 swap = {swap}
@@ -115,7 +116,7 @@ const Restaurant = () =>{
             <section className={showItems?"":"hidden"} key='menu_items'>
                 <div className="pb-20 h-auto w-full absolute top-40 flex justify-center items-center ">
                     <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16">
-                        {items.map((currElm)=>{
+                        {food.map((currElm)=>{
                             return(
                                 <FoodCard 
                                         key={(currElm.id).toString()}

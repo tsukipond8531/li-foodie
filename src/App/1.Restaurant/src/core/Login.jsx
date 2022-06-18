@@ -2,8 +2,10 @@ import React, { useRef, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {IconButton,TextField,Alert, createTheme, ThemeProvider, Button} from "@mui/material";
+import GoogleButton from 'react-google-button'
 import { RandomImg, Blob } from "../components/_COMPONENT";
 import { useAuth } from "../Context/AuthContext";
+import { useData } from '../Context/DataContext';
 
 //hl4    custom mui........
 const Theme = createTheme({
@@ -21,22 +23,28 @@ const Login = () => {
   const emailRef = useRef() 
   const passRef = useRef() 
   const { login } = useAuth()
+  const { getItems } = useData();
+  const items = getItems();
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
   const navigate = useNavigate()
   
-  async function handleSubmit(e) {
+  async function emailAuth(e) {
     e.preventDefault()
     try {
       setError('')
       setLoading(true)
       await login(emailRef.current.value, passRef.current.value)
-      navigate('/home')
+      navigate('/restaurant')
     } catch(err) {
       setError(err.code)
     }
     setLoading(false)
+  }
+
+  async function googleAuth(e) {
+    e.preventDefault()
   }
   
 
@@ -48,7 +56,7 @@ const Login = () => {
             <div className="h-40 md:h-auto md:w-1/2">
               <RandomImg/>
             </div>
-            <form onSubmit={handleSubmit}
+            <form onSubmit={emailAuth}
               className="flex justify-center p-6 sm:p-12 md:w-1/2 border border-white border-t-0 border-l-0 border-opacity-10">
               <div className="w-full">
                 <h1 className="mb-4 text-2xl font-bold text-center text-gray-800">
@@ -96,6 +104,10 @@ const Login = () => {
                       Log in
                     </Button>
                 </ThemeProvider>
+                {/* hl1 google auth */}
+                <div className='mt-2 border-t border-gray-500 flex justify-center py-4'>
+                  <GoogleButton onClick={()=>{console.log('google')}}/>
+                </div>
                 <div className="w-full mt-2 text-center">
                   <NavLink to="/signup"
                     className="txt7 text-gray-600 mt-3 cursor-pointer">Need an account? 

@@ -2,20 +2,24 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Tooltip } from '@mui/material';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
-function Checkout(props) {
 
-    const initial = props.initial;
-    const added_item = props.added;
-    const remove_item = props.removed
 
-    const item = initial.concat(added_item) //hl1   extra added items 
-    for(const i of remove_item) //hl6   delete removed items  
-    {
-      const index = item.indexOf(i);
-      if(index > -1) {
-        item.splice(index, 1)
-      }
+export function UpdateCart(props) {
+
+  const initial = props.initial;
+  const added_item = props.added;
+  const remove_item = props.removed
+
+  const item = initial.concat(added_item) //hl1   extra added items 
+  for(const i of remove_item) //hl6   delete removed items  
+  {
+    const index = item.indexOf(i);
+    if(index > -1) {
+      item.splice(index, 1)
     }
+  }
+
+  console.log(props)
 
     const data = [item, props.finalPay]
 
@@ -32,4 +36,3 @@ function Checkout(props) {
     )
 }
 
-export { Checkout }

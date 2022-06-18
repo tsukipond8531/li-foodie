@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useHaveProfile } from "../Context/HaveProfileContext";
+import { useData } from '../Context/DataContext';
 import { FoodBank, ShoppingCart, RoomService } from "@mui/icons-material";
 
 const style = {
@@ -10,14 +10,16 @@ const style = {
 
 const Help = (props) => {
 
-    const {profileData} =  useHaveProfile();
+    const {userData} =  useData();
 
     return (
         <React.Fragment>
             <div className="flex flex-col mb-4 w-80 md:w-96">
                 <h1 className="txt7 capitalize text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-rose-500">best food for your test</h1>
                 <h2 className="text-2xl px-4">
-                    <span className='text-3xl pt-6 font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400'>{`Welcome ${profileData.name}`}</span>
+                    <span className='text-3xl pt-6 font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400'>
+                        {(userData)?`Welcome ${userData.displayName}`:`Welcome guest user`}
+                    </span>
                     <span className='ml-1'>🙋‍♂️</span>
                 </h2>
                 <p className="txt7 font-bold px-4 mt-2 text-neutral-800">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus sit cumque nam non delectus ea, quo laudantium veniam laboriosam hic ipsa consequuntur qui rerum voluptas atque at. Provident asperiores, quae quia aspernatur cum quas corporis</p>

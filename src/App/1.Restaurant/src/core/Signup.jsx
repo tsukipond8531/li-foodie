@@ -1,9 +1,12 @@
 import React, { useRef, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { IconButton,TextField,Alert, createTheme, ThemeProvider, Button} from '@mui/material';
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { RandomImg ,Blob} from "../components/_COMPONENT";
+import { IconButton,TextField,Alert, createTheme, ThemeProvider, Button, Tooltip} from '@mui/material';
+import { Visibility, VisibilityOff, AddAPhoto, ArrowCircleRightSharp } from "@mui/icons-material";
+import { Blob, PreviewProfileImg } from "../components/_COMPONENT";
 import { useAuth } from "../Context/AuthContext";
+import { useData } from '../Context/DataContext';
+import { ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
+import { storage } from '../Firebase'
 
 //hl4    custom mui........
 const Theme = createTheme({
@@ -12,7 +15,6 @@ const Theme = createTheme({
         main: '#000000',
         contrastText: '#fff'
     },
-
   }
 })  
 
@@ -21,14 +23,30 @@ const Signup = () => {
   const emailRef = useRef() 
   const passRef = useRef() 
   const cPassRef = useRef()
+  const nameRef = useRef();
+  const addressRef = useRef();
+  const phnoRef = useRef();
+  const imgRef = useRef(null);
   const { signup } = useAuth()
+  const { getItems } = useData();
+  const items = getItems();
   const [error, setError] = useState('')
-  const [loading, setLoading] = useState(false)
+  const [msg, setMsg] = useState('')
+  const [disable, setDisable] = useState(false)
+  const [img, setImg] = useState(null)
   const [showPassword, setShowPassword] = useState(false)
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+ 
 
   async function handleSubmit(e) {
     e.preventDefault()
+
+    let data = {
+      displayName : nameRef.current.value,
+      email : emailRef.current.value,
+      phoneNumber : phnoRef.current.value,
+      address: addressRef.current.value,
+    }
 
     if(passRef.current.value !== cPassRef.current.value) {
       return setError('Password mismatched');
@@ -36,60 +54,153 @@ const Signup = () => {
 
     try {
       setError('')
-      setLoading(true)
-      console.log(emailRef.current.value, passRef.current.value)
-      await signup(emailRef.current.value, passRef.current.value)
-      navigate('/login');
+      setDisable(true)
+      const photoName =`${data.name}_${img.name}`;
+      const storageRef = ref(storage, photoName);
+      const uploadTask = uploadBytesResumable(storageRef, img);
+      uploadTask.on('state_changed', 
+          (snapshot) => {
+              switch (snapshot.state) {
+              case 'paused':
+                  setError(false)
+                  setMsg('Upload is paused');
+                  break;
+              case 'running':
+                setError(false)
+                  setMsg('Upload is running');
+                  break;
+              default:
+                  break;
+              }
+          }, 
+          (err) => {
+            setMsg(false)
+            setError(err);
+            setDisable(false)
+          }, 
+          () => {
+              getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                  const photoUrl = downloadURL;
+                  const userData = {...data,photoUrl,photoName}
+                  createAuth(userData)
+              })
+          }
+      )
+      async function  createAuth(args) {
+        try {
+          await signup(args, passRef.current.value)
+          setMsg('Profile Created')
+          navigate('/restaurant',{state:{from: items}})
+        } catch(err) {
+          setMsg(false)
+          setError(err.code)
+          setDisable(false)
+        } 
+      }
+  
     } catch(err) {
       setError(err.code)
     }
-    setLoading(false)
+    setDisable(false)
   }
   return (
     <>
       <section className="flex justify-center min-h-screen p-4">
-        <div className="sm:mt-40 mt-32 flex-1 h-full max-w-4xl mx-auto bg-gradient-to-b from-slate-300 via-gray-200 to-zinc-400 shadow-2xl shadow-slate-900 rounded-2xl overflow-hidden">
-          <div className="flex flex-col md:flex-row">
-            <div className="h-48 md:h-auto md:w-1/2">
-              <RandomImg/>
-            </div>
-            <form onSubmit={handleSubmit}
-              className="flex items-center justify-center p-6 sm:p-12 md:w-1/2 border border-white border-t-0 border-l-0 border-opacity-25">
-              <div className="w-full">
-                <h1 className="mb-4 text-2xl font-bold text-center text-gray-800">
-                  Sign up
-                </h1>
-                  {error && <Alert severity="error" variant="outlined">{error}</Alert>}
-                <div className="mt-4">
+        <div className="sm:mt-40 mt-32 flex-1 h-full max-w-3xl mx-auto bg-gradient-to-b from-amber-300 via-yellow-400 to-orange-400 shadow-2xl shadow-slate-900 rounded-2xl overflow-hidden">
+          <h1 className='txt7 my-4 text-xl font-bold text-center text-gray-800 capitalize'>
+            Sign up / Create an account
+          </h1>
+          {msg && <div className="my-6 w-80 mx-auto">
+                <Alert severity="success" variant="filled">{msg}</Alert>
+          </div> }
+          {error && <div className="my-6 w-80 mx-auto">
+                <Alert severity="error" variant="outlined">{error}</Alert>
+          </div> }
+          <form className="grid grid-cols-1 md:grid-cols-2 mb-6" onSubmit={handleSubmit}>
+            <div className='px-6'>
+              <div className="w-full flex">
+                <div className="rounded-xl overflow-hidden flex justify-center items-center">
+                  {img && <PreviewProfileImg file={img}/>}
+                  {!img && <div className="h-28 w-28 border border-black bg-yellow-200 rounded-xl flex justify-center items-center p-2">
+                      <span className="txt7 w-fit font-bold">Profile image is require*</span>
+                  </div>}                        
+                </div>
+                <div className="flex items-center justify-center mx-auto flex-col px-2">
+                  <input hidden type="file" ref={imgRef} accept="image/*" name="image-upload" id="input" onChange={(e) => {setImg(e.target.files[0])}} disabled={disable}/> 
+                  <ThemeProvider theme={Theme}>
+                    <IconButton color="black" aria-label="upload profile picture" onClick={() => {imgRef.current.click()}} required>
+                      <Tooltip title="Upload profile picture 📷">
+                          <AddAPhoto fontSize="large"/>
+                      </Tooltip>
+                    </IconButton>
+                  </ThemeProvider>
+                </div>
+              </div>
+              <div className='mt-2'>
+                <ThemeProvider theme={Theme}>
+                    <TextField helperText="Please enter your full name" label="name" type="text"
+                        inputRef={nameRef}  required
+                        variant="standard" fullWidth={true} color='black' 
+                        InputProps={{ style: { fontSize: 15, fontWeight: 600 } }}
+                        InputLabelProps={{ style: { fontSize: 18, fontWeight: 600 } }}
+                        FormHelperTextProps={{ style: { fontSize: 12} }}
+                    />
+                </ThemeProvider>
+              </div>
+              <div className="mt-2">
+                <ThemeProvider theme={Theme}>
+                    <TextField helperText="Please enter your phone number"  label="phone number" type="tel"
+                        inputRef={phnoRef}  required
+                        variant="standard" fullWidth={true} color='black' 
+                        InputProps={{ style: { fontSize: 15, fontWeight: 600 } }}
+                        InputLabelProps={{ style: { fontSize: 18, fontWeight: 600 } }}
+                        FormHelperTextProps={{ style: { fontSize: 12} }}
+                    />
+                </ThemeProvider>
+              </div>
+                <div className="mt-2">
                   <ThemeProvider theme={Theme}>
                     <TextField
-                        helperText="Please enter your email" variant="standard" fullWidth={true} color="black" 
-                        inputRef={emailRef} required
-                        label="email" type="email"
+                        helperText="Please enter your email" label="email" type="email"
+                        inputRef={emailRef} required autoComplete='email'
+                        variant="standard" fullWidth={true} color="black" 
                         InputProps={{ style: { fontSize: 15, fontWeight: 600 } }}
                         InputLabelProps={{ style: { fontSize: 18, fontWeight: 600 } }}
                         FormHelperTextProps={{ style: { fontSize: 12} }}
                       />
                   </ThemeProvider>
-                </div>
-                <div className="mt-4">
+                </div>            
+            </div>
+            <div className="px-6">
+                <div className="">
+                  <ThemeProvider theme={Theme}>
+                    <TextField helperText="Please enter your full address" label="address" type="text"
+                        inputRef={addressRef} required
+                        variant="standard" fullWidth={true} color='black' 
+                        InputProps={{ style: { fontSize: 15, fontWeight: 600 } }}
+                        InputLabelProps={{ style: { fontSize: 18, fontWeight: 600 } }}
+                        FormHelperTextProps={{ style: { fontSize: 12} }}
+                    />
+                  </ThemeProvider>
+                </div>      
+                <div className="mt-2">
                   <ThemeProvider theme={Theme}>
                     <TextField 
-                          helperText="Please enter your password" variant="standard" fullWidth={true} color="black" 
-                          inputRef={passRef} required autoComplete="off" 
-                          label="password" type={showPassword ? 'text' : 'password'}
+                          helperText="Please enter your password"  label="password" type={showPassword ? 'text' : 'password'}
+                          inputRef={passRef} required autoComplete='new-Password'
+                          variant="standard" fullWidth={true} color="black" 
                           InputProps={{ style: { fontSize: 15, fontWeight: 600 } }}
                           InputLabelProps={{ style: { fontSize: 18, fontWeight: 600 } }}
                           FormHelperTextProps={{ style: { fontSize: 12} }}
                       />
                   </ThemeProvider>
                 </div>
-                <div className="mt-2 mb-4">
+                <div className="mt-2">
                   <ThemeProvider theme={Theme}>
                   <TextField
-                      helperText="password must be matched" color="black" variant="standard" fullWidth={true} 
-                      inputRef={cPassRef} required autoComplete="off"
-                      label="confirm password" type={showPassword ? 'text' : 'password'}
+                      helperText="password must be matched" label="confirm password" type={showPassword ? 'text' : 'password'}
+                      inputRef={cPassRef} required autoComplete='new-password'
+                      color="black" variant="standard" fullWidth={true} 
                       InputProps={{ style: { fontSize: 15, fontWeight: 600 } }}
                       InputLabelProps={{ style: { fontSize: 18, fontWeight: 600 } }}
                       FormHelperTextProps={{ style: { fontSize: 12} }}
@@ -107,7 +218,7 @@ const Signup = () => {
                   </div>
                 </div>
                 <ThemeProvider theme={Theme}>
-                  <Button type="submit" disabled={loading} variant="contained" color='black' fullWidth={true}>
+                  <Button type="submit" disabled={disable} variant="contained" color='black' fullWidth={true}>
                     Sign up
                   </Button>
                 </ThemeProvider>
@@ -117,9 +228,8 @@ const Signup = () => {
                     <span className="text-indigo-600 underline">Log in</span> 
                   </NavLink>
                 </div>
-              </div>
-            </form>
-          </div>
+            </div>           
+          </form>    
         </div>
       </section>
       <div className="max-h-screen max-w-full relative -z-20">

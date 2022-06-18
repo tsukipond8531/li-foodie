@@ -1,14 +1,12 @@
-import React, { useState, useRef} from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { doc, updateDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
 import { db, storage } from '../Firebase'
 import { TextField, Alert, IconButton, Tooltip, createTheme, ThemeProvider, Button} from "@mui/material";
-import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import { PreviewProfileImg } from "../components/_COMPONENT"
-import { useAuth } from "../Context/AuthContext";
-import { useHaveProfile } from "../Context/HaveProfileContext";
-import { FormatListNumberedRtlTwoTone } from "@mui/icons-material";
+import { FormatListNumberedRtlTwoTone, AddAPhoto } from "@mui/icons-material";
+import { useData } from "../Context/DataContext";
 
 //hl6    custom mui........
 const Theme = createTheme({
@@ -23,28 +21,34 @@ const Theme = createTheme({
 
 const UpdateProfile = () => {
 
-    const navigate = useNavigate()
-    const state = useLocation().state; 
-    const prevData = state.from;
-
-    const [name, setName] = useState(prevData[0]);
-    const [phno, setPhno] = useState(prevData[1]);
-    const [address, setAddress] = useState(prevData[2])
+    const navigate = useNavigate();
+    const state = useLocation().state;
+    const temp = localStorage.getItem('userData');
+    const userData = JSON.parse(temp); 
+   
+    useEffect(() => {
+        if(!state) {
+            navigate('/profile')
+        }
+    },[])    
+    
+    const [name, setName] = useState(userData.displayName);
+    const [phno, setPhno] = useState(userData.phoneNumber);
+    const [address, setAddress] = useState(userData.address)
     const imgRef = useRef(null);
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
-    const { currentUser } = useAuth();
-    const { profileData } = useHaveProfile();
+   
     const [img, setImg] = useState(null)
 
     let data = {
-        uid: currentUser.uid,
-        name: name,
-        phone_Number: phno,
+        uid: userData.uid,
+        displayName: name,
+        phoneNumber: phno,
         address: address,
-        email: currentUser.email,
-        photo_Url:profileData.photo_Url,
-        photo_Name:profileData.photo_Name
+        email: userData.email,
+        photoUrl: userData.photoUrl,
+        photoName: userData.photoName
     }
 
     function handelSubmit(e) {
@@ -63,8 +67,8 @@ const UpdateProfile = () => {
             setError('')
             setLoading(true)
             
-            const photo_Name =`${data.name}_${img.name}`;
-            const storageRef = ref(storage, photo_Name);
+            const photoName =`${data.name}_${img.name}`;
+            const storageRef = ref(storage, photoName);
             const uploadTask = uploadBytesResumable(storageRef, img);
             uploadTask.on('state_changed', 
                 (snapshot) => {
@@ -85,9 +89,9 @@ const UpdateProfile = () => {
                 }, 
                 () => {
                     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                        const photo_Url = downloadURL;
-                        data.photo_Url = photo_Url;
-                        data.photo_Name = photo_Name
+                        const photoUrl = downloadURL;
+                        data.photoUrl = photoUrl;
+                        data.photoName = photoName
                         uploadUser(data)
                     })
                 }
@@ -97,7 +101,7 @@ const UpdateProfile = () => {
                 try {
                     await updateDoc(docRef, {
                         ...args
-                    }).then(navigate('/home'))
+                    }).then(navigate('/restaurant',{state:{from: []}}))
                 } catch(err) {
                     setError(err)
                     setLoading(false)
@@ -119,12 +123,15 @@ const UpdateProfile = () => {
 
             await updateDoc(docRef, {
                 ...data
-            }).then(navigate('/home'))
+            }).then(navigate('/restaurant',{state:{from: []}}))
         } catch(err) {
             setError(err)
             setLoading(FormatListNumberedRtlTwoTone)
         }
     }
+
+    const { getItems } = useData();
+    const items = getItems();
     
   return (
     <>
@@ -140,22 +147,18 @@ const UpdateProfile = () => {
                     <div className="mt-2">
                         {error && <Alert severity="error" variant="outlined">{error}</Alert>}
                     </div> 
-                    <p className="mt-4 text-center text-sm md:text-base"><span className='text-black font-bold'>Your email:</span><span>{currentUser.email}</span></p> 
+                    <p className="mt-4 text-center text-sm md:text-base"><span className='text-black font-bold'>Your email:</span><span>{userData.email}</span></p> 
                     <div className="w-full flex justify-between mt-4">
                         <div className="rounded-3xl overflow-hidden flex justify-center items-center">
                            {img && <PreviewProfileImg file={img}/>}
-                           {!img && <img className="h-28 w-28" src={prevData[3]}/>}                        
+                           {!img && <img className="h-28 w-28" src={userData.photoUrl}/>}                        
                         </div>
-                        <div className="flex items-center flex-col">
-                            <p className="mt-2 text-center text-sm md:text-base">
-                                <span className='text-black font-bold'>Email status:</span>
-                                <span>{(currentUser.emailVerified)?' Verified':' Unverified'}</span>
-                            </p> 
+                        <div className="mx-auto my-auto">
                             <input hidden type="file" ref={imgRef} accept="image/*" name="image-upload" id="input" onChange={(e) => {setImg(e.target.files[0])}} disabled={loading}/> 
                             <ThemeProvider theme={Theme}>
                                 <IconButton color="black" aria-label="upload profile picture" onClick={() => {imgRef.current.click()}}>
                                     <Tooltip title="Upload profile picture 📷">
-                                        <AddAPhotoIcon fontSize="large"/>
+                                        <AddAPhoto fontSize="large"/>
                                     </Tooltip>
                                 </IconButton>
                             </ThemeProvider>
@@ -202,7 +205,7 @@ const UpdateProfile = () => {
                         </ThemeProvider>
                     </div>
                     <div className="w-full mt-2 text-center">
-                        <NavLink to="/home"
+                        <NavLink to="/restaurant" state={{ from : items}}
                             className="text-base text-gray-500 mt-3 cursor-pointer">Done for now? 
                             <span className="text-indigo-500"> Home</span> 
                         </NavLink>

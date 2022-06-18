@@ -1,11 +1,34 @@
-import React,{useState} from 'react'
+import React,{useState } from 'react'
 import { NavLink, useNavigate, Link } from 'react-router-dom';
 import { MenuOpen, AccountCircleSharp, NoAccountsSharp, Logout, AssignmentInd, Update } from '@mui/icons-material';
 import { Menu, MenuItem, Button, Tooltip, Badge, styled, createTheme, ThemeProvider} from '@mui/material';
 import "../../css/navbar.css";
 import { useAuth } from "../Context/AuthContext";
+import { useData } from '../Context/DataContext';
 import { SocialMedia } from '../components/_COMPONENT';
 
+//hl5   mui styling component ............
+const StyledBadge = styled(Badge)(() => ({
+    '& .MuiBadge-badge': {
+      right: 3,
+      top: 8,
+      border: `2px solid #1f2937`,
+      borderRadius: "10px",
+      padding: '4.5px',
+    },
+  }));
+const Theme = createTheme({
+  palette: {
+    blue: {
+        main: '#18ffff',
+        contrastText: '#fff'
+    },
+    green: {
+        main: '#00e676',
+        contrastText: '#fff'
+    },
+  }
+})  
 
 const Navbar = () =>{
     const [showMediaIcons, setShowMediaIcons] = useState(false);
@@ -28,32 +51,14 @@ const Navbar = () =>{
         try {
             await logout()
             navigate('/')
+            localStorage.clear();
         } catch {
             alert('Failed to Log out')
         }
     }
-    //hl5   mui styling component ............
-    const StyledBadge = styled(Badge)(() => ({
-        '& .MuiBadge-badge': {
-          right: 3,
-          top: 8,
-          border: `2px solid #1f2937`,
-          borderRadius: "10px",
-          padding: '4.5px',
-        },
-      }));
-    const Theme = createTheme({
-      palette: {
-        blue: {
-            main: '#18ffff',
-            contrastText: '#fff'
-        },
-        green: {
-            main: '#00e676',
-            contrastText: '#fff'
-        },
-      }
-    })  
+
+    const { getItems } = useData();
+    const items = getItems();
 
     return(
         <React.Fragment>
@@ -72,7 +77,7 @@ const Navbar = () =>{
                 <section className="col-span-1 xl:col-span-1 lg:col-span-2 md-col-span-1 sm:col-span-1">
                     <ul className="capitalize h-full w-full py-4 lg:px-0 sm:px-24 px-16 flex justify-around items-start lg:flex-row sm:flex-col flex-col">
                         <li>
-                            <NavLink className={navStyle} activeclassname="active" to='/home' onClick={()=> setShowMediaIcons(!showMediaIcons)}>Home</NavLink>
+                            <NavLink className={navStyle} activeclassname="active" to='/restaurant' state={{from: items}} onClick={()=> setShowMediaIcons(!showMediaIcons)}>Home</NavLink>
                         </li>
                         <li>
                             <NavLink className={navStyle} exact='true' activeclassname="active" to='/about' onClick={()=> setShowMediaIcons(!showMediaIcons)}>About</NavLink>
@@ -109,9 +114,11 @@ const Navbar = () =>{
                             </Button>  
                         </Tooltip>
                         <Menu id="fade-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)}  onClose={handleClose}  MenuListProps={{'aria-labelledby': 'fade-button',}} >
-                            <MenuItem onClick={handleClose}>
+                            <MenuItem onClick={handleClose}>                         
                                 <Link className="text-blue-700" exact='true' to='/profile'>
-                                    <Button onClick={handleClose} startIcon={<AssignmentInd/>}>My profile</Button>
+                                    <Button startIcon={<AssignmentInd/>}>
+                                        My profile
+                                    </Button>
                                 </Link>
                             </MenuItem>
                             <MenuItem onClick={handleClose}>

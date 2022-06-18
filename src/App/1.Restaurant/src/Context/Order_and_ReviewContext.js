@@ -1,4 +1,4 @@
-import React,{ useContext, useState, useEffect } from 'react'
+import React,{ useContext, useState } from 'react'
 import { doc, setDoc, collection ,serverTimestamp, orderBy, query, onSnapshot} from "firebase/firestore";
 import { db } from '../Firebase';
 import { useAuth } from './AuthContext';
@@ -62,10 +62,6 @@ export function Order_ReviewProvider({children}) {
             timeStamp: serverTimestamp()
         });
     }
-
-    // useEffect(() => {
-    //     currentUser && getPrevActivity(currentUser.uid)
-    // },[currentUser])
 
     
     const value = {

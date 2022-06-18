@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
+import { Add, Remove } from '@mui/icons-material';
 import { Button, createTheme, ThemeProvider } from '@mui/material';
 
 //hl4    custom mui........
@@ -21,21 +20,15 @@ const OrderCard = (props) => {
 
     const [amt, setAmt] = useState(props.quantity);
 
-    const fnc_add = (arg) => {
-        props.add(parseInt(arg),props.id);
-    }
-    const fnc_reduce = (arg) => {
-        props.reduce(parseInt(arg),props.id)
-    }
     const prise = parseInt(props.rate - (props.rate*(props.offer/100)));
     const inc = () => { 
         setAmt(amt+1); 
-        fnc_add(prise);
+        props.change(parseInt(prise), props.id, 'add')
     }
     const dec = () => { 
         if(amt >= 2){
             setAmt(amt-1);
-            fnc_reduce(prise);
+            props.change(parseInt(prise), props.id, 'remove')
         }
         else{
             setAmt(1);
@@ -61,13 +54,13 @@ const OrderCard = (props) => {
                     <div className='h-auto rounded-full overflow-hidden'>
                         <ThemeProvider theme={Theme}>
                             <Button variant='contained' color='green' onClick={inc} >
-                                <AddIcon/>
+                                <Add/>
                             </Button>
                         </ThemeProvider>
                         <h1 className='txt3 border-x-2 border-gray-900 text-xl text-center animate-pulse'>{"X"+amt}</h1>
                         <ThemeProvider theme={Theme}>
                             <Button variant='contained' color='red' onClick={dec} disabled={(amt == 1)? true : false}>
-                                <RemoveIcon/>
+                                <Remove/>
                             </Button>
                         </ThemeProvider>
                     </div>

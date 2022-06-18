@@ -14,20 +14,21 @@ export function LandingComponent1() {
                     happiness with every bite
                 </h1>
                 <div className='mt-8 ml-4 flex flex-col w-fit h-auto'>                  
-                    <Link to='/home' exact='true' className='m-2'>
+                    <Link to='/restaurant' state={{from: []}} exact='true' className='m-2'>
                         <button className='min-w-full text-center py-2 border-b border-black rounded-sm shadow-xl shadow-black txt7 capitalize font-bold text-xl text-black bg-gradient-to-r from-amber-400 via-orange-400 to-rose-500 hover:bg-gradient-to-l' >
-                            <ReactTypingEffect
-                                text={['get started...','sign in !','sign up !']}
-                                speed={200} typingDelay={1000} eraseSpeed={100} eraseDelay={1000}
-                            />
+                           <span>Order Now !</span>
                         </button>   
                     </Link>
                    
                     <Tilt tiltReverse={true}>
-                        <h1 className='mx-2 my-4 px-4 py-2 w-fit rounded-sm shadow-xl shadow-black txt7 capitalize font-bold text-xl text-neutral-900' style={{background: 'linear-gradient(90deg, #833ab4,#fd1d1d,#fcb045'}}>
-                            <ArrowDownwardRoundedIcon className='mx-2 animate-bounce'/>
-                            <span>learn more</span>
-                        </h1> 
+                        <div className='mx-2 my-4 px-4 py-2 w-40 text-center rounded-sm shadow-xl shadow-black txt7 capitalize font-bold text-xl text-neutral-900' style={{background: 'linear-gradient(90deg, #833ab4,#fd1d1d,#fcb045'}}>
+                            <Link to='/login' >
+                                <ReactTypingEffect
+                                        text={['Get Started...','sign in !','sign up !']}
+                                        speed={200} typingDelay={1000} eraseSpeed={100} eraseDelay={1000}
+                                    />
+                            </Link> 
+                        </div>
                     </Tilt>
                 </div>
                 <div className='mt-10 ml-4'>

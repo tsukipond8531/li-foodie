@@ -1,7 +1,8 @@
 import React, { useState , useEffect} from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button, Tooltip, createTheme, ThemeProvider} from '@mui/material';
 import { RemoveShoppingCart, AddShoppingCart } from '@mui/icons-material';
+import { useData } from '../Context/DataContext';
 
 //hl4    custom mui........
 const Theme = createTheme({
@@ -19,10 +20,8 @@ const Theme = createTheme({
 
 const OrderTotal = (props) => {
 
-    const state = useLocation().state;
-    var order = [];
-    order = state.from;
-
+    const { clearItem } = useData();
+    
     const amount = props.amount;
     const [gst, setGst] = useState(amount*0.05);
     const [total, setTotal] = useState(amount + gst);
@@ -47,16 +46,16 @@ const OrderTotal = (props) => {
             <h1>cgst 2.5% : <span className='txt5'>₹{parseFloat(gst/2).toFixed(2)}</span></h1>
             <h1>Service Charge :<span className='txt5'>{`₹0`}</span></h1>
             <div className='absolute top-0 right-0 flex flex-col'>
-                <Link to='/cart' state={{from: []}} className='m-1'>
+                <Link to='/restaurant' className='m-1'>
                     <ThemeProvider theme={Theme}>
                         <Tooltip title='Clear Cart' placement='right-start'>
-                            <Button variant='contained' color='red'>
+                            <Button variant='contained' color='red' onClick={() => {clearItem()}}>
                                 <RemoveShoppingCart/>
                             </Button>
                         </Tooltip>
-                    </ThemeProvider>
-                </Link>
-                <Link to='/restaurant' state={{from: order}} className='m-1'> 
+                    </ThemeProvider>  
+                </Link>            
+                <Link to='/restaurant' className='m-1'> 
                     <ThemeProvider theme={Theme}>
                         <Tooltip title='shop more' placement='right-start'>
                             <Button variant='contained' color='blue'>

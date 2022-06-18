@@ -1,18 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { useHaveProfile } from '../Context/HaveProfileContext';
+import { useAuth } from '../Context/AuthContext';
 
 const Home_Wlc_msg = () => {
 
-    const { profileData } = useHaveProfile()
-   
+    const {userData} = useAuth()
     return (
         <>
-            {profileData && <div className='w-full h-auto flex flex-col'>
-                <p className='txt7'>Hello <b className='capitalize text-indigo-800'>{profileData.name}</b>, nice to see you again. We are glad to inform you that we have some special discount menu for you, dont forget to check this out.👨‍🍳</p><br/>
+            {userData && <div className='w-full h-auto flex flex-col'>
+                <p className='txt7'>Hello <b className='capitalize text-indigo-800'>{userData.name}</b>, nice to see you again. We are glad to inform you that we have some special discount menu for you, dont forget to check this out.👨‍🍳</p><br/>
                 <p className='txt7'>Once again welcome to <b>LiFoodie</b></p><br/>
-                <p className='txt7'><b>Shipping Address: </b><span className='text-blue-800 font-semibold'>{profileData.address}</span></p>
-                <p className='txt7'><b>Contact Number: </b><span className='text-blue-800 font-semibold'>{profileData.phone_Number}</span></p>
+                <p className='txt7'><b>Shipping Address: </b><span className='text-blue-800 font-semibold'>{userData.address}</span></p>
+                <p className='txt7'><b>Contact Number: </b><span className='text-blue-800 font-semibold'>{userData.phone_Number}</span></p>
             </div>}
             <div className="my-4 w-full flex justify-center">
                 <Link to='/restaurant' state={{from : []}}

@@ -2,11 +2,10 @@
 
 
 import { AuthProvider } from './src/Context/AuthContext';
-import { HaveProfileProvider } from './src/Context/HaveProfileContext';
+import { DataProvider } from './src/Context/DataContext';
 import { Order_ReviewProvider } from './src/Context/Order_and_ReviewContext';
 import Auth_Route from './src/routes/Auth_PrivateRoute';
-import Profile_Route from './src/routes/Profile_PrivateRoute';
-import {About, Activity, Branches, Contact, CreateProfile, ForgotPassword, Home, Login, Navbar, Cart, Profile, Restaurant, Signup, Payment, FinalizeOrder, Landing ,Error404, UpdateProfile} from './src/core/_CORE'
-import { Bubbles, BubbleDot } from './src/components/_COMPONENT';
+import {About, Activity, Branches, Contact, ForgotPassword, Login, Navbar, Cart, Profile, Restaurant, Signup, Payment, Checkout, Landing ,Error404, UpdateProfile} from './src/core/_CORE'
+import { Bubbles } from './src/components/_COMPONENT';
 
-export {AuthProvider,HaveProfileProvider,Order_ReviewProvider, Auth_Route, Profile_Route, Home, About, Contact, Branches, Signup, Profile, Navbar, Cart, Activity, Restaurant, Login, ForgotPassword, CreateProfile, Payment, FinalizeOrder, Bubbles, Landing, Error404, UpdateProfile, BubbleDot}
+export {AuthProvider, DataProvider,Order_ReviewProvider, Auth_Route, About, Contact, Branches, Signup, Profile, Navbar, Cart, Activity, Restaurant, Login, ForgotPassword, Payment, Checkout, Bubbles, Landing, Error404, UpdateProfile }

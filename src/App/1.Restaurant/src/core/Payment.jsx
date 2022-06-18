@@ -1,10 +1,10 @@
-import React, { useState, forwardRef , useRef} from 'react'
+import React, { useState, forwardRef , useRef, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Button, Tooltip ,TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Slide, Alert} from '@mui/material';
 import { Facebook, GitHub, Email, Phone, LinkedIn, QuestionMark, DynamicFeed, WhatsappOutlined } from '@mui/icons-material';
 import { Svg8 } from '../svg/svg';
 import { useOrder_Review } from '../Context/Order_and_ReviewContext';
-import { useHaveProfile } from '../Context/HaveProfileContext';
+
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
@@ -14,6 +14,11 @@ export function Payment() {
   
   const state = useLocation().state;
   const navigate = useNavigate()
+  useEffect(() => {
+      if(!state) {
+          navigate('/restaurant', {state:{from: []}})
+      }
+  },[])
   const amount = state.val
   if(amount < 1) {
     navigate('/restaurant')
@@ -31,8 +36,9 @@ export function Payment() {
   //hl5 post review  ..................   
   const reviewRef = useRef()
   const { postReview } = useOrder_Review()
-  const { profileData }= useHaveProfile()
   const [error, setError] = useState()
+  const temp = localStorage.getItem('userData');
+  const userData = JSON.parse(temp); 
   async function sendReview(e) {
     e.preventDefault();
     setError('')
@@ -40,7 +46,7 @@ export function Payment() {
     try {
       const exclusive = 'review';
       const review = reviewRef.current.value;
-      const uid = profileData.uid;
+      const uid = userData.uid;
       const data = {exclusive, review}
       await postReview(data,uid,token)
       navigate('/')

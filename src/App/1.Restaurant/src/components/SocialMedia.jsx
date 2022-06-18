@@ -8,7 +8,7 @@ const SocialMedia = () =>{
     return(
         <ul className='h-full w-full py-4 flex justify-center items-center'>
             <li className='mx-4 cursor-pointer'>
-                <a href='#' target='_blank' rel="noreferrer">
+                <a href='#' target='' rel="noreferrer">
                     <Tooltip  title="instagram" placement="bottom">
                         <Instagram className='instagram text-2xl'/> 
                     </Tooltip>

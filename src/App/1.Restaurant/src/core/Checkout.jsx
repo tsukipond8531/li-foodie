@@ -3,10 +3,12 @@ import { useNavigate, useLocation} from 'react-router-dom';
 import { Food } from '../../API/FoodDB';
 import { Svg8 } from '../svg/svg';
 import { useOrder_Review } from '../Context/Order_and_ReviewContext';
-import { useHaveProfile } from '../Context/HaveProfileContext';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, tableCellClasses, styled, Slider , Button, createTheme, ThemeProvider, Alert, Dialog, DialogActions, DialogContent, DialogTitle, Slide, TextField} from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import { Blob } from '../components/_COMPONENT'
+import { useData } from '../Context/DataContext';
+
+
 
 const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -24,17 +26,24 @@ const Theme = createTheme({
     }
 })  
 
-export function FinalizeOrder() {
+export function Checkout() {
 
     const state = useLocation().state;
     const navigate = useNavigate()
+    // useEffect(() => {
+    //     if(!state) {
+    //         navigate('/restaurant')
+    //     }
+    // },[])
+   
+    //hl6       items and other payment details     
     var data = [];
     data = state.from;
-    if(data.length < 1) {
-        navigate('/home')
-    }
-    //hl6       items and other payment details     
-    const item = data[0]
+    //console.log(data)
+    // if(data.length < 1) {
+    //     navigate('/restaurant')
+    // }
+    const item = data[0];
     const payment_data = data[1]
     const gst = payment_data[0];
     const total = payment_data[1]
@@ -97,12 +106,14 @@ export function FinalizeOrder() {
     },[tip]);
     //hl7 if user changes shipping address stuff    
     const {placeOrder} = useOrder_Review();
-    const { profileData }= useHaveProfile()
+    const temp = localStorage.getItem('userData')
+    const userData = JSON.parse(temp)
     const [error, setError] = useState()
-    const [userPhNo, setUserPhNo] = useState(profileData.phone_Number);
-    const [shippingAddress, setShippingAddress] = useState(profileData.address);
+    const [userPhNo, setUserPhNo] = useState(userData.phoneNumber);
+    const [shippingAddress, setShippingAddress] = useState(userData.address);
 
     //hl1     place order ...........
+    const { clearItem } = useData();
     async function putOrder(e) {
         e.preventDefault()
         setError('')
@@ -111,9 +122,9 @@ export function FinalizeOrder() {
             const exclusive = 'order'; 
             const status = 'ok';
             const totalAmount = Math.round(grandTotal);
-            const uid = profileData.uid;
-            const userEmail = profileData.email;
-            const userName = profileData.name;
+            const uid = userData.uid;
+            const userEmail = userData.email;
+            const userName = userData.displayName;
             const orderItems = list2
             const data = {status,userName,userEmail,userPhNo,totalAmount,shippingAddress,orderItems,exclusive}
             await placeOrder(data,uid,token)
@@ -121,6 +132,8 @@ export function FinalizeOrder() {
         } catch(err) {
             setError(err)
             console.log(err)
+        } finally {
+            clearItem();
         }
           
     }
