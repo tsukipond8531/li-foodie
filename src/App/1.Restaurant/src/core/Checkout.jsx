@@ -30,21 +30,14 @@ export function Checkout() {
 
     const state = useLocation().state;
     const navigate = useNavigate()
-    // useEffect(() => {
-    //     if(!state) {
-    //         navigate('/restaurant')
-    //     }
-    // },[])
+    
    
     //hl6       items and other payment details     
     var data = [];
     data = state.from;
-    //console.log(data)
-    // if(data.length < 1) {
-    //     navigate('/restaurant')
-    // }
-    const item = data[0];
-    const payment_data = data[1]
+    const { clearItem, getItems } = useData();
+    const item = getItems();
+    const payment_data = data[0]
     const gst = payment_data[0];
     const total = payment_data[1]
     const [tip, setTip] = useState(10)
@@ -113,7 +106,7 @@ export function Checkout() {
     const [shippingAddress, setShippingAddress] = useState(userData.address);
 
     //hl1     place order ...........
-    const { clearItem } = useData();
+    
     async function putOrder(e) {
         e.preventDefault()
         setError('')
@@ -236,7 +229,7 @@ export function Checkout() {
                             <p className='text-xs mt-1 ml-2 w-56 h-auto txt1'>*please check the order details carefully before payment</p>
                             <div className='px-6 md:px-2 mt-4'>
                                 <TextField value={userPhNo} onChange={(e) => {setUserPhNo(e.target.value)}} 
-                                    color='primary' variant='standard'
+                                    color='secondary' variant='standard'
                                     helperText="Please enter your phone number"
                                     label="Phone Number" type="text" required
                                     InputProps={{ style: { fontSize: 15, fontWeight: 600 } }}

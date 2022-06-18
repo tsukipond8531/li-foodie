@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React,{ useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -19,12 +19,9 @@ export const Cart = () => {
     const order_quantity_pair = {};
     for (const element of order) 
     {
-        if (order_quantity_pair[element]) 
-        {
+        if (order_quantity_pair[element]) {
             order_quantity_pair[element] += 1;
-        } 
-        else 
-        {
+        } else {
             order_quantity_pair[element] = 1;
         }
     }
@@ -84,6 +81,10 @@ export const Cart = () => {
         setData(temp);
     }
 
+    useEffect(() => {
+        localStorage.setItem('item-list', JSON.stringify(data))
+    },[data])
+
    
     const [finalPay, setFinalPay] = useState([]);
     const pay = (arg) => {
@@ -141,9 +142,6 @@ export const Cart = () => {
                         <OrderTotal amount = {final} getTotal={pay}/>
                         <div className='mt-2'>
                             <UpdateCart 
-                                initial={order}
-                                added={chkAdd}
-                                removed={chkRemove}
                                 finalPay={finalPay}
                                 data = { data }
                             />
