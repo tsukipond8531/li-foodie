@@ -30,28 +30,32 @@ export function Checkout() {
 
     const state = useLocation().state;
     const navigate = useNavigate()
+    const [data, setData] = useState([[],[0,0]])
+    const [show, setShow] = useState(false);
+
+    useEffect(() => {
+        if(!state) {
+            navigate('/restaurant')
+        } else {
+            setShow(true)
+            setData(state.from)
+        }
+    },[])
     
    
     //hl6       items and other payment details     
-    var data = [];
-    data = state.from;
-    const { clearItem, getItems } = useData();
-    const item = getItems();
-    const payment_data = data[0]
+    const item = data[0];
+    const payment_data = data[1];
     const gst = payment_data[0];
     const total = payment_data[1]
     const [tip, setTip] = useState(10)
     const [grandTotal, setGrandTotal] = useState(total + gst + tip); 
     //hl7   get items info ......
     const item_quantity_pair = {};
-    for (const elm of item) 
-    {
-        if (item_quantity_pair[elm]) 
-        {
+    for (const elm of item) {
+        if (item_quantity_pair[elm]) {
             item_quantity_pair[elm] += 1;
-        } 
-        else 
-        {
+        } else {
             item_quantity_pair[elm] = 1;
         }
     }
@@ -68,10 +72,8 @@ export function Checkout() {
     {
         const elm = names[i];
         menu.map(fnc)
-        function fnc(a)
-        {
-            if(elm == a.id)
-            {
+        function fnc(a) {
+            if(elm == a.id) {
                 const name = a.name;
                 const rate = a.rate;
                 const offer = a.offer;
@@ -80,7 +82,6 @@ export function Checkout() {
                 let cost = 0;
                 if(offer > 0){
                     cost = parseInt((rate - (rate*(offer/100)))*quantity);
-                    
                 } else {
                     cost = parseInt(rate*quantity);
                 }
@@ -106,7 +107,7 @@ export function Checkout() {
     const [shippingAddress, setShippingAddress] = useState(userData.address);
 
     //hl1     place order ...........
-    
+    const { clearItem } = useData();
     async function putOrder(e) {
         e.preventDefault()
         setError('')
@@ -163,7 +164,7 @@ export function Checkout() {
   
     return (
         <>
-            <section className='relative w-full min-h-screen flex justify-center sm:px-4 px-2'>
+            {show && <section className='relative w-full min-h-screen flex justify-center sm:px-4 px-2'>
                 <div className='sm:mt-36 mt-24 flex-1 h-full max-w-4xl mx-auto shadow-2xl bg-gradient-to-br from-pink-300 via-cyan-300 to-green-400 shadow-zinc-900 rounded-2xl overflow-hidden py-2 '>
                     <div className="flex w-full h-auto justify-center text-2xl mt-2">
                         <h1 className='txt1 text-bold'>Order Summary</h1>
@@ -279,7 +280,7 @@ export function Checkout() {
                         <Button onClick={handleClose}>ok</Button>
                     </DialogActions>
                 </Dialog>
-            </section>
+            </section>}
         </>
     )
 }

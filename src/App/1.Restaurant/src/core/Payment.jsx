@@ -14,15 +14,18 @@ export function Payment() {
   
   const state = useLocation().state;
   const navigate = useNavigate()
+  const [amount, setAmount] = useState('')
+  const [show, setShow] = useState(false);
   useEffect(() => {
       if(!state) {
-          navigate('/restaurant', {state:{from: []}})
+        navigate('/restaurant')
+      }
+      else {
+        setShow(true);
+        setAmount(state.val);
       }
   },[])
-  const amount = state.val
-  if(amount < 1) {
-    navigate('/restaurant')
-  }
+  
   //hl6 mui component ..................
   const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
@@ -57,7 +60,8 @@ export function Payment() {
   }
 
     return (
-      <section className='w-full h-auto flex justify-center sm:px-4 px-2'>
+     <>
+       {show && <section className='w-full h-auto flex justify-center sm:px-4 px-2'>
         <div className='sm:mt-36 mt-24 flex-1 h-full max-w-4xl mx-auto bg-gradient-to-b from-slate-200 via-teal-300 to-amber-300 shadow-2xl shadow-zinc-900 rounded-2xl overflow-hidden py-2 '>
             {error && <Alert severity="error" variant="outlined">{error}</Alert>}
             <div className="flex w-full h-auto mt-2 flex-col p-4">
@@ -154,6 +158,7 @@ export function Payment() {
         <div className="fixed bottom-0 right-0 -z-10 opacity-30">
           <Svg8/>
         </div>
-      </section>
+      </section>}
+     </>
     )
 }
