@@ -5,7 +5,6 @@ import {IconButton,TextField,Alert, createTheme, ThemeProvider, Button} from "@m
 import GoogleButton from 'react-google-button'
 import { RandomImg, Blob } from "../components/_COMPONENT";
 import { useAuth } from "../Context/AuthContext";
-import { useData } from '../Context/DataContext';
 
 //hl4    custom mui........
 const Theme = createTheme({
@@ -23,8 +22,6 @@ const Login = () => {
   const emailRef = useRef() 
   const passRef = useRef() 
   const { login } = useAuth()
-  const { getItems } = useData();
-  const items = getItems();
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
@@ -51,7 +48,7 @@ const Login = () => {
   return (
     <>
       <section className="flex justify-center h-auto p-4">
-        <div className="mt-40 flex-1 h-full max-w-4xl mx-auto bg-gradient-to-b from-slate-300 via-gray-200 to-zinc-400 shadow-2xl shadow-slate-900 rounded-2xl overflow-hidden">
+        <div className="mt-32 flex-1 h-full max-w-4xl mx-auto bg-gradient-to-b from-slate-300 via-gray-200 to-zinc-400 shadow-2xl shadow-slate-900 rounded-2xl overflow-hidden">
           <div className="flex flex-col md:flex-row">
             <div className="h-40 md:h-auto md:w-1/2">
               <RandomImg/>

@@ -16,5 +16,6 @@ import { Checkout } from './Checkout'
 import { Landing } from './Landing'
 import { Error404 } from './Error404'
 import { UpdateProfile } from './UpdateProfile'
+import { SubMenu } from './SubMenu'
 
-export {About, Activity, Branches, Contact, ForgotPassword, Login, Navbar, Cart, Profile, Restaurant, Signup,Payment, Checkout, Landing, Error404, UpdateProfile}
+export {About, Activity, Branches, Contact, ForgotPassword, Login, Navbar, Cart, Profile, Restaurant, Signup,Payment, Checkout, Landing, Error404, UpdateProfile, SubMenu }

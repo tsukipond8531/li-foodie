@@ -32,7 +32,7 @@ const Restaurant = () =>{
 // -----------------------------------//
     const filterItem1 = (type) =>{
         const updatedList = Food.filter((currElm) => {
-        return currElm.type === type;
+            return currElm.type === type;
         })
         setFood(updatedList);
         toggleShowMenu(!showMenu);
@@ -61,7 +61,7 @@ const Restaurant = () =>{
         const updatedList = Food.filter((currElm) => {
             return currElm.category === type;
         })
-        setFood(updatedList.sort());
+        setFood(updatedList);
         toggleShowMenu(!showMenu);
         wlc_food();
     }

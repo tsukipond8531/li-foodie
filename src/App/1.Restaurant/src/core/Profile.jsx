@@ -1,14 +1,9 @@
-import React, { useState } from 'react';
-import {Link, useNavigate} from 'react-router-dom'
-
-import { Alert } from "@mui/material";
+import React from 'react';
+import { Link } from 'react-router-dom'
 import { Blob } from '../components/_COMPONENT'
 
 const Profile = () => {
 
-    const navigate = useNavigate();
-    const [error, setError] = useState('');
-    
     const temp = localStorage.getItem('userData');
     const userData = JSON.parse(temp);
 
@@ -16,9 +11,6 @@ const Profile = () => {
     <>
         <section className="min-h-screen w-full flex flex-col p-4">
             <div className='mx-auto mt-32 max-w-4xl p-6 md:p-12 bg-gradient-to-b from-yellow-300 via-amber-300 to-orange-400 shadow-2xl shadow-slate-900 rounded-xl'>
-                <div className="mt-4">
-                    {error && <Alert severity="error" variant="outlined">{error}</Alert>}
-                </div> 
                 <h1 className='text-center text-3xl txt2 font-bold'>Your Profile</h1>
                 <div className='flex justify-start mt-4 flex-col md:flex-row'>
                     <img src={userData.photoUrl} className='w-32 j-32 rounded-xl mt-4 mx-auto md:mx-4'></img>
@@ -35,7 +27,7 @@ const Profile = () => {
                     {` ${userData.time}`}</span></h1>
                 </div>
                 <div className='mt-8 text-center'>
-                    <Link exact='true' to='/update-profile' state={{from: [userData.uid]}} className='txt1 font-bold text-gray-800 hover:underline'>
+                    <Link exact='true' to='/update-profile' state={{from: [userData]}} className='txt1 font-bold text-gray-800 hover:underline'>
                         Update your profile
                         <span className='ml-2 text-blue-500 underline'>Update Profile</span>
                     </Link>

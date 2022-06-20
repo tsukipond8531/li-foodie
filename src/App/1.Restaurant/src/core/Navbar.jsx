@@ -46,19 +46,19 @@ const Navbar = () =>{
     const { logout, currentUser } = useAuth();
 
     const navigate = useNavigate();
+    const { getItems, clearItem } = useData();
+    const items = getItems();
 
     async function handleLogOut () {
         try {
             await logout()
             navigate('/')
-            localStorage.clear();
+            clearItem()
         } catch {
             alert('Failed to Log out')
         }
     }
 
-    const { getItems } = useData();
-    const items = getItems();
 
     return(
         <React.Fragment>
@@ -77,7 +77,7 @@ const Navbar = () =>{
                 <section className="col-span-1 xl:col-span-1 lg:col-span-2 md-col-span-1 sm:col-span-1">
                     <ul className="capitalize h-full w-full py-4 lg:px-0 sm:px-24 px-16 flex justify-around items-start lg:flex-row sm:flex-col flex-col">
                         <li>
-                            <NavLink className={navStyle} activeclassname="active" to='/restaurant' state={{from: items}} onClick={()=> setShowMediaIcons(!showMediaIcons)}>Home</NavLink>
+                            <NavLink className={navStyle} activeclassname="active" to='/restaurant' onClick={()=> setShowMediaIcons(!showMediaIcons)}>Home</NavLink>
                         </li>
                         <li>
                             <NavLink className={navStyle} exact='true' activeclassname="active" to='/about' onClick={()=> setShowMediaIcons(!showMediaIcons)}>About</NavLink>
@@ -89,7 +89,7 @@ const Navbar = () =>{
                             <NavLink className={navStyle} exact='true' activeclassname="active" to='/branches' onClick={()=> setShowMediaIcons(!showMediaIcons)}>Branches</NavLink>
                         </li>    
                         {/* HL2 hamburger button */}
-                        <li className='absolute top-0 right-0 pt-2 pr-2 flex ml-4 justify-end items-center xl:hidden cursor-pointer'>
+                        <li className='absolute top-0 right-0 flex justify-end items-center xl:hidden cursor-pointer'>
                             <Button onClick={()=> setShowMediaIcons(!showMediaIcons)} aria-label='show more' aria-describedby='show more'>
                                 <MenuOpen fontSize='large' className={showMediaIcons?"text-green-500 -rotate-90":"text-red-600 text-2xl"}/>
                             </Button>

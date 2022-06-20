@@ -54,7 +54,7 @@ export function Payment() {
       await postReview(data,uid,token)
       navigate('/')
     } catch(err) {
-      setError(err)
+      setError(err.message)
       console.log(err)
     }
   }
@@ -63,7 +63,9 @@ export function Payment() {
      <>
        {show && <section className='w-full h-auto flex justify-center sm:px-4 px-2'>
         <div className='sm:mt-36 mt-24 flex-1 h-full max-w-4xl mx-auto bg-gradient-to-b from-slate-200 via-teal-300 to-amber-300 shadow-2xl shadow-zinc-900 rounded-2xl overflow-hidden py-2 '>
-            {error && <Alert severity="error" variant="outlined">{error}</Alert>}
+            {error &&  <div className= 'm-4'>
+              <Alert severity="error" variant="outlined">{error}</Alert>
+            </div>} 
             <div className="flex w-full h-auto mt-2 flex-col p-4">
               <h1 className='txt2 mx-auto text-indigo-700 font-bold text-2xl'>Payment</h1>
               <p className='mt-4 txt1 text-lg px-2'>

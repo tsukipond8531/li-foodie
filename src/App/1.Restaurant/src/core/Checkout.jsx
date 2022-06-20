@@ -6,9 +6,6 @@ import { useOrder_Review } from '../Context/Order_and_ReviewContext';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, tableCellClasses, styled, Slider , Button, createTheme, ThemeProvider, Alert, Dialog, DialogActions, DialogContent, DialogTitle, Slide, TextField} from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import { Blob } from '../components/_COMPONENT'
-import { useData } from '../Context/DataContext';
-
-
 
 const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -32,7 +29,7 @@ export function Checkout() {
     const navigate = useNavigate()
     const [data, setData] = useState([[],[0,0]])
     const [show, setShow] = useState(false);
-
+    
     useEffect(() => {
         if(!state) {
             navigate('/restaurant')
@@ -42,14 +39,13 @@ export function Checkout() {
         }
     },[])
     
-   
-    //hl6       items and other payment details     
     const item = data[0];
     const payment_data = data[1];
     const gst = payment_data[0];
     const total = payment_data[1]
     const [tip, setTip] = useState(10)
-    const [grandTotal, setGrandTotal] = useState(total + gst + tip); 
+   
+
     //hl7   get items info ......
     const item_quantity_pair = {};
     for (const elm of item) {
@@ -95,9 +91,6 @@ export function Checkout() {
     function adjustTip(value) {
         setTip(value)
     }
-    useEffect(() => {
-        setGrandTotal(total + gst + tip)
-    },[tip]);
     //hl7 if user changes shipping address stuff    
     const {placeOrder} = useOrder_Review();
     const temp = localStorage.getItem('userData')
@@ -107,7 +100,6 @@ export function Checkout() {
     const [shippingAddress, setShippingAddress] = useState(userData.address);
 
     //hl1     place order ...........
-    const { clearItem } = useData();
     async function putOrder(e) {
         e.preventDefault()
         setError('')
@@ -115,19 +107,19 @@ export function Checkout() {
         try{
             const exclusive = 'order'; 
             const status = 'ok';
-            const totalAmount = Math.round(grandTotal);
+            const totalAmount = Math.round((total + gst + tip));
             const uid = userData.uid;
             const userEmail = userData.email;
             const userName = userData.displayName;
             const orderItems = list2
             const data = {status,userName,userEmail,userPhNo,totalAmount,shippingAddress,orderItems,exclusive}
             await placeOrder(data,uid,token)
-            navigate('/payment',{state: {val: grandTotal}})
+            navigate('/payment',{state: {val: totalAmount}})
         } catch(err) {
             setError(err)
             console.log(err)
         } finally {
-            clearItem();
+            localStorage.setItem('item-list', JSON.stringify([]));
         }
           
     }
@@ -217,7 +209,7 @@ export function Checkout() {
                                 <h1 className="ml-2 txt1 text-xl md:text-2xl text-blue-600">
                                     {`Total payable amount :`}
                                     <span className='txt3 mx-2'>
-                                        {"₹"+Math.round(grandTotal)}
+                                        {"₹"+Math.round((total+ gst + tip))}
                                     </span>
                                 </h1> 
                             </div>

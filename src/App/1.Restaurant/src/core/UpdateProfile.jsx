@@ -23,18 +23,23 @@ const UpdateProfile = () => {
 
     const navigate = useNavigate();
     const state = useLocation().state;
-    const temp = localStorage.getItem('userData');
-    const userData = JSON.parse(temp); 
+    const [userData, setUserData] = useState([])
+    const [name, setName] = useState('');
+    const [phno, setPhno] = useState('');
+    const [address, setAddress] = useState('')
    
     useEffect(() => {
         if(!state) {
             navigate('/profile')
+        } else {
+            const temp = state.from;
+            setUserData(temp[0])
+            setName(temp[0].displayName);
+            setPhno(temp[0].phoneNumber);
+            setAddress(temp[0].address);
         }
     },[])    
     
-    const [name, setName] = useState(userData.displayName);
-    const [phno, setPhno] = useState(userData.phoneNumber);
-    const [address, setAddress] = useState(userData.address)
     const imgRef = useRef(null);
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
@@ -147,7 +152,10 @@ const UpdateProfile = () => {
                     <div className="mt-2">
                         {error && <Alert severity="error" variant="outlined">{error}</Alert>}
                     </div> 
-                    <p className="mt-4 text-center text-sm md:text-base"><span className='text-black font-bold'>Your email:</span><span>{userData.email}</span></p> 
+                    <p className="mt-4 text-center text-sm md:text-base">
+                        <span className='text-black font-bold'>Your email:</span>
+                        <span>{userData.email}</span>
+                    </p> 
                     <div className="w-full flex justify-between mt-4">
                         <div className="rounded-3xl overflow-hidden flex justify-center items-center">
                            {img && <PreviewProfileImg file={img}/>}

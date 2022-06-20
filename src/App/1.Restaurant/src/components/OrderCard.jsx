@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Add, Remove } from '@mui/icons-material';
+import { Add, Remove, HighlightOff } from '@mui/icons-material';
 import { Button, createTheme, ThemeProvider } from '@mui/material';
 
 //hl4    custom mui........
@@ -26,13 +26,8 @@ const OrderCard = (props) => {
         props.change(parseInt(prise), props.id, 'add')
     }
     const dec = () => { 
-        if(amt >= 2){
-            setAmt(amt-1);
-            props.change(parseInt(prise), props.id, 'remove')
-        }
-        else{
-            setAmt(1);
-        }
+        setAmt(amt-1);
+        props.change(parseInt(prise), props.id, 'remove')
     }
 
     return(
@@ -59,8 +54,8 @@ const OrderCard = (props) => {
                         </ThemeProvider>
                         <h1 className='txt3 border-x-2 border-gray-900 text-xl text-center animate-pulse'>{"X"+amt}</h1>
                         <ThemeProvider theme={Theme}>
-                            <Button variant='contained' color='red' onClick={dec} disabled={(amt == 1)? true : false}>
-                                <Remove/>
+                            <Button variant='contained' color='red' onClick={dec}>
+                                {(amt == 1) ? <HighlightOff/>: <Remove/>}
                             </Button>
                         </ThemeProvider>
                     </div>

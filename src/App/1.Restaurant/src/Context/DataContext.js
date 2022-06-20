@@ -26,7 +26,6 @@ export function DataProvider ({children}) {
             if(docSnap.exists()) {
                 const data = docSnap.data();
                 localStorage.setItem('userData', JSON.stringify(data))
-                return data;
             } else {
                 return null;
             }
@@ -43,6 +42,7 @@ export function DataProvider ({children}) {
 
     function clearItem () {
         localStorage.setItem('item-list', JSON.stringify([]));
+        localStorage.setItem('userData', JSON.stringify([]));
     }
 
     const value = {

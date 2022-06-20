@@ -47,7 +47,6 @@ export function AuthProvider({children}) {
     function login (email, password) {
         signInWithEmailAndPassword(auth,email, password).then((userCredential) => {
             const uID = userCredential.user.uid;
-           
             setUserId(uID);
         })
     }

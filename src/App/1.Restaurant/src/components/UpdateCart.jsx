@@ -32,8 +32,8 @@ export function UpdateCart(props) {
   },[])
 
   function go() {
-    if(JSON.stringify(temp) == JSON.stringify(item)){
-      const data = [item, props.finalPay]
+    if(show){
+      const data = [temp, props.finalPay]
       navigate('/checkout',{state: {from : data}})
     } else {
        navigate('/restaurant')

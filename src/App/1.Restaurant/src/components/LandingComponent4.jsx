@@ -1,6 +1,7 @@
 import React from 'react'
 import { styled } from '@mui/material/styles';
 import { Typography, Container, ButtonBase, Box } from '@mui/material';
+import { Link } from 'react-router-dom'
 
 const ImageBackdrop = styled('div')(({ theme }) => ({
   position: 'absolute', left: 0, right: 0, top: 0, bottom: 0, background: '#000', opacity: 0.5, transition: theme.transitions.create('opacity'),
@@ -102,14 +103,16 @@ export function LandingComponent4() {
           {images.map((image) => (
             <ImageIconButton
               key={image.title} style={{width: image.width}}>
-              <Box sx={{position: 'absolute',left: 0,right: 0,top: 0,bottom: 0,backgroundSize: 'cover',backgroundPosition:'center 40%',backgroundImage: `url(${image.url})`,}}/>
-              <ImageBackdrop className="imageBackdrop" />
-              <Box sx={{position: 'absolute',left: 0,right: 0,top: 0,bottom: 0,display: 'flex',alignItems: 'center',justifyContent: 'center',color: 'common.white',}}>
-                <Typography component="h3" variant="h6" color="inherit" className="imageTitle">
-                  {image.title}
-                  <div className="imageMarked" />
-                </Typography>
-              </Box>
+              <Link to='/sub-menu' state={{from : image.title}}>
+                <Box sx={{position: 'absolute',left: 0,right: 0,top: 0,bottom: 0,backgroundSize: 'cover',backgroundPosition:'center 40%',backgroundImage: `url(${image.url})`,}}/>
+                <ImageBackdrop className="imageBackdrop" />
+                <Box sx={{position: 'absolute',left: 0,right: 0,top: 0,bottom: 0,display: 'flex',alignItems: 'center',justifyContent: 'center',color: 'common.white',}}>
+                  <Typography component="h3" variant="h6" color="inherit" className="imageTitle">
+                    {image.title}
+                    <div className="imageMarked" />
+                  </Typography>
+                </Box>
+              </Link>
             </ImageIconButton>
           ))}
         </Box>
