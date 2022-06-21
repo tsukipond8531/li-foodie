@@ -10,13 +10,13 @@ const style = {
 const Help = (props) => {
 
     const [name, setName] = useState('guest user')
-    useEffect(() => {
-        const temp = localStorage.getItem('userData');
-        const temp2 = JSON.parse(temp)
-        if(temp2.displayName) {
-            setName(temp2.displayName)
-        }
-    },[])
+    // useEffect(() => {
+    //     const temp = localStorage.getItem('userData');
+    //     const temp2 = JSON.parse(temp)
+    //     if(temp2.displayName) {
+    //         setName(temp2.displayName)
+    //     }
+    // },[])
 
     return (
         <React.Fragment>
@@ -24,7 +24,7 @@ const Help = (props) => {
                 <h1 className="txt7 capitalize text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-rose-500">best food for your test</h1>
                 <h2 className="text-2xl px-4">
                     <span className='text-3xl pt-6 font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400'>
-                        {`Welcome ${name}`}
+                        {`Welcome user`}
                     </span>
                     <span className='ml-1'>🙋‍♂️</span>
                 </h2>

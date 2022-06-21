@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { Button, Tooltip ,TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Slide, Alert} from '@mui/material';
 import { Facebook, GitHub, Email, Phone, LinkedIn, QuestionMark, DynamicFeed, WhatsappOutlined } from '@mui/icons-material';
 import { Svg8 } from '../svg/svg';
+import { useData } from '../Context/DataContext';
 import { useOrder_Review } from '../Context/Order_and_ReviewContext';
 
 
@@ -16,13 +17,17 @@ export function Payment() {
   const navigate = useNavigate()
   const [amount, setAmount] = useState('')
   const [show, setShow] = useState(false);
+  const { getItems } = useData();
+  const items =  getItems();
   useEffect(() => {
       if(!state) {
         navigate('/restaurant')
-      }
-      else {
+      } else if(items.length <1){
+        navigate('/restaurant')
+      } else {
         setShow(true);
         setAmount(state.val);
+        localStorage.setItem('item-list', JSON.stringify([]));
       }
   },[])
   

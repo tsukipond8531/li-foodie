@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import {IconButton,TextField,Alert, createTheme, ThemeProvider, Button} from "@mui/material";
+import {IconButton,TextField, Alert, createTheme, ThemeProvider, Button} from "@mui/material";
 import GoogleButton from 'react-google-button'
 import { RandomImg, Blob } from "../components/_COMPONENT";
 import { useAuth } from "../Context/AuthContext";
@@ -21,20 +21,21 @@ const Login = () => {
 
   const emailRef = useRef() 
   const passRef = useRef() 
-  const { login } = useAuth()
+  const { login } = useAuth();
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
-  const navigate = useNavigate()
+
   
   async function emailAuth(e) {
     e.preventDefault()
+
     try {
       setError('')
       setLoading(true)
       await login(emailRef.current.value, passRef.current.value)
-      navigate('/restaurant')
     } catch(err) {
+      console.log(err)
       setError(err.code)
     }
     setLoading(false)
@@ -48,18 +49,17 @@ const Login = () => {
   return (
     <>
       <section className="flex justify-center h-auto p-4">
-        <div className="mt-32 flex-1 h-full max-w-4xl mx-auto bg-gradient-to-b from-slate-300 via-gray-200 to-zinc-400 shadow-2xl shadow-slate-900 rounded-2xl overflow-hidden">
+        <div className="mt-32 md:mt-40 flex-1 h-full max-w-4xl mx-auto bg-gradient-to-b from-slate-300 via-gray-200 to-zinc-400 shadow-2xl shadow-slate-900 rounded-2xl overflow-hidden">
           <div className="flex flex-col md:flex-row">
             <div className="h-40 md:h-auto md:w-1/2">
               <RandomImg/>
             </div>
-            <form onSubmit={emailAuth}
-              className="flex justify-center p-6 sm:p-12 md:w-1/2 border border-white border-t-0 border-l-0 border-opacity-10">
-              <div className="w-full">
+            <div className="flex justify-center p-6 sm:p-12 md:w-1/2 border border-white border-t-0 border-l-0 border-opacity-10">
+              <form className="w-full" onSubmit={emailAuth}>
                 <h1 className="mb-4 text-2xl font-bold text-center text-gray-800">
                   Log in
                 </h1>
-                  {error && <Alert severity="error" variant="outlined">{error}</Alert>}
+                {error && <Alert severity="error" variant='outlined'>{error}</Alert>}
                 <div className="mt-4">
                   <ThemeProvider theme={Theme}>
                     <TextField
@@ -74,8 +74,8 @@ const Login = () => {
                   </ThemeProvider>
                 </div>
                 <div className="mt-2">
-                 <ThemeProvider theme={Theme}>
-                  <TextField
+                  <ThemeProvider theme={Theme}>
+                    <TextField
                       helperText="Please enter your password" variant="standard" color="black" fullWidth={true}
                       label='password'
                       inputRef={passRef} required autoComplete="off"
@@ -83,7 +83,7 @@ const Login = () => {
                       InputProps={{ style: { fontSize: 15, fontWeight: 600 } }}
                       InputLabelProps={{ style: { fontSize: 18, fontWeight: 600 } }}
                       FormHelperTextProps={{ style: { fontSize: 12} }}
-                  />
+                    />
                  </ThemeProvider>
                   <div className="mt-2 mb-4">
                     <IconButton 
@@ -117,8 +117,8 @@ const Login = () => {
                     <span className="hover:text-indigo-600 hover:underline">forgot password?</span> 
                   </NavLink>
                 </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </section>

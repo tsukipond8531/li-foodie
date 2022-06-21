@@ -5,7 +5,8 @@ import { Svg8 } from '../svg/svg';
 import { useOrder_Review } from '../Context/Order_and_ReviewContext';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, tableCellClasses, styled, Slider , Button, createTheme, ThemeProvider, Alert, Dialog, DialogActions, DialogContent, DialogTitle, Slide, TextField} from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
-import { Blob } from '../components/_COMPONENT'
+import { Blob } from '../components/_COMPONENT';
+import { useData } from '../Context/DataContext';
 
 const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -29,9 +30,12 @@ export function Checkout() {
     const navigate = useNavigate()
     const [data, setData] = useState([[],[0,0]])
     const [show, setShow] = useState(false);
-    
+    const { getItems } = useData();
+    const x = getItems();
     useEffect(() => {
         if(!state) {
+            navigate('/restaurant')
+        }else if(x.length <1){
             navigate('/restaurant')
         } else {
             setShow(true)
@@ -116,12 +120,8 @@ export function Checkout() {
             await placeOrder(data,uid,token)
             navigate('/payment',{state: {val: totalAmount}})
         } catch(err) {
-            setError(err)
-            console.log(err)
-        } finally {
-            localStorage.setItem('item-list', JSON.stringify([]));
-        }
-          
+            setError(err.code)
+        } 
     }
     //hl5   mui styling component .............................
     const StyledTableCell = styled(TableCell)(({ theme }) => ({

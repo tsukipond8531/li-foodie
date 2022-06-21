@@ -1,10 +1,9 @@
 import React, { useRef, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { IconButton,TextField,Alert, createTheme, ThemeProvider, Button, Tooltip} from '@mui/material';
 import { Visibility, VisibilityOff, AddAPhoto, ArrowCircleRightSharp } from "@mui/icons-material";
 import { Blob, PreviewProfileImg } from "../components/_COMPONENT";
 import { useAuth } from "../Context/AuthContext";
-import { useData } from '../Context/DataContext';
 import { ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
 import { storage } from '../Firebase'
 
@@ -28,15 +27,12 @@ const Signup = () => {
   const phnoRef = useRef();
   const imgRef = useRef(null);
   const { signup } = useAuth()
-  const { getItems } = useData();
-  const items = getItems();
   const [error, setError] = useState('')
   const [msg, setMsg] = useState('')
   const [disable, setDisable] = useState(false)
   const [img, setImg] = useState(null)
   const [showPassword, setShowPassword] = useState(false)
-  const navigate = useNavigate();
- 
+
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -90,7 +86,6 @@ const Signup = () => {
         try {
           await signup(args, passRef.current.value)
           setMsg('Profile Created')
-          navigate('/restaurant',{state:{from: items}})
         } catch(err) {
           setMsg(false)
           setError(err.code)

@@ -2,6 +2,7 @@ import React,{ useContext, useEffect, useState } from 'react'
 import { auth, db } from '../Firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, onAuthStateChanged, sendEmailVerification } from 'firebase/auth';
 import { doc, setDoc } from "firebase/firestore";
+import { useNavigate } from 'react-router-dom';
 
 
 const AuthContext = React.createContext();
@@ -15,6 +16,7 @@ export function AuthProvider({children}) {
     const [currentUser, setCurrentUser] = useState();
     const [userId, setUserId] = useState('');
     const [loading, setLoading] = useState(true)
+    const navigate = useNavigate();
    
     function getUserId() {
         const user = auth.currentUser;
@@ -25,10 +27,12 @@ export function AuthProvider({children}) {
     }
 
     function signup (args, password) {
-        createUserWithEmailAndPassword(auth, args.email, password).then((userCredential) => {
+        return createUserWithEmailAndPassword(auth, args.email, password)
+        .then((userCredential) => {
             const uID = userCredential.user.uid
             setUserId(uID);
             creteUser(args, uID);
+            navigate('/restaurant')
         })
     }
 
@@ -45,9 +49,10 @@ export function AuthProvider({children}) {
     }
 
     function login (email, password) {
-        signInWithEmailAndPassword(auth,email, password).then((userCredential) => {
+        return signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
             const uID = userCredential.user.uid;
             setUserId(uID);
+            navigate('/restaurant')
         })
     }
 
