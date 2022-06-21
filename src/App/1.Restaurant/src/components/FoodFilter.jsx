@@ -79,22 +79,22 @@ export function FoodFilter(props) {
     return (
         <>
             <section className="w-fit h-auto flex justify-center items-center">
-                <section className="fixed top-0 left-0 w-10 my-52 h-56 bg-gradient-to-b border-0 from-slate-100 via-teal-300 to-amber-100 rounded-full inline-flex justify-center flex-col z-10 shadow-black shadow-xl">
+                <section className="fixed top-0 left-0 w-10 my-52 h-56 rounded-full inline-flex justify-center flex-col z-10 shadow-black shadow-xl" style={{background :'linear-gradient(#C6FFDD,#FBD786,#f7797d)'}}>
                     <div>
                         <button onClick={handleClickOpen}>
                             <Tooltip placement="right-start" title="Our Menu">
-                                <RoomServiceTwoTone fontSize="large" className="ml-0.5 text-indigo-600 hover:text-indigo-900 my-2 cursor-pointer"/>
+                                <RoomServiceTwoTone fontSize="large" className="ml-0.5 text-indigo-600 hover:text-indigo-700 my-2 cursor-pointer"/>
                             </Tooltip>
                         </button>
                         <button onClick={() => props.offer()}>
                             <Tooltip placement="right-start" title="Only For Today 😍">
-                                <FoodBankTwoTone fontSize="large" className="ml-0.5 text-indigo-600 hover:text-indigo-900 my-2 cursor-pointer"/>
+                                <FoodBankTwoTone fontSize="large" className="ml-0.5 text-indigo-600 hover:text-indigo-700 my-2 cursor-pointer"/>
                             </Tooltip>
                         </button>
                         <Tooltip placement="right-start" title="Your Cart">
                             <Link to="/cart">
                                 <Badge badgeContent={props.count} color="secondary" overlap="circular" className="my-2 cursor-pointer">
-                                    <ShoppingCartCheckoutTwoTone fontSize="large" className="m-0 text-indigo-600 hover:text-indigo-900"/>
+                                    <ShoppingCartCheckoutTwoTone fontSize="large" className="m-0 text-indigo-600 hover:text-indigo-700"/>
                                 </Badge>
                             </Link>
                         </Tooltip>

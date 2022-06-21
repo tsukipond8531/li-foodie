@@ -1,8 +1,8 @@
 import React, { useState, useEffect} from "react";
 import {Food} from "../../API/FoodDB";
 import "../../css/Category.css";
-import { FoodCard, FoodFilter, Blob } from "../components/_COMPONENT";
-import { useData} from '../Context/DataContext'
+import { FoodCard, FoodFilter } from "../components/_COMPONENT";
+import { useData } from '../Context/DataContext'
 
 const Restaurant = () =>{
 
@@ -137,20 +137,15 @@ const Restaurant = () =>{
                     </div>    
                 </div>
                 <div key='bg' className="relative min-w-full min-h-screen -z-20">
-                    <div className="fixed top-80 -right-32 h-96 w-96 sm:w-30r sm:h-30r rounded-full bg-gradient-to-b from-slate-100 via-blue-500 to-indigo-900 -z-20 shadow-black shadow-xl"></div>
-                    <div className="fixed top-80 -right-32 h-96 w-96 sm:w-30r sm:h-30r rounded-full bg-gradient-to-b from-slate-100 via-blue-500 to-indigo-900 -z-20"
+                    <div className="fixed top-80 -right-32 h-96 w-96 md:w-30r md:h-30r rounded-full bg-gradient-to-b from-slate-100 via-blue-500 to-indigo-900 -z-20 shadow-black shadow-xl"></div>
+                    <div className="fixed top-80 -right-32 h-96 w-96 md:w-30r md:h-30r rounded-full bg-gradient-to-b from-slate-100 via-blue-500 to-indigo-900 -z-20"
                         style={{filter: 'blur(30px)'}}>
                     </div>
                     <div className="fixed -left-36 top-0 -z-20 w-96 h-96 rounded-full shadow-xl shadow-black"
                         style={{background: 'linear-gradient(#833ab4,#fd1d1d,#fcb045)'}}>
                     </div>
-                    <div className="fixed bottom-72 -left-56">
-                        <Blob
-                            to='#f2709c'
-                            via='#ff0084'
-                            form='#33001b'
-                        />
-                    </div>
+                    <div className="fixed -bottom-10 -left-10 h-56 w-56 md:h-72 md:w-72 rounded-full shadow-black shadow-xl" style={{background: 'linear-gradient(#fdeff9,#ec38bc,#7303c0,#03001e)'}}></div>
+                    <div className="fixed -bottom-10 -left-10 h-56 w-56 md:h-72 md:w-72 rounded-full shadow-black shadow-xl" style={{background: 'linear-gradient(#fdeff9,#ec38bc,#7303c0,#03001e)', filter: 'blur(30px)'}}></div>
                 </div>
             </section>
         </React.Fragment>

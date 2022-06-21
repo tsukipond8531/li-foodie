@@ -1,7 +1,11 @@
 import React,{ useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Food } from '../../API/FoodDB'
-import { FoodCard, Blob } from '../components/_COMPONENT';
+import { FoodCard } from '../components/_COMPONENT';
+import { ShoppingCartCheckoutTwoTone } from '@mui/icons-material';
+import { Tooltip, Badge } from "@mui/material";
+import { Link } from 'react-router-dom';
+import { useData } from '../Context/DataContext'
 
 export function SubMenu() {
 
@@ -9,8 +13,10 @@ export function SubMenu() {
     const navigate = useNavigate()
     const [search, setSearch] = useState();
     const [menu, setMenu] = useState(Food);
-    const [list, setList] = useState([]);  //cart
-    const [count, setCount] = useState(0);  //cart item count 
+    const { getItems } = useData();
+    const cart_arr =  getItems(); // receive array from cart or receive an empty arr while starting
+    const [list, setList] = useState(cart_arr);  //cart
+    const [count, setCount] = useState(cart_arr.length);  //cart item count
 
     useEffect(() => {
         if(!state) {
@@ -111,12 +117,21 @@ export function SubMenu() {
 
     return (
         <>
-            <section className ='flex flex-col min-w-full items-center md:items-end'>
-                <div className='fixed mt-20 z-10 w-full md:w-40r h-20 md:rounded-b-xl flex overflow-hidden' style={{background : 'linear-gradient(180deg,#141E30,#243B55)'}}>
+            <section className='flex flex-col min-w-full items-center md:items-end'>
+                <div className='fixed mt-20 z-10 w-full md:w-40r h-20 md:rounded-b-xl flex overflow-hidden justify-center items-center' style={{background : 'linear-gradient(180deg,#141E30,#243B55)'}}>
                     <div style={{content: '', position: 'absolute', top: '0', right: '45%', width: '60%', height: '100%', background: `rgba(255,255,255,0.075)`, transform: `skew(25deg)`, display: 'flex' }}>
-                        <h1 className='txt3 text-4xl text-center my-auto mx-auto'>
-                            <span className='ml-2'>{search}</span>
-                        </h1>
+                    </div>
+                    <h1 className='txt5 text-4xl text-teal-400 -skew-x-12 absolute top-0 left-4 md:left-10 h-full flex justify-center items-center'>
+                        <span className='ml-2'>{search}</span>
+                    </h1>
+                    <div className='flex justify-center items-center h-full' style={{position: 'absolute', top: '0', right:'20%'}}>
+                        <Tooltip title='Your cart'>
+                            <Link to='/cart'>
+                                <Badge badgeContent={count} color="secondary" overlap="circular" className="my-2 cursor-pointer">
+                                    <ShoppingCartCheckoutTwoTone fontSize="large" className="m-0 text-indigo-400 hover:text-indigo-500"/>
+                                </Badge>
+                            </Link>
+                        </Tooltip>
                     </div>
                 </div>
                 <div className="pb-20 h-auto min-w-full absolute top-48 flex justify-center items-center ">
@@ -149,13 +164,8 @@ export function SubMenu() {
                     <div className="fixed -left-36 top-0 -z-20 w-96 h-96 rounded-full shadow-xl shadow-black"
                         style={{background: 'linear-gradient(#833ab4,#fd1d1d,#fcb045)'}}>
                     </div>
-                    <div className="fixed bottom-72 -left-56">
-                        <Blob
-                            to='#f2709c'
-                            via='#ff0084'
-                            form='#33001b'
-                        />
-                    </div>
+                    <div className="fixed -bottom-10 -left-10 h-56 w-56 md:h-72 md:w-72 rounded-full shadow-black shadow-xl" style={{background: 'linear-gradient(#fdeff9,#ec38bc,#7303c0,#03001e)'}}></div>
+                    <div className="fixed -bottom-10 -left-10 h-56 w-56 md:h-72 md:w-72 rounded-full shadow-black shadow-xl" style={{background: 'linear-gradient(#fdeff9,#ec38bc,#7303c0,#03001e)', filter: 'blur(30px)'}}></div>
                 </div>
             </section>
         </>

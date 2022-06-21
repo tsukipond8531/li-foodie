@@ -1,5 +1,5 @@
 import React from 'react'
-import { Help, OfferSlide } from './_COMPONENT'
+import { Help, OfferSlide, Blob } from './_COMPONENT'
 
 
 export function WelcomeTuts(props) {
@@ -8,6 +8,13 @@ export function WelcomeTuts(props) {
       <section className={props.showHelp?"hidden":"flex p-4 max-w-full min-h-screen overflow-hidden relative"}>
         <div className='absolute w-30r h-30r bg-gradient-to-br from-pink-600 via-blue-500 to-purple-500 rounded-full -z-20 -top-5 -left-12 shadow-2xl shadow-slate-800'></div>
         <div className='absolute w-30r h-30r bg-gradient-to-br from-pink-600 via-blue-500 to-purple-500 rounded-full -z-20 -top-5 -left-12' style={{filter:'blur(200px)'}}></div>
+        <div className='absolute bottom-40 md:bottom-72 right-60 md:right-96 mr-0 md:mr-10'>
+          <Blob
+            from='#ec38bc'
+            via='#7303c0'
+            to='#03001e'
+          />
+        </div>
         <div className="min-w-full flex flex-col lg:flex-row">
           <div className='ml-12 sm:ml-20 mt-20 sm:mt-56'>
             <Help key='menu-help'
