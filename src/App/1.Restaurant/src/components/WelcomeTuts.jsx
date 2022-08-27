@@ -23,7 +23,7 @@ export function WelcomeTuts(props) {
               cart = {props.cart}
             />
           </div>
-          <div className='ml-0 xl:ml-96 lg:ml-40 mt-0 lg:mt-40 relative'>
+          <div className='ml-0 2xl:ml-96 lg:ml-40 mt-0 lg:mt-40 relative'>
             <div className='absolute -top-56 -right-56 bg-gradient-to-br from-teal-300 via-cyan-400 to-indigo-500 h-30r w-30r rounded-full -z-20 shadow-xl shadow-neutral-900'></div>
             <div className='mx-auto flex w-fit p-2 md:p-10 xl:p-20 justify-center items-center bg-white rounded-xl bg-opacity-10 shadow-xl shadow-black border border-t-0 border-l-0 border-white border-opacity-20 backdrop-blur-sm z-10'>
               <OfferSlide key='offer-slider' list={props.offer_List}/>

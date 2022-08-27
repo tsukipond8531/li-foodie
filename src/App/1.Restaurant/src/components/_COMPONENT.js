@@ -21,6 +21,7 @@ import { LandingComponent3 } from "./LandingComponent3";
 import { LandingComponent4 } from "./LandingComponent4";
 import { LandingComponent5 } from "./LandingComponent5";
 import { LandingComponent6 } from "./LandingComponent6";
+import { ScrollToTop } from "./ScrollToTop";
 
 
-export { OrderCard, OrderTotal, PreviewProfileImg, RandomImg, RandomImgSlider, SocialMedia, Help, FoodCard, UpdateCart, FoodFilter, WelcomeTuts, OfferSlide, Blob, Bubbles, LandingComponent1, LandingComponent2, LandingComponent3, LandingComponent4, LandingComponent5, LandingComponent6}
+export { OrderCard, OrderTotal, PreviewProfileImg, RandomImg, RandomImgSlider, SocialMedia, Help, FoodCard, UpdateCart, FoodFilter, WelcomeTuts, OfferSlide, Blob, Bubbles, LandingComponent1, LandingComponent2, LandingComponent3, LandingComponent4, LandingComponent5, LandingComponent6, ScrollToTop}

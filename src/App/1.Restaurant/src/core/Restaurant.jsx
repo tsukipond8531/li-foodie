@@ -114,8 +114,8 @@ const Restaurant = () =>{
                 offer_List = {offer_List}
             />
             <section className={showItems?"":"hidden"} key='menu_items'>
-                <div className="pb-20 h-auto w-full absolute top-40 flex justify-center items-center ">
-                    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16">
+                <div className="pb-20 h-auto w-full absolute top-40 flex justify-center items-center px-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-16">
                         {food.map((currElm)=>{
                             return(
                                 <FoodCard 

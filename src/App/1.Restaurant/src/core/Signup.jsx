@@ -116,7 +116,7 @@ const Signup = () => {
               <div className="w-full flex">
                 <div className="rounded-xl overflow-hidden flex justify-center items-center">
                   {img && <PreviewProfileImg file={img}/>}
-                  {!img && <div className="h-28 w-28 border border-black bg-yellow-200 rounded-xl flex justify-center items-center p-2">
+                  {!img && <div className="h-28 w-28 border border-black bg-yellow-200 rounded-xl flex justify-center items-center p-2 cursor-pointer" onClick={() => {imgRef.current.click()}}>
                       <span className="txt7 w-fit font-bold">Profile image is require*</span>
                   </div>}                        
                 </div>

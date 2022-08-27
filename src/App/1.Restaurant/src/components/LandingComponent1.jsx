@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ArrowDownwardRoundedIcon from '@mui/icons-material/ArrowDownwardRounded';
 import Tilt from 'react-parallax-tilt'
 import ReactTypingEffect from 'react-typing-effect';
 

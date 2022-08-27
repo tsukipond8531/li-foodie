@@ -13,7 +13,7 @@ const FoodCard = (props) =>{
     }
     const prise = props.rate - (props.rate*(props.offer/100));
     return(
-        <section className="sm:w-80 w-72 rounded-xl overflow-hidden sm:hover:shadow-xl shadow-neutral-900 h-full transform transition duration-500 sm:hover:scale-105 bg-gradient-to-br from-slate-200 via-teal-300 to-amber-100 bg-opacity-90">
+        <section className="2xl:w-80 w-72 rounded-xl overflow-hidden sm:hover:shadow-xl shadow-neutral-900 h-full transform transition duration-500 sm:hover:scale-105 bg-gradient-to-br from-slate-200 via-teal-300 to-amber-100 bg-opacity-90">
             {/* <!-- Card info --> */}
             <div className="px-6 py-2">
                 <h1 className="txt6 capitalize text-indigo-900 sm:text-3xl text-2xl">

@@ -15,6 +15,14 @@ module.exports = {
         '40r': '40rem'
       },
     },
+    screens: {
+      'xs': '480px',
+      'sm': '640px', 
+      'md': '768px',     
+      'lg': '1080px',     
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
   },
   variants: {
     extends:{},

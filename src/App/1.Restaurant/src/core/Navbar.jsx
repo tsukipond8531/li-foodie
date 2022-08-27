@@ -35,10 +35,6 @@ const Navbar = () =>{
     const navStyle ="text-2xl hover:text-blue-500 text-teal-400 hover:underline font-medium mx-2"
     const [anchorEl, setAnchorEl] = useState(null);
 
-    const handleClick = (event) => {
-      setAnchorEl(event.currentTarget);
-    };
-  
     const handleClose = () => {
       setAnchorEl(null);
     };
@@ -65,9 +61,9 @@ const Navbar = () =>{
             <nav className={showMediaIcons?'navbar w-full xl:h-20 lg:h-32  sm:h-1/2 h-1/2 py-1 grid grid-cols-1  lg:grid-cols-3':'navbar w-full h-20 py-1 grid grid-cols-1 lg:grid-cols-3'}>
                 {/*Hl1 logo */}
                 <div className='xl:px-16 lg:px-5 inline-flex justify-center items-center'> 
-                    <Link to='/' className='cursor-pointer w-fit flex items-center'>
-                        <img src='./icon/icon.png' className='h-12 w-12'/>
-                        <h1 className='txt4 text-6xl font-normal px-1'>
+                    <Link to='/' className='cursor-pointer w-fit flex'>
+                        <img src='./icon/icon.png' className='h-12 w-12 mt-2'/>
+                        <h1 className='txt4 md:text-6xl text-5xl font-normal px-1 pt-2 md:pt-0'>
                             <span>L</span>i
                             <span>F</span>oodie
                         </h1>    
@@ -102,7 +98,7 @@ const Navbar = () =>{
                     {/* Hl4  profile menu */}
                     <div className='mx-4 cursor-pointer'>
                         <Tooltip title="your account" placement="bottom">   
-                            <Button id="fade-button" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>    
+                            <Button id="fade-button" aria-controls="simple-menu" aria-haspopup="true" onClick={(event) => {setAnchorEl(event.currentTarget)}}>    
                                 {(currentUser === null)?
                                     <NoAccountsSharp className='profile' style={{fontSize:30}}/>:
                                     <ThemeProvider theme={Theme}>
@@ -113,21 +109,21 @@ const Navbar = () =>{
                                 }   
                             </Button>  
                         </Tooltip>
-                        <Menu id="fade-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)}  onClose={handleClose}  MenuListProps={{'aria-labelledby': 'fade-button',}} >
-                            <MenuItem onClick={handleClose}>                         
+                        <Menu id="fade-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)}  onClose={() => setAnchorEl(null)}  MenuListProps={{'aria-labelledby': 'fade-button',}} >
+                            <MenuItem onClick={() => setAnchorEl(null)}>                         
                                 <Link className="text-blue-700" exact='true' to='/profile'>
-                                    <Button startIcon={<AssignmentInd/>}>
-                                        My profile
+                                    <Button onClick={()=> setShowMediaIcons(false)} startIcon={<AssignmentInd/>}>
+                                        My Profile
                                     </Button>
                                 </Link>
                             </MenuItem>
-                            <MenuItem onClick={handleClose}>
+                            <MenuItem onClick={() => setAnchorEl(null)}>
                                 <Link className="text-blue-700" exact='true' to='/activity'>
-                                    <Button onClick={handleClose} startIcon={<Update/>}>My Activity</Button>
+                                    <Button onClick={()=> setShowMediaIcons(false)} startIcon={<Update/>}>My Activity</Button>
                                 </Link>
                             </MenuItem>
-                            <MenuItem onClick={handleLogOut} >
-                                <Button onClick={handleClose} startIcon={<Logout/>}>logout</Button>
+                            <MenuItem onClick={() => setAnchorEl(null)}>
+                                <Button onClick={handleLogOut} startIcon={<Logout/>}>logout</Button>
                             </MenuItem>
                         </Menu>
                     </div>
