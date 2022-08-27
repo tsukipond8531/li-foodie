@@ -52,10 +52,10 @@ const Activity = () => {
                     <div className='w-full flex justify-center'>
                         <ThemeProvider theme={Theme}>
                             <div className='m-2'>
-                                <Button onClick={orders} variant='contained' color='black'>Previous orders</Button>
+                                <Button onClick={orders} variant='contained' color='black'>Show orders</Button>
                             </div>
                             <div className='m-2'>
-                                <Button onClick={reviews} variant='contained' color='black'>Precious reviews</Button>
+                                <Button onClick={reviews} variant='contained' color='black'>show reviews</Button>
                             </div>
                         </ThemeProvider>
                     </div>
@@ -63,7 +63,7 @@ const Activity = () => {
                 </div>
                 {/* hl7 order section */}
                 {showOrder && <div className='p-6'>
-                    <h1 className='text-2xl md:text-4xl text-center txt1 text-bold'>your order summary</h1>
+                    <h1 className='text-2xl md:text-4xl text-center txt1 text-bold'>your previous order summary</h1>
                     {prevOrder.map((currElm,index) => {
                         return(
                             <div className='p-2 mt-2 border border-slate-900' key={currElm.orderId}>
@@ -76,7 +76,7 @@ const Activity = () => {
                                 {currElm.orderItems.map((elm,indx) => {
                                     return(
                                         <span className='mt-2 ml-2' key={indx}>
-                                            {`${elm.name} X${elm.quantity},`}
+                                            <span>{`${elm.name} `}</span><span className="italic font-bold">{`X${elm.quantity},`}</span>
                                         </span>                                        
                                     )
                                 })}
@@ -89,7 +89,7 @@ const Activity = () => {
                 </div>}
                 {/* hl6 review section */}
                 {showReview && <div className='p-6'>
-                    <h1 className='text-2xl md:text-4xl text-center txt1 text-bold'>your review summary</h1>
+                    <h1 className='text-2xl md:text-4xl text-center txt1 text-bold'>your previous review summary</h1>
                      {prevReview.map((currElm,index) => {
                         return(
                             <div className='p-2 mt-2 border border-slate-900' key={currElm.reviewId}>
