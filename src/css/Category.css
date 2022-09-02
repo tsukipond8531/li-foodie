@@ -1,0 +1,5 @@
+.box{
+    top: 15vh;
+    position: fixed;
+    z-index: 30;
+}

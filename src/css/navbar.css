@@ -1,0 +1,21 @@
+.facebook {color: #3b5998;}
+.instagram {color: #d633ad;}
+.twitter {color: #2ab3f3;}
+.whatsapp{color:#19da43}
+.profile { color: white;}
+
+.navbar{
+  position: fixed;
+  top: 0;
+  z-index: 25;
+  /* background-color: #fff; */
+  background-color: rgb(31,41,55);
+  opacity: 8;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  overflow:hidden;
+  font-family: "Jost", sans-serif;
+  z-index: 31;
+}
+.active{
+  color: rgb(248, 250, 255);
+}
