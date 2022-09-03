@@ -46,49 +46,49 @@ const ImageIconButton = styled(ButtonBase)(({ theme }) => ({
 
 const images = [
   {
-    url: 'https://firebasestorage.googleapis.com/v0/b/lifoodie-backend.appspot.com/o/burrah-kabab.jpg?alt=media&token=a0c79109-0cb1-49b4-812d-86aa0d719725',
-    title: 'Starter',
-    width: '40%',
-  },
-  {
-    url: 'https://firebasestorage.googleapis.com/v0/b/lifoodie-backend.appspot.com/o/cornflakes.jpg?alt=media&token=45835d36-dfb3-4c2e-91aa-9536c35e73f9',
+    url: process.env.REACT_APP_BREAKFAST_URL,
     title: 'Breakfast',
-    width: '28%',
+    width: '31%',
   },
   {
-    url: 'https://firebasestorage.googleapis.com/v0/b/lifoodie-backend.appspot.com/o/italian-cuisine-pizza.jpg?alt=media&token=0c662184-8650-4008-a309-1179504673a2',
-    title: 'Pizza',
-    width: '32%',
+    url: process.env.REACT_APP_DESSERT_URL,
+    title: 'Dessert',
+    width: '34%',
   },
   {
-    url: "https://firebasestorage.googleapis.com/v0/b/lifoodie-backend.appspot.com/o/lisa-fotios.jpg?alt=media&token=44f42d48-d2a2-47f0-a3fe-4d29ab9afe92",
-    title: 'Drinks',
-    width: '30%',
-  },
-  {
-    url: "https://firebasestorage.googleapis.com/v0/b/lifoodie-backend.appspot.com/o/punjabi-thali.jpg?alt=media&token=a231b876-f490-4bb4-b071-bb010437c6ef",
+    url: process.env.REACT_APP_DINNER_URL,
     title: 'Dinner',
-    width: '40%',
+    width: '35%',
   },
   {
-    url: 'https://firebasestorage.googleapis.com/v0/b/lifoodie-backend.appspot.com/o/chicken-stew.jpg?alt=media&token=90c15538-6811-433d-b705-c6845a11e3de',
-    title: 'Soup',
-    width: '30%',
-  },
-  {
-    url: "https://firebasestorage.googleapis.com/v0/b/lifoodie-backend.appspot.com/o/veg-polao.jpg?alt=media&token=fa3ce185-ff0a-4846-ae11-b4e7e41cfd09",
-    title: 'Pure Veg',
-    width: '25%',
-  },
-  {
-    url: "https://firebasestorage.googleapis.com/v0/b/lifoodie-backend.appspot.com/o/zafrani-biriyani.jpg?alt=media&token=31e0bc8f-8744-49ea-bc06-ca4ab39d4630",
-    title: 'Signature',
+    url: process.env.REACT_APP_DRINKS_URL,
+    title: 'Drinks',
     width: '37%',
   },
   {
-    url: 'https://firebasestorage.googleapis.com/v0/b/lifoodie-backend.appspot.com/o/cupcake.jpg?alt=media&token=eab3b662-1c57-4393-b2ee-90875754780d',
-    title: 'Dessert',
-    width: '38%',
+    url: process.env.REACT_APP_PIZZA_URL,
+    title: 'Pizza',
+    width: '35%',
+  },
+  {
+    url: process.env.REACT_APP_VEG_URL,
+    title: 'Pure Veg',
+    width: '28%',
+  },
+  {
+    url: process.env.REACT_APP_SIGNATURE_URL,
+    title: 'Signature',
+    width: '34%',
+  }, 
+  {
+    url: process.env.REACT_APP_SOUP_URL,
+    title: 'Soup',
+    width: '31%',
+  },
+  {
+    url: process.env.REACT_APP_STARTER_URL,
+    title: 'Starter',
+    width: '35%',
   },
 ];
 

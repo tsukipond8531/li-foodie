@@ -1,8 +1,6 @@
 import React,{ useContext, useState } from 'react'
 import { doc, setDoc, collection ,serverTimestamp, orderBy, query, onSnapshot} from "firebase/firestore";
 import { db } from '../Firebase';
-import { useAuth } from './AuthContext';
-
 
 const Order_Review = React.createContext();
 
@@ -14,12 +12,12 @@ export function Order_ReviewProvider({children}) {
 
     const [prevOrder, setPrevOrder] = useState(null)
     const [prevReview, setPrevReview] = useState(null)
-    const { currentUser } = useAuth() 
+   
 
     async function getPrevActivity (uid) {
         
-        var orderTemp = [];
-        var reviewTemp = [];
+        let orderTemp = [];
+        let reviewTemp = [];
         const colRef = collection(db, uid)
         const q = query(colRef, orderBy('timeStamp', 'desc'))
         onSnapshot(q, (snapshot) => {

@@ -1,6 +1,6 @@
 import React,{useState } from 'react'
 import { NavLink, useNavigate, Link } from 'react-router-dom';
-import { MenuOpen, AccountCircleSharp, NoAccountsSharp, Logout, AssignmentInd, Update } from '@mui/icons-material';
+import { MenuOpen, AccountCircleSharp, NoAccountsSharp, Logout, AssignmentInd, Update, ShoppingCart } from '@mui/icons-material';
 import { Tooltip, Badge, styled, createTheme, ThemeProvider} from '@mui/material';
 import "../css/navbar.css";
 import { useAuth } from "../Context/AuthContext";
@@ -32,13 +32,7 @@ const Theme = createTheme({
 const Navbar = () =>{
     const [showMediaIcons, setShowMediaIcons] = useState(false);
     const navStyle ="text-2xl hover:text-blue-500 text-teal-400 hover:underline font-medium mx-2"
-    const [anchorEl, setAnchorEl] = useState(null);
-
-    const handleClose = () => {
-        setAnchorEl(null);
-        setShowMediaIcons(false)
-    };
-
+  
     const { logout, currentUser } = useAuth();
 
     const navigate = useNavigate();
@@ -46,22 +40,25 @@ const Navbar = () =>{
 
     function profile () {
         navigate('/profile')
-        handleClose()
-    }
-
+        setShowMediaIcons(false)
+    }   
     function activity () {
         navigate('/activity')
-        handleClose()
+        setShowMediaIcons(false)
+    }
+    function cart () {
+        navigate('/cart')
+        setShowMediaIcons(false)
     }
     
     async function handleLogOut () {
         try {
             await logout()
-            handleClose()
+            setShowMediaIcons(false)
             navigate('/')
             clearItem()
         } catch {
-            handleClose()
+            setShowMediaIcons(false)
             alert('Failed to Log out')
         }
     }
@@ -73,7 +70,7 @@ const Navbar = () =>{
                 {/*Hl1 logo */}
                 <div className='xl:px-16 lg:px-5 inline-flex justify-center items-center'> 
                     <Link to='/' className='cursor-pointer w-fit flex'>
-                        <img src={require('../css/images/heading2.png')} className='h-14 w-60 md:w-64' alt='heading'/>
+                        <img src={require('../css/images/heading2.png')} className='h-16 w-40 md:w-44' alt='heading'/>
                     </Link>
                 </div>
                 {/*Hl1 navbar */}
@@ -101,17 +98,22 @@ const Navbar = () =>{
                 <section className='w-full flex justify-between items-center h-auto'>
                     <ul className='h-full w-full py-4 flex justify-center items-center'>
                         <li className='mx-4 cursor-pointer'>
-                            <Tooltip title="My profile" placement="bottom">
+                            <Tooltip title="Profile" placement="bottom">
                                 <AssignmentInd onClick={profile} style={{fontSize:30}} className="text-blue-300"/>                               
                             </Tooltip>
                         </li>
                         <li className='mx-4 cursor-pointer'>
-                            <Tooltip title="My activities" placement="bottom">
-                                <Update onClick={activity} style={{fontSize:30}} className="text-green-300"/>
+                            <Tooltip title="Activities" placement="bottom">
+                                <Update onClick={activity} style={{fontSize:30}} className="text-green-400"/>
                             </Tooltip>
                         </li>
                         <li className='mx-4 cursor-pointer'>
-                            <Tooltip title="logout" placement="bottom">
+                            <Tooltip title='Cart' placement='bottom'>
+                                <ShoppingCart onClick={cart} style={{fontSize:30}} className="text-amber-300"/>
+                            </Tooltip>
+                        </li>
+                        <li className='mx-4 cursor-pointer'>
+                            <Tooltip title="Logout" placement="bottom">
                                 <Logout onClick={handleLogOut} style={{fontSize:30}} className="text-pink-600"/>
                             </Tooltip>
                         </li>

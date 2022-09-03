@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { Blob } from '../components/_COMPONENT'
+import { useData } from '../Context/DataContext';
 
 const Profile = () => {
 
-    const temp = localStorage.getItem('userData');
-    const userData = JSON.parse(temp);
+    const { getUser } = useData();
+    const userData = getUser();
 
     return(
     <>
@@ -13,7 +14,7 @@ const Profile = () => {
             <div className='mx-auto mt-32 max-w-4xl p-6 md:p-12 bg-gradient-to-b from-yellow-300 via-amber-300 to-orange-400 shadow-2xl shadow-slate-900 rounded-xl'>
                 <h1 className='text-center text-3xl txt2 font-bold'>Your Profile</h1>
                 <div className='flex justify-start mt-4 flex-col md:flex-row'>
-                    <img src={userData.photoUrl} className='w-32 j-32 rounded-xl mt-4 mx-auto md:mx-4'></img>
+                    <img src={userData.photoUrl} className='w-32 j-32 rounded-xl mt-4 mx-auto md:mx-4' alt='profile-pic'/>
                     <div className='ml-4 mt-4 md:mt-0 flex flex-col justify-center'>
                         <h1 className='text-2xl md:text-3xl txt7 font-bold text-indigo-600'>{userData.name}</h1>
                         <h1 className='text-lg md:text-xl txt1'><b>email:</b><span className='txt7 text-indigo-500'>{` ${userData.email}`}</span></h1>
@@ -23,8 +24,6 @@ const Profile = () => {
                 <div className='mt-8'>
                     <h1 className='md:text-xl txt1'><b>UID:</b><span className='text-rose-500'>{` ${userData.uid}`}</span></h1>
                     <h1 className='md:text-xl txt1'><b>Shipping Address:</b><span className='txt7 text-indigo-500'>{` ${userData.address}`}</span></h1>
-                    <h1 className='md:text-xl txt1'><b>Lifoodie member since:</b><span className='txt7 text-indigo-500'>
-                    {` ${userData.time}`}</span></h1>
                 </div>
                 <div className='mt-8 text-center'>
                     <Link exact='true' to='/update-profile' state={{from: [userData]}} className='txt1 font-bold text-gray-800 hover:underline'>

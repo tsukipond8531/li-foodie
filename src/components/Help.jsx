@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { FoodBank, ShoppingCart, RoomService } from "@mui/icons-material";
 
@@ -8,15 +8,6 @@ const style = {
 
 
 const Help = (props) => {
-
-    const [name, setName] = useState('guest user')
-    // useEffect(() => {
-    //     const temp = localStorage.getItem('userData');
-    //     const temp2 = JSON.parse(temp)
-    //     if(temp2.displayName) {
-    //         setName(temp2.displayName)
-    //     }
-    // },[])
 
     return (
         <React.Fragment>
@@ -37,7 +28,7 @@ const Help = (props) => {
                     <button onClick={props.offer} className={style.btn}>
                          <FoodBank className="text-pink-700"/>Today's special
                     </button>
-                    <Link to="/cart" state={{ from: props.cart }} className={style.btn}>
+                    <Link to="/cart" exact='true' className={style.btn}>
                          <ShoppingCart className="text-pink-700"/>Your cart
                     </Link>
                 </div>

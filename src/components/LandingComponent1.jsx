@@ -31,7 +31,7 @@ export function LandingComponent1() {
                     </Tilt>
                 </div>
                 <div className='mt-10 ml-4'>
-                    <h1 className='txt2 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-amber-500'>Open for both takeout and order online</h1>
+                    <h1 className='txt2 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-amber-500'>Walk in, take away and order online.</h1>
                 </div>
             </section>
         </>

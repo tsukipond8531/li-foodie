@@ -40,11 +40,7 @@ const Login = () => {
     setLoading(false)
   }
 
-  async function googleAuth(e) {
-    e.preventDefault()
-  }
-  
-
+ 
   return (
     <>
       <section className="flex justify-center h-auto p-4">
@@ -66,7 +62,7 @@ const Login = () => {
                         inputRef={emailRef} required
                         autoComplete="user-email"
                         label="email" type="email"
-                        InputProps={{  }}
+                        InputProps={{style: { fontSize: 15, fontWeight: 600 } }}
                         InputLabelProps={{ style: { fontSize: 18, fontWeight: 600 } }}
                         FormHelperTextProps={{ style: { fontSize: 12} }}
                     />

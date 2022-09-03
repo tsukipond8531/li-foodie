@@ -1,76 +1,76 @@
 {
   "short_name": "LiFoodie",
   "name": "LiFoodie",
-  "description": "family restaurant",
+  "description": "Family Restaurant",
   "icons": [
     {
       "src": "icon/logo32.png",
       "type": "image/png",
       "sizes": "32x32",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "icon/logo36.png",
       "type": "image/png",
       "sizes": "36x36",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "icon/logo48.png",
       "type": "image/png",
       "sizes": "48x48",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "icon/logo72.png",
       "type": "image/png",
       "sizes": "72x72",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "icon/logo96.png",
       "type": "image/png",
       "sizes": "96x96",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "icon/logo128.png",
       "type": "image/png",
       "sizes": "128x128",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "icon/logo144.png",
       "type": "image/png",
       "sizes": "144x144",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "icon/logo152.png",
       "type": "image/png",
       "sizes": "152x152",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "icon/logo192.png",
       "type": "image/png",
       "sizes": "192x192",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "icon/logo384.png",
       "type": "image/png",
       "sizes": "384x384",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "icon/logo512.png",
       "type": "image/png",
       "sizes": "512x512",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#dcc210"

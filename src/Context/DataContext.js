@@ -13,15 +13,16 @@ export function useData () {
 
 export function DataProvider ({children}) {
 
+    //hl1   for user data.
     const { userId } = useAuth();
     
     useEffect(() => {
        if(userId) {
-        getUser(userId);
+        fetchUser(userId);
        }
     },[userId])
 
-    async function getUser(args) {
+    async function fetchUser(args) {
         try {
             const docRef = doc(db, args, "userInfo");
             const docSnap = await getDoc(docRef);
@@ -36,10 +37,37 @@ export function DataProvider ({children}) {
         }
     }
 
-    
+    const getUser = () => {
+        const data = localStorage.getItem('userData');
+        return JSON.parse(data)
+    }
+   
+    // hl3  for cart items.
+    const setItems = (args) => {
+        localStorage.setItem('item-list', JSON.stringify(args))
+    }
+
     const getItems = () => {
         const data = JSON.parse(localStorage.getItem('item-list'));
-        return data;
+        if (data === null) {
+            return [];
+        } else {
+            return data;
+        }
+    }
+
+
+    //hl5   for products.
+    const [p, setP] = useState([])
+
+    useEffect(() => {
+        getApiProduct()
+        setP(product());
+    },[p.length])
+
+    function product() {
+        const pd = localStorage.getItem('product')
+        return JSON.parse(pd);   
     }
 
     function clearItem () {
@@ -47,23 +75,13 @@ export function DataProvider ({children}) {
         localStorage.setItem('userData', JSON.stringify([]));
     }
 
-    const [p, setP] = useState([])
-
-    function product() {
-        const pd = localStorage.getItem('product')
-        return JSON.parse(pd);   
-    }
-
-    useEffect(() => {
-        getApiProduct()
-        setP(product());
-    },[p.length])
-
     
     const value = {
+       setItems, 
        getItems,
-       clearItem,
+       getUser,
        product,
+       clearItem,
     }
     return(
         <DataContext.Provider value={value}>

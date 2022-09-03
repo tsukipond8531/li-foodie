@@ -101,7 +101,7 @@ const Signup = () => {
   return (
     <>
       <section className="flex justify-center min-h-screen p-4">
-        <div className="sm:mt-40 mt-32 flex-1 h-full max-w-3xl mx-auto bg-gradient-to-b from-amber-300 via-yellow-400 to-orange-400 shadow-2xl shadow-slate-900 rounded-2xl overflow-hidden">
+        <div className="sm:mt-40 mt-24 flex-1 h-full max-w-3xl mx-auto bg-gradient-to-b from-amber-300 via-yellow-400 to-orange-400 shadow-2xl shadow-slate-900 rounded-2xl overflow-hidden">
           <h1 className='txt7 my-4 text-xl font-bold text-center text-gray-800 capitalize'>
             Sign up / Create an account
           </h1>

@@ -29,7 +29,7 @@ export function Checkout() {
     const navigate = useNavigate()
     const [data, setData] = useState([[],[0,0]])
     const [show, setShow] = useState(false);
-    const { getItems, product } = useData();
+    const { getItems, product, getUser } = useData();
     const x = getItems();
     useEffect(() => {
         if(!state) {
@@ -96,9 +96,8 @@ export function Checkout() {
     }
     //hl7 if user changes shipping address stuff    
     const {placeOrder} = useOrder_Review();
-    const temp = localStorage.getItem('userData')
-    const userData = JSON.parse(temp)
-    const [error, setError] = useState()
+    const userData = getUser();
+    const [error, setError] = useState();
     const [userPhNo, setUserPhNo] = useState(userData.phoneNumber);
     const [shippingAddress, setShippingAddress] = useState(userData.address);
 

@@ -22,11 +22,10 @@ export function AuthProvider({children}) {
         const user = auth.currentUser;
         if(user) {
             setUserId(user.uid)
-            //console.log(user.uid)
         }
     }
 
-    function signup (args, password) {
+    async function signup (args, password) {
         return createUserWithEmailAndPassword(auth, args.email, password)
         .then((userCredential) => {
             const uID = userCredential.user.uid
@@ -48,7 +47,7 @@ export function AuthProvider({children}) {
         
     }
 
-    function login (email, password) {
+    async function login (email, password) {
         return signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
             const uID = userCredential.user.uid;
             setUserId(uID);

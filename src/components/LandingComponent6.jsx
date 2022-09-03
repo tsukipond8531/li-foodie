@@ -77,7 +77,7 @@ export function LandingComponent6() {
               <div className='mx-auto mt-4'>
                 <div className='flex h-fit items-center'>
                   <img src='./icon/icon.png' className='h-18 w-20' alt='icon'/>
-                  <img src={require('../css/images/heading2.png')} className='h-12 w-40 -ml-2' alt='icon'/>
+                  <img src={require('../css/images/heading2.png')} className='h-16 w-40 -ml-2 -mt-8' alt='icon'/>
                 </div>
                 <SocialMedia/>
               </div>

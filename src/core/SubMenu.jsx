@@ -1,6 +1,6 @@
 import React,{ useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { ShoppingCartCheckoutTwoTone } from '@mui/icons-material';
+import { ShoppingCartCheckoutTwoTone, ReplyTwoTone } from '@mui/icons-material';
 import { FoodCard } from '../components/_COMPONENT';
 import { Tooltip, Badge } from "@mui/material";
 import { Link } from 'react-router-dom';
@@ -10,9 +10,9 @@ export function SubMenu() {
 
     const state = useLocation().state;
     const navigate = useNavigate()
-    const { getItems, product } = useData();
+    const { getItems, product, setItems } = useData();
     const cart_arr =  getItems(); // receive array from cart or receive an empty arr while starting
-    const [search, setSearch] = useState();
+    const [search, setSearch] = useState([]);
     const [food, setFood] = useState(product());
     const [list, setList] = useState(cart_arr);  //cart
     const [count, setCount] = useState(cart_arr.length);  //cart item count
@@ -23,7 +23,7 @@ export function SubMenu() {
         } else {
             const temp = state.from;
             filter(temp)
-            setSearch(temp)
+            setSearch(temp.split(""))
         }
     },[])
     // ------------------------------------//  
@@ -36,7 +36,7 @@ export function SubMenu() {
         setCount(count+1);
     }
     useEffect(() => {
-        localStorage.setItem('item-list', JSON.stringify(list))
+        setItems(list)
     },[list])
     //--------------------------------------//
     //Hl3      set menu according to action 
@@ -112,29 +112,43 @@ export function SubMenu() {
             default :
                 console.log('pls bro')  
         }
-        console.log(food)
     };
+
+    //style={{background : 'linear-gradient(to bottom, #141E30,#243B55)'}}
 
     return (
         <>
             <section className='flex flex-col min-w-full items-center md:items-end'>
-                <div className='fixed mt-20 z-10 w-full md:w-40r h-20 md:rounded-b-xl flex overflow-hidden justify-center items-center' style={{background : 'linear-gradient(180deg,#141E30,#243B55)'}}>
-                    <div style={{content: '', position: 'absolute', top: '0', right: '45%', width: '60%', height: '100%', background: `rgba(255,255,255,0.075)`, transform: `skew(25deg)`, display: 'flex' }}>
+                <div className='fixed top-0 left-0 mt-24 z-10 w-10 md:w-12 py-8 rounded-full flex overflow-hidden justify-center items-center border-slate-900 border-x shadow-xl shadow-black'>
+                    <div style={{content: '', position: 'absolute', top: '-60%', right: '0%', width: '500%', height: '100%', background: `#141e30`, transform: `skew(8deg) rotate(135deg)`, display: 'flex' }}>
                     </div>
-                    <h1 className='txt5 text-4xl text-teal-400 -skew-x-12 absolute top-0 left-4 md:left-10 h-full flex justify-center items-center'>
-                        <span className='ml-2'>{search}</span>
-                    </h1>
-                    <div className='flex justify-center items-center h-full' style={{position: 'absolute', top: '0', right:'20%'}}>
-                        <Tooltip title='Your cart'>
-                            <Link to='/cart'>
-                                <Badge badgeContent={count} color="secondary" overlap="circular" className="my-2 cursor-pointer">
-                                    <ShoppingCartCheckoutTwoTone fontSize="large" className="m-0 text-indigo-400 hover:text-indigo-500"/>
-                                </Badge>
-                            </Link>
-                        </Tooltip>
+                    <div style={{content: '', position: 'absolute', top: '30%', right: '0%', width: '600%', height: '100%', background: `#141e30`, transform: `skew(8deg) rotate(-45deg)`, display: 'flex' }}>
+                    </div>
+                    <div className='flex justify-center items-center flex-col w-full'>
+                        <div className='txt1 text-4xl font-bold grid grid-cols-1'>
+                           {search.map((currElm, index) => {
+                                return(
+                                    <div className='capitalize z-10 text-transparent bg-clip-text bg-gradient-to-b from-amber-300 via-green-400 to-indigo-400' key={index}>
+                                        <h1>{currElm}</h1>
+                                    </div>
+                                )
+                           })}
+                        </div>
+                        <div className='mt-4 flex justify-center items-center w-full flex-col z-10'>
+                            <Tooltip title='Your cart' placement='right'>
+                                <Link to='/cart'>
+                                    <Badge badgeContent={count} color="secondary" overlap="circular">
+                                        <ShoppingCartCheckoutTwoTone fontSize="large" className="cursor-pointer text-indigo-400 hover:text-indigo-500"/>
+                                    </Badge>
+                                </Link>
+                            </Tooltip>
+                            <Tooltip title="Back" placement='right'>
+                                <ReplyTwoTone onClick={() => {navigate(-1)}} fontSize="large" className='cursor-pointer text-pink-500 hover:text-pink-600'/>
+                            </Tooltip>
+                        </div>
                     </div>
                 </div>
-                <div className="pb-20 h-auto min-w-full absolute top-48 flex justify-center items-center ">
+                <div className="pb-20 h-auto min-w-full absolute top-40 flex justify-center items-center ">
                     <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16">
                         {food.map((currElm)=>{
                             return(

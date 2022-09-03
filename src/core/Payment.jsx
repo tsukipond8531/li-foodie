@@ -17,7 +17,7 @@ export function Payment() {
   const navigate = useNavigate()
   const [amount, setAmount] = useState('')
   const [show, setShow] = useState(false);
-  const { getItems } = useData();
+  const { getItems, getUser } = useData();
   const items =  getItems();
   useEffect(() => {
       if(!state) {
@@ -45,8 +45,7 @@ export function Payment() {
   const reviewRef = useRef()
   const { postReview } = useOrder_Review()
   const [error, setError] = useState()
-  const temp = localStorage.getItem('userData');
-  const userData = JSON.parse(temp); 
+  const userData = getUser(); 
   async function sendReview(e) {
     e.preventDefault();
     setError('')

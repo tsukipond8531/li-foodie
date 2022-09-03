@@ -14,7 +14,6 @@ export const Cart = () => {
    
     const { getItems, product } = useData();
     let order = getItems();
-    const Food = product();
     const items = [...new Set(order)];
     const order_quantity_pair = {};
     for (const element of order) 
@@ -27,10 +26,7 @@ export const Cart = () => {
     }
     const item_name = items.sort((a, b) => { return a - b ;});
     const item_quantity = Object.values(order_quantity_pair);
-    useEffect(() => {
-        console.log(product())
-    },[])
-    const menu = Food;
+    const menu = product();
     const list = []
    
     let grandTotal = 0
