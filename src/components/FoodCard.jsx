@@ -21,7 +21,7 @@ const FoodCard = (props) =>{
                     {props.name}
                 </h1>
             </div>    
-            <img className="w-full sm:h-52 h-44" src={props.img} alt={props.name} loading='lazy'/>
+            <img className="w-full sm:h-52 h-44" src={require(`../images/product-images/${props.img}`)} alt={props.name} loading='lazy'/>
             <div>
                 <div className="px-2 py-4">
                     <div className="w-fit inline-block bg-slate-200 bg-opacity-80 rounded-full px-3 py-1 text-base font-semibold text-sky-400 mb-2">

@@ -144,7 +144,7 @@ const UpdateProfile = () => {
         <div className='flex-1 h-full max-w-4xl mx-auto bg-gradient-to-b from-amber-300 via-yellow-400 to-orange-400 rounded-2xl shadow-2xl shadow-slate-900 overflow-hidden'>
         <div className="flex flex-col md:flex-row">
             <div className="h-0 md:h-auto md:w-1/2">
-              <img src={require(`../css/images/foodBg4.png`)} className="h-full w-full object-contain" alt="update-profile-side" loading='lazy'/>
+              <img src={require(`../images/others/foodBg4.png`)} className="h-full w-full object-contain" alt="update-profile-side" loading='lazy'/>
             </div>
             <form className="flex items-center justify-center p-4 sm:p-12 md:w-1/2" autoComplete="off" onSubmit={handelSubmit}>
                 <div className="w-full">

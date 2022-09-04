@@ -122,7 +122,7 @@ const Restaurant = () =>{
                                         offer={currElm.offer}
                                         quantity={currElm.quantity}
                                         name={currElm.name}
-                                        img={currElm.img}
+                                        img={currElm.imgName}
                                         rate={currElm.rate}
                                         des={currElm.des}
                                         tag1={currElm.tag1}

@@ -13,6 +13,7 @@ import axios from "axios"
 
 
 async function getApiProduct () {
+    //console.log("api called")
     axios.get(process.env.REACT_APP_LIFOODIE_PRODUCT_API)
     .then(res => {
        localStorage.setItem('product', JSON.stringify(res.data.data))

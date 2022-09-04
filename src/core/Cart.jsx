@@ -12,7 +12,7 @@ import { useData } from '../Context/DataContext'
 
 export const Cart = () => {
    
-    const { getItems, product } = useData();
+    const { getItems, product, setItems } = useData();
     let order = getItems();
     const items = [...new Set(order)];
     const order_quantity_pair = {};
@@ -38,7 +38,7 @@ export const Cart = () => {
         function fnc (a) {
             if(elm === a.id){
                 const name = a.name;
-                const img = a.img;
+                const imgName = a.imgName;
                 const rate = a.rate;
                 const offer = a.offer;
                 const id = elm;
@@ -50,7 +50,7 @@ export const Cart = () => {
                     cost = parseInt(rate*quantity);
                 }
                 grandTotal += cost
-                list.push({name,id,img,rate,quantity,offer})
+                list.push({name,id,imgName,rate,quantity,offer})
             }
         }          
     }
@@ -79,7 +79,7 @@ export const Cart = () => {
     }
 
     useEffect(() => {
-        localStorage.setItem('item-list', JSON.stringify(data))
+        setItems(data)
     },[data])
 
    
@@ -117,18 +117,17 @@ export const Cart = () => {
                         modules={[FreeMode, Pagination, Keyboard, Navigation ]}
                         className="mySwiper mt-6 w-full h-auto">
                         {
-                            list.map((currElm,index) => {
+                            list.map((currElm) => {
                                 return(                                        
                                     <SwiperSlide className='my-6 inline-flex justify-center items-center w-80' key={currElm.id}>
                                         <OrderCard
-                                            key = {index}
                                             id={currElm.id}
-                                            name = {currElm.name}
-                                            img = {currElm.img}
-                                            rate = {currElm.rate}
-                                            offer = {currElm.offer}
-                                            quantity = {currElm.quantity}
-                                            change = {change}
+                                            name={currElm.name}
+                                            img={currElm.imgName}
+                                            rate={currElm.rate}
+                                            offer={currElm.offer}
+                                            quantity ={currElm.quantity}
+                                            change={change}
                                     />
                                     </SwiperSlide>
                                 )
@@ -145,7 +144,6 @@ export const Cart = () => {
                             added = {chkAdd}
                             removed = {chkRemove} 
                             finalPay={finalPay}
-                            data = { data }
                         />
                     </div>
                 </section>

@@ -8,16 +8,16 @@ export  function Bubbles() {
         <>
             <section className='fixed min-h-screen min-w-full -z-10'>
                 <div className="bubbles">
-                    <img src={require(`../css/images/bubble.png`)} alt='bubble'/>
-                    <img src={require(`../css/images/bubble.png`)} alt='bubble'/>
-                    <img src={require(`../css/images/bubble.png`)} alt='bubble'/>
-                    <img src={require(`../css/images/bubble.png`)} alt='bubble'/>
-                    <img src={require(`../css/images/bubble.png`)} alt='bubble'/>
-                    <img src={require(`../css/images/bubble.png`)} alt='bubble'/>
-                    <img src={require(`../css/images/bubble.png`)} alt='bubble'/>
-                    <img src={require(`../css/images/bubble.png`)} alt='bubble'/>
-                    <img src={require(`../css/images/bubble.png`)} alt='bubble'/>
-                    <img src={require(`../css/images/bubble.png`)} alt='bubble'/>
+                    <img src={require(`../images/others/bubble.png`)} alt='bubble'/>
+                    <img src={require(`../images/others/bubble.png`)} alt='bubble'/>
+                    <img src={require(`../images/others/bubble.png`)} alt='bubble'/>
+                    <img src={require(`../images/others/bubble.png`)} alt='bubble'/>
+                    <img src={require(`../images/others/bubble.png`)} alt='bubble'/>
+                    <img src={require(`../images/others/bubble.png`)} alt='bubble'/>
+                    <img src={require(`../images/others/bubble.png`)} alt='bubble'/>
+                    <img src={require(`../images/others/bubble.png`)} alt='bubble'/>
+                    <img src={require(`../images/others/bubble.png`)} alt='bubble'/>
+                    <img src={require(`../images/others/bubble.png`)} alt='bubble'/>
                 </div>
             </section>
             <section className='BubbleContainer'>

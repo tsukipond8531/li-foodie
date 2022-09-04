@@ -1,66 +1,24 @@
 {
   "short_name": "LiFoodie",
   "name": "LiFoodie",
-  "description": "Family Restaurant",
+  "description": "A typical year sees the launch of 100+ new food and beverage products. The pandemic changed that as consumers shifted away from adventurous eating and toward comfort food and our company put the product launch plans on hold. But that doesn’t mean innovation stopped — it just looked a little different from before.",
   "icons": [
     {
-      "src": "icon/logo32.png",
+      "src": "icon/logo192.png",
       "type": "image/png",
-      "sizes": "32x32",
-      "purpose": "any"
+      "sizes": "192x192",
+      "purpose": "maskable"
     },
     {
-      "src": "icon/logo36.png",
+      "src": "icon/logo512.png",
       "type": "image/png",
-      "sizes": "36x36",
-      "purpose": "any"
-    },
-    {
-      "src": "icon/logo48.png",
-      "type": "image/png",
-      "sizes": "48x48",
-      "purpose": "any"
-    },
-    {
-      "src": "icon/logo72.png",
-      "type": "image/png",
-      "sizes": "72x72",
-      "purpose": "any"
-    },
-    {
-      "src": "icon/logo96.png",
-      "type": "image/png",
-      "sizes": "96x96",
-      "purpose": "any"
-    },
-    {
-      "src": "icon/logo128.png",
-      "type": "image/png",
-      "sizes": "128x128",
-      "purpose": "any"
-    },
-    {
-      "src": "icon/logo144.png",
-      "type": "image/png",
-      "sizes": "144x144",
-      "purpose": "any"
-    },
-    {
-      "src": "icon/logo152.png",
-      "type": "image/png",
-      "sizes": "152x152",
-      "purpose": "any"
+      "sizes": "512x512",
+      "purpose": "maskable"
     },
     {
       "src": "icon/logo192.png",
       "type": "image/png",
       "sizes": "192x192",
-      "purpose": "any"
-    },
-    {
-      "src": "icon/logo384.png",
-      "type": "image/png",
-      "sizes": "384x384",
       "purpose": "any"
     },
     {
@@ -70,8 +28,31 @@
       "purpose": "any"
     }
   ],
+  "screenshots": [
+    {
+      "src": "screenshot/Screenshot1.png",
+      "type": "image/png",
+      "sizes": "720x1520"
+    },
+    {
+      "src": "screenshot/Screenshot2.png",
+      "type": "image/png",
+      "sizes": "720x1520"
+    },
+    {
+      "src": "screenshot/Screenshot3.png",
+      "type": "image/png",
+      "sizes": "720x1520"
+    },
+    {
+      "src": "screenshot/Screenshot4.png",
+      "type": "image/png",
+      "sizes": "720x1520"
+    }
+  ],
   "start_url": "/",
+  "id":"/",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#0f172a",
   "background_color": "#dcc210"
 }

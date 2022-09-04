@@ -1,7 +1,7 @@
 import React,{useState } from 'react'
 import { NavLink, useNavigate, Link } from 'react-router-dom';
 import { MenuOpen, AccountCircleSharp, NoAccountsSharp, Logout, AssignmentInd, Update, ShoppingCart } from '@mui/icons-material';
-import { Tooltip, Badge, styled, createTheme, ThemeProvider} from '@mui/material';
+import { Tooltip, Badge, styled, createTheme, ThemeProvider, IconButton } from '@mui/material';
 import "../css/navbar.css";
 import { useAuth } from "../Context/AuthContext";
 import { useData } from '../Context/DataContext';
@@ -70,7 +70,7 @@ const Navbar = () =>{
                 {/*Hl1 logo */}
                 <div className='xl:px-16 lg:px-5 inline-flex justify-center items-center'> 
                     <Link to='/' className='cursor-pointer w-fit flex'>
-                        <img src={require('../css/images/heading2.png')} className='h-16 w-40 md:w-44' alt='heading'/>
+                        <img src={require('../images/others/heading2.png')} className='h-16 md:-mt-2 w-40 md:w-44' alt='heading'/>
                     </Link>
                 </div>
                 {/*Hl1 navbar */}
@@ -114,7 +114,9 @@ const Navbar = () =>{
                         </li>
                         <li className='mx-4 cursor-pointer'>
                             <Tooltip title="Logout" placement="bottom">
-                                <Logout onClick={handleLogOut} style={{fontSize:30}} className="text-pink-600"/>
+                                <IconButton onClick={handleLogOut} disabled={currentUser?false:true}>
+                                    <Logout  style={{fontSize:30}} className={currentUser?"text-pink-600":'text-slate-900'}/>
+                                </IconButton>
                             </Tooltip>
                         </li>
                     </ul>

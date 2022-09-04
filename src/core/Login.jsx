@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {IconButton,TextField, Alert, createTheme, ThemeProvider, Button} from "@mui/material";
@@ -24,7 +24,6 @@ const Login = () => {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
-
   
   async function emailAuth(e) {
     e.preventDefault()

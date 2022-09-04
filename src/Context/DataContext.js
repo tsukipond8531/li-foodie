@@ -50,7 +50,8 @@ export function DataProvider ({children}) {
     const getItems = () => {
         const data = JSON.parse(localStorage.getItem('item-list'));
         if (data === null) {
-            return [];
+            localStorage.setItem('item-list', JSON.stringify([]))
+            return ["0"];
         } else {
             return data;
         }
@@ -58,21 +59,25 @@ export function DataProvider ({children}) {
 
 
     //hl5   for products.
-    const [p, setP] = useState([])
-
+    
     useEffect(() => {
         getApiProduct()
-        setP(product());
-    },[p.length])
+    },[])
 
     function product() {
         const pd = localStorage.getItem('product')
-        return JSON.parse(pd);   
+        if(pd === null) {
+            return null;
+        } else {
+            return JSON.parse(pd);
+        }    
     }
 
     function clearItem () {
-        localStorage.setItem('item-list', JSON.stringify([]));
-        localStorage.setItem('userData', JSON.stringify([]));
+        localStorage.clear()
+        // localStorage.clearItem('item-list');
+        // localStorage.clearItem('product');
+        // localStorage.setItem('userData', JSON.stringify([]));
     }
 
     

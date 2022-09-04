@@ -78,17 +78,17 @@ export function Payment() {
               <p className='mt-4 txt2 font-semibold ml-2'>
                 Thanks everyone for reaching till here, this page will be completed after adding some payment getway for paying  <span className='mx-2 font-bold text-indigo-500'>{`₹${amount}`}</span>, but I have decided to end this project here. 😄 Maybe I will  work further more in future. Before ending I would like to thanks 
                 <span className='ml-2 txt1 font-bold'>
-                1.<a href='https://swiperjs.com/' target='_blank' className='txt1 mx-2 text-blue-500 underline font-bold'>swiper</a>
-                2.<a href='https://github.com/jscottsmith/react-scroll-parallax' target='_blank' className='txt1 mx-2 text-blue-500 underline font-bold'>react-scroll-parallax</a>  
-                2.<a href='https://github.com/mkosir/react-parallax-tilt' target='_blank' className='txt1 mx-2 text-blue-500 underline font-bold'>react-parallax-tilt</a>  
-                3.<a href='https://github.com/lamyfarai/react-typing-effect' target='_blank' className='txt1 mx-2 text-blue-500 underline font-bold'>react-typing-effect</a>  
-                4.<a href='https://github.com/fkhadra/react-toastify' target='_blank' className='txt1 mx-2 text-blue-500 underline font-bold'>react-toastify</a> 
+                1.<a href='https://swiperjs.com/' target='_blank' rel='noreferrer' className='txt1 mx-2 text-blue-500 underline font-bold'>swiper</a>
+                2.<a href='https://github.com/jscottsmith/react-scroll-parallax' target='_blank' rel='noreferrer' className='txt1 mx-2 text-blue-500 underline font-bold'>react-scroll-parallax</a>  
+                2.<a href='https://github.com/mkosir/react-parallax-tilt' target='_blank' rel='noreferrer' className='txt1 mx-2 text-blue-500 underline font-bold'>react-parallax-tilt</a>  
+                3.<a href='https://github.com/lamyfarai/react-typing-effect' target='_blank' rel='noreferrer' className='txt1 mx-2 text-blue-500 underline font-bold'>react-typing-effect</a>  
+                4.<a href='https://github.com/fkhadra/react-toastify' target='_blank' rel='noreferrer' className='txt1 mx-2 text-blue-500 underline font-bold'>react-toastify</a> 
                 </span> for making awesome react library. And also like to thanks for beautiful images : 
-                <a href='https://pixabay.com/' target='_blank' className='txt1 mx-2 text-blue-500 underline font-bold'>Pixaby.com</a>
+                <a href='https://pixabay.com/' target='_blank' rel='noreferrer' className='txt1 mx-2 text-blue-500 underline font-bold'>Pixaby.com</a>
                 and for making ui designing easy 
-                1.<a href='https://tailwindcss.com/' target='_blank' className='txt1 mx-2 text-blue-500 underline font-bold'>Tailwindcss</a>
-                2.<a href='https://mui.com/' target='_blank' className='txt1 mx-2 text-blue-500 underline font-bold'>Material-UI</a>
-                and<a href='https://firebase.google.com/' target='_blank' className='txt1 mx-2 text-blue-500 underline font-bold'>firebase</a>
+                1.<a href='https://tailwindcss.com/' target='_blank' rel='noreferrer' className='txt1 mx-2 text-blue-500 underline font-bold'>Tailwindcss</a>
+                2.<a href='https://mui.com/' target='_blank' rel='noreferrer' className='txt1 mx-2 text-blue-500 underline font-bold'>Material-UI</a>
+                and<a href='https://firebase.google.com/' target='_blank' rel='noreferrer' className='txt1 mx-2 text-blue-500 underline font-bold'>firebase</a>
                 for backend support . 😃 
               </p>
             </div>

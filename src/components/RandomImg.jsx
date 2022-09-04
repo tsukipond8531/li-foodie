@@ -1,18 +1,22 @@
 import React from 'react';
-import { useData } from '../Context/DataContext';
+
+
 const RandomImg = () => {
 
-    const { product } = useData()
-    const food = product()
+    const imgArr = [
+        process.env.REACT_APP_BREAKFAST_URL,
+        process.env.REACT_APP_DESSERT_URL,
+        process.env.REACT_APP_DINNER_URL,
+        process.env.REACT_APP_DRINKS_URL,
+        process.env.REACT_APP_PIZZA_URL,
+        process.env.REACT_APP_SIGNATURE_URL,
+        process.env.REACT_APP_SOUP_URL,
+        process.env.REACT_APP_STARTER_URL,
+        process.env.REACT_APP_VEG_URL
+    ]
 
-    let rand = [];
-    food.map((currElm) => {
-        return(
-            rand.push(currElm.img)
-        )
-    })
-   
-    var imgName = rand[Math.floor(Math.random() * 106)]
+  
+    var imgName = imgArr[Math.floor(Math.random() * 9)]
     
     return(
     <>        

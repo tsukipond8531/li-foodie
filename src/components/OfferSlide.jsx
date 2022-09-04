@@ -12,8 +12,8 @@ export function OfferSlide(props) {
     return (
         <section className='w-full h-auto flex flex-col'>
             <h1 className='mx-auto text-3xl md:text-4xl txt7 font-bold'>
-                <span className="text-rose-500 animate-pulse">Hurry!!</span>
-                <span className='text-amber-400'> Only for today</span>
+                <span className="text-pink-600 font-bold animate-pulse">Hurry!!</span>
+                <span className='text-transparent bg-clip-text bg-gradient-to-r to-red-500 via-orange-400 from-amber-400 '> Only for today</span>
             </h1>
             <Swiper spaceBetween={30} centeredSlides={true} loop={true}
                 autoplay={{delay: 2500,disableOnInteraction: false}}
@@ -28,7 +28,7 @@ export function OfferSlide(props) {
                             <SwiperSlide className='flex justify-center mb-12' key={currElm.id}>
                                <div className='flex flex-col bg-gradient-to-br from-slate-200 via-teal-300 to-amber-300 rounded-lg' key={currElm.id}>
                                     <h1 className='txt7 text-3xl ml-4 font-extrabold capitalize text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-indigo-500 to-violet-600 my-1'>{currElm.name}</h1>
-                                    <img className='w-80 sm:w-96 h-56 sm:h-64' src={currElm.img} alt={currElm.id}/>
+                                    <img className='w-80 sm:w-96 h-56 sm:h-64' src={require(`../images/product-images/${currElm.imgName}`)} alt={currElm.id}/>
                                     <h1 className='text-xl txt5 ml-4'>
                                         <span className='txt1'>Old price :</span>₹<del className='text-red-500'>{currElm.rate}</del>
                                     </h1>

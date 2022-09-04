@@ -13,7 +13,7 @@ export function LandingComponent1() {
                     happiness with every bite
                 </h1>
                 <div className='mt-8 ml-4 flex flex-col w-fit h-auto'>                  
-                    <Link to='/restaurant' state={{from: []}} exact='true' className='m-2'>
+                    <Link to='/restaurant' exact='true' className='m-2'>
                         <button className='min-w-full text-center py-2 border-b border-black rounded-sm shadow-xl shadow-black txt7 capitalize font-bold text-xl text-black bg-gradient-to-r from-amber-400 via-orange-400 to-rose-500 hover:bg-gradient-to-l' >
                            <span>Order Now !</span>
                         </button>   

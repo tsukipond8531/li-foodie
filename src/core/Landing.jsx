@@ -7,20 +7,20 @@ export function Landing() {
     return (
         <>
            <ParallaxProvider>
-                <ParallaxBanner layers={[{image: require(`../css/images/girl.jpg`), opacity: [1,0.5]},
+                <ParallaxBanner layers={[{image: require(`../images/others/girl.jpg`), opacity: [1,0.5]},
                     {children:<LandingComponent1></LandingComponent1>, opacity: [1,0.9]}]} 
                     style={{height: '850px', marginTop: '80px'}}/>
                 
                 <LandingComponent2/>
                 
-                <ParallaxBanner layers={[{image: require(`../css/images/seating.jpg`), speed: -50, opacity: [1,.5]},
+                <ParallaxBanner layers={[{image: require(`../images/others/seating.jpg`), speed: -50, opacity: [1,.5]},
                     {children: <LandingComponent3></LandingComponent3>, speed: -60}]} 
                     style={{height: '600px'}}>
                 </ParallaxBanner>
 
                 <LandingComponent4/>
 
-                <ParallaxBanner layers={[{image: require(`../css/images/chef.jpg`), speed: -80, opacity:[.8,1]},
+                <ParallaxBanner layers={[{image: require(`../images/others/chef.jpg`), speed: -80, opacity:[.8,1]},
                     {children: <LandingComponent5></LandingComponent5>}]} 
                     style={{height: '850px'}}>
                 </ParallaxBanner>
