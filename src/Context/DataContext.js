@@ -50,8 +50,8 @@ export function DataProvider ({children}) {
     const getItems = () => {
         const data = JSON.parse(localStorage.getItem('item-list'));
         if (data === null) {
-            localStorage.setItem('item-list', JSON.stringify([]))
-            return ["0"];
+            setItems([])
+            return [];
         } else {
             return data;
         }

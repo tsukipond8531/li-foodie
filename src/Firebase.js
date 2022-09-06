@@ -4,7 +4,7 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore"
 import { getStorage } from "firebase/storage";
 
-
+//if you clone this project use your own firebase config here.
 const config = {
   apiKey: process.env.REACT_APP_LIFOODIE_API_KEY,
   authDomain: process.env.REACT_APP_LIFOODIE_AUTH_DOMAIN,
