@@ -52,28 +52,19 @@ Also, while logged in I found my previous activities like my previous order and 
 <a href='https://www.npmjs.com/package/react-typing-effect' target='_blank'>react-typing-effect</a> <br/>
 <a href='https://www.npmjs.com/package/react-parallax' target='_blank'>react-parallax</a> <br/>
 <a href='https://www.npmjs.com/package/react-parallax-tilt' target='_blank'>react-parallax-tilt</a><br/>
-<<<<<<< HEAD
 <a href='https://www.npmjs.com/package/axios' target='_blank'>axios</a><br/>
 <a href='https://www.npmjs.com/package/react-router' target='_blank'>react-router</a>
-=======
 <a href='https://www.npmjs.com/package/axios' target='_blank'>axios</a>
->>>>>>> f3de6c84f5938d0e50064568bcdb4c56de573e22
+
 
 ## Designing And Styling  <a id='design'></a>
 <a href='https://tailwindcss.com/' target='_blank'>tailwindcss</a> <br/>
 <a href='https://mui.com/' target='_blank'>mui</a> <br/>
-<<<<<<< HEAD
 <a href='https://swiperjs.com'>Swiper</a><br/>
 <a href='https://pixabay.com/'>pixabay</a>
 
 ## Deployment Servers<a id='server'></a>
 ### Project Server : <a href='https://firebase.google.com/' target='_blank'>firebase</a> <br/>
 ### Api Server : <a href='https://www.heroku.com/platform' target='_blank'>heroku</a>
-=======
-<a href='https://pixabay.com/'>pixabay</a>
 
-## Deployment Servers<a id='server'></a>
-<a href='https://firebase.google.com/' target='_blank'>firebase</a> <br/>
-<a href='https://www.heroku.com/platform' target='_blank'>heroku</a>
 
->>>>>>> f3de6c84f5938d0e50064568bcdb4c56de573e22
