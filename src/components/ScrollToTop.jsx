@@ -8,7 +8,7 @@ export const ScrollToTop = () => {
 
     useEffect(() => {
         window.addEventListener('scroll', listenTopScroll)
-    }, [])
+    },[])
 
     function listenTopScroll () {
         const heightToShow = 250;

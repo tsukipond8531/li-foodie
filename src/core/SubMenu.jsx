@@ -26,9 +26,8 @@ export function SubMenu() {
             setSearch(temp.split(""))
         }
     },[])
-    // ------------------------------------//  
+
     // hl4        add items into cart     
-    // ------------------------------------//    
     const add_cart = (data) =>{ 
         let arr = []; 
         arr.push(data);
@@ -38,9 +37,8 @@ export function SubMenu() {
     useEffect(() => {
         setItems(list)
     },[list])
-    //--------------------------------------//
+
     //Hl3      set menu according to action 
-    //--------------------------------------//
     function filter (args) {
         switch(args) {
             case "Signature" : {
@@ -114,8 +112,6 @@ export function SubMenu() {
         }
     };
 
-    //style={{background : 'linear-gradient(to bottom, #141E30,#243B55)'}}
-
     return (
         <>
             <section className='flex flex-col min-w-full items-center md:items-end'>
@@ -158,7 +154,7 @@ export function SubMenu() {
                                         offer={currElm.offer}
                                         quantity={currElm.quantity}
                                         name={currElm.name}
-                                        img={currElm.img}
+                                        img={currElm.imgName}
                                         rate={currElm.rate}
                                         des={currElm.des}
                                         tag1={currElm.tag1}

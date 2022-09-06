@@ -59,9 +59,12 @@ export function DataProvider ({children}) {
 
 
     //hl5   for products.
-    
+    //this useEffect` for fetch product information before everything starts, As for now i am not changing the backend a lot so i don't fetch the api every time, but for actual use the if statement must be bypassed, and uncomment the first line od function clearItem() .
     useEffect(() => {
-        getApiProduct()
+        const pd = product()
+        if(pd === null) {
+            getApiProduct()
+        }
     },[])
 
     function product() {
@@ -74,10 +77,9 @@ export function DataProvider ({children}) {
     }
 
     function clearItem () {
-        localStorage.clear()
-        // localStorage.clearItem('item-list');
         // localStorage.clearItem('product');
-        // localStorage.setItem('userData', JSON.stringify([]));
+        localStorage.clearItem('item-list');
+        localStorage.setItem('userData', JSON.stringify([]));
     }
 
     

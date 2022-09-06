@@ -113,11 +113,11 @@ const Navbar = () =>{
                             </Tooltip>
                         </li>
                         <li className='mx-4 cursor-pointer'>
-                            <Tooltip title="Logout" placement="bottom">
-                                <IconButton onClick={handleLogOut} disabled={currentUser?false:true}>
-                                    <Logout  style={{fontSize:30}} className={currentUser?"text-pink-600":'text-slate-900'}/>
-                                </IconButton>
-                            </Tooltip>
+                            <IconButton onClick={handleLogOut} disabled={currentUser?false:true}>
+                                <Tooltip title="Logout" placement="bottom">
+                                    <Logout  style={{fontSize:30}} className={currentUser?"text-pink-600":'text-slate-800'}/>
+                                </Tooltip>
+                            </IconButton>
                         </li>
                     </ul>
                     {/* Hl4  profile menu */}
