@@ -54,12 +54,13 @@ const Navbar = () =>{
     async function handleLogOut () {
         try {
             await logout()
-            setShowMediaIcons(false)
             navigate('/')
             clearItem()
-        } catch {
-            setShowMediaIcons(false)
+        } catch(e) {
+            console.log(e)
             alert('Failed to Log out')
+        } finally {
+            setShowMediaIcons(false)
         }
     }
 

@@ -56,7 +56,7 @@ export function AuthProvider({children}) {
     }
 
 
-    function logout () {
+    async function logout () {
         return signOut(auth)
     }
 

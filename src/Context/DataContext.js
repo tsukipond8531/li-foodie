@@ -1,4 +1,4 @@
-import React,{ useContext, useEffect, useState } from 'react'
+import React,{ useContext, useEffect } from 'react'
 import { db } from '../Firebase';
 import { doc, getDoc } from "firebase/firestore";
 import { useAuth } from './AuthContext';
@@ -38,8 +38,14 @@ export function DataProvider ({children}) {
     }
 
     const getUser = () => {
-        const data = localStorage.getItem('userData');
-        return JSON.parse(data)
+        const data = localStorage.getItem('userData')
+        const dummy = {address: undefined, displayName :undefined, email :undefined, phoneNumber :undefined, photoName :undefined, photoUrl :undefined, uid :undefined}
+
+        if(data === null) {
+            return dummy
+        } else {
+            return JSON.parse(data);
+        }
     }
    
     // hl3  for cart items.
@@ -77,8 +83,8 @@ export function DataProvider ({children}) {
     }
 
     function clearItem () {
-        // localStorage.clearItem('product');
-        localStorage.clearItem('item-list');
+        // localStorage.removeItem('product');
+        localStorage.removeItem('item-list')
         localStorage.setItem('userData', JSON.stringify([]));
     }
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FoodBank, ShoppingCart, RoomService } from "@mui/icons-material";
+import { useData } from '../Context/DataContext';
 
 const style = {
     btn : 'bg-yellow-200 rounded-full h-fit w-fit py-1 px-3 m-1 inline-flex justify-center items-center text-indigo-900 italic text-xl txt5 shadow-xl shadow-black',
@@ -9,13 +10,17 @@ const style = {
 
 const Help = (props) => {
 
+    
+    const { getUser } = useData();
+    const userData = getUser();
+
     return (
         <React.Fragment>
             <div className="flex flex-col mb-4 w-80 md:w-96">
                 <h1 className="txt7 capitalize text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-rose-500">best food for your test</h1>
                 <h2 className="text-2xl px-4">
                     <span className='text-3xl pt-6 font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400'>
-                        {`Welcome user`}
+                        {(userData.displayName === undefined)?"Welcome user":`Welcome ${userData.displayName}`}
                     </span>
                     <span className='ml-1'>🙋‍♂️</span>
                 </h2>
