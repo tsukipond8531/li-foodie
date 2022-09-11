@@ -16,10 +16,11 @@ const Theme = createTheme({
 
 const Activity = () => {
 
-    const { prevOrder, prevReview, getPrevActivity} = useOrder_Review();
+    const { getPrevActivity } = useOrder_Review();
     const { currentUser } = useAuth()
     const [showOrder, setShowOrder] = useState(false);
     const [showReview, setShowReview] = useState(false);
+    const [data, setData] = useState(false)
     
     useEffect(() => {
        currentUser && setActivity(currentUser.uid)
@@ -27,7 +28,8 @@ const Activity = () => {
 
     async function setActivity(uid) {
         try {
-            await getPrevActivity(uid)
+            const temp = await getPrevActivity(uid)
+            setData(temp)
         } catch(err) {
             console.log(err)
         } 
@@ -64,7 +66,7 @@ const Activity = () => {
                 {/* hl7 order section */}
                 {showOrder && <div className='p-6'>
                     <h1 className='text-2xl md:text-4xl text-center txt1 text-bold'>your previous order summary</h1>
-                    {prevOrder.map((currElm,index) => {
+                    {data.order.map((currElm,index) => {
                         return(
                             <div className='p-2 mt-2 border border-slate-900' key={currElm.orderId}>
                                 <h1 className="text-bold text-xl txt1 text-pink-500 font-semibold">{`order: ${index+1}`}
@@ -76,7 +78,7 @@ const Activity = () => {
                                 {currElm.orderItems.map((elm,indx) => {
                                     return(
                                         <span className='mt-2 ml-2' key={indx}>
-                                            <span>{`${elm.name} `}</span><span className="italic font-bold">{`X${elm.quantity},`}</span>
+                                            <span>{`${elm.name} `}</span><span className="italic font-bold text-indigo-600">{`X${elm.quantity},`}</span>
                                         </span>                                        
                                     )
                                 })}
@@ -90,7 +92,7 @@ const Activity = () => {
                 {/* hl6 review section */}
                 {showReview && <div className='p-6'>
                     <h1 className='text-2xl md:text-4xl text-center txt1 text-bold'>your previous review summary</h1>
-                     {prevReview.map((currElm,index) => {
+                     {data.review.map((currElm,index) => {
                         return(
                             <div className='p-2 mt-2 border border-slate-900' key={currElm.reviewId}>
                                 <h1 className="text-bold text-xl txt1 text-pink-500 font-semibold">{`review no: ${index+1}`}

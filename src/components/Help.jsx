@@ -14,6 +14,12 @@ const Help = (props) => {
     const { getUser } = useData();
     const userData = getUser();
 
+    function setCustom () {
+        props.offer()
+        props.setCustom()
+    }
+   
+
     return (
         <React.Fragment>
             <div className="flex flex-col mb-4 w-80 md:w-96">
@@ -30,7 +36,7 @@ const Help = (props) => {
                     <button onClick={props.menu} className={style.btn}>
                          <RoomService className="text-pink-700"/>Our menu
                     </button>
-                    <button onClick={props.offer} className={style.btn}>
+                    <button onClick={setCustom} className={style.btn}>
                          <FoodBank className="text-pink-700"/>Today's special
                     </button>
                     <Link to="/cart" exact='true' className={style.btn}>

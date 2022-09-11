@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Help, OfferSlide, Blob } from './_COMPONENT'
 
 export function WelcomeTuts(props) {
 
   const search = props.selectMenuName.split("")
+  
   return (
     <>
       <section className={props.showHelp?"flex p-4 max-w-full min-h-screen overflow-hidden relative":"hidden"}>
@@ -21,6 +22,7 @@ export function WelcomeTuts(props) {
             <Help key='menu-help'
               menu = {props.menu}
               offer = {props.offer}
+              setCustom={props.setCustom}
             />
           </div>
           <div className='ml-0 2xl:ml-96 lg:ml-40 mt-0 lg:mt-40 relative'>

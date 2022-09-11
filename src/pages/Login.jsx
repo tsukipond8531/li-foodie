@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {IconButton,TextField, Alert, createTheme, ThemeProvider, Button} from "@mui/material";
 import { RandomImg, Blob } from "../components/_COMPONENT";
@@ -20,14 +20,20 @@ const Login = () => {
 
   const emailRef = useRef() 
   const passRef = useRef() 
-  const { login } = useAuth();
+  const { login, currentUser } = useAuth();
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
+
+  const navigate = useNavigate()
+  useEffect(() => {
+    if(currentUser) {
+      navigate('/restaurant')
+    }
+  },[])
   
   async function emailAuth(e) {
     e.preventDefault()
-
     try {
       setError('')
       setLoading(true)
@@ -98,13 +104,13 @@ const Login = () => {
                 {/* hl1 google auth */}
                 <div className="w-full mt-2 text-center">
                   <NavLink to="/signup"
-                    className="txt7 text-gray-600 mt-3 cursor-pointer">Need an account? 
+                    className="txt7 text-gray-800 font-bold mt-3 cursor-pointer">Need an account? 
                     <span className="text-indigo-600 underline">Sign up</span> 
                   </NavLink>
                 </div>
                 <div className="w-full mt-2 text-center">
                   <NavLink to="/forgot-password"
-                    className="txt7 text-gray-600 mt-3 cursor-pointer"> 
+                    className="txt7 text-gray-800 font-bold mt-3 cursor-pointer"> 
                     <span className="hover:text-indigo-600 hover:underline">forgot password?</span> 
                   </NavLink>
                 </div>

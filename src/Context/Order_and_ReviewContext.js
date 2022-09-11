@@ -1,4 +1,4 @@
-import React,{ useContext, useState } from 'react'
+import React,{ useContext } from 'react'
 import { doc, setDoc, collection ,serverTimestamp, orderBy, query, onSnapshot} from "firebase/firestore";
 import { db } from '../Firebase';
 
@@ -10,12 +10,7 @@ export function useOrder_Review () {
 
 export function Order_ReviewProvider({children}) {
 
-    const [prevOrder, setPrevOrder] = useState(null)
-    const [prevReview, setPrevReview] = useState(null)
-   
-
     async function getPrevActivity (uid) {
-        
         let orderTemp = [];
         let reviewTemp = [];
         const colRef = collection(db, uid)
@@ -42,9 +37,9 @@ export function Order_ReviewProvider({children}) {
                 }
             })
         });
-        setPrevOrder(orderTemp)
-        setPrevReview(reviewTemp)
+        return({order: orderTemp, review: reviewTemp})
     }
+    
     async function placeOrder(data,key,token) {        
         await setDoc(doc(db,key,token), {
             ...data,
@@ -63,8 +58,6 @@ export function Order_ReviewProvider({children}) {
 
     
     const value = {
-        prevReview,
-        prevOrder,
         getPrevActivity,
         placeOrder,
         postReview,

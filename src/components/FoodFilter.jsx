@@ -85,6 +85,9 @@ export function FoodFilter(props) {
                 console.log('pls bro')  
         }
     }
+    function setCustom() {
+        setSelectMenuName('Discount') 
+    }
     
     return (
         <>
@@ -98,7 +101,7 @@ export function FoodFilter(props) {
                         </button>
                         <button onClick={() => {
                                 props.offer()
-                                setSelectMenuName('Discount') 
+                                setCustom()
                             }}>
                             <Tooltip placement="right-start" title="Only For Today 😍">
                                 <FoodBankTwoTone fontSize="large" className="ml-0.5 text-indigo-600 hover:text-indigo-700 my-2 cursor-pointer"/>
@@ -147,6 +150,7 @@ export function FoodFilter(props) {
                 menu = {handleClickOpen}
                 offer = {props.offer}
                 selectMenuName={selectMenuName}
+                setCustom = {setCustom}
             />
         </>
     );

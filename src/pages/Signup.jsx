@@ -219,7 +219,7 @@ const Signup = () => {
                 </ThemeProvider>
                 <div className="w-full mt-2 text-center">
                   <NavLink to="/login"
-                    className="text-base text-gray-600 mt-3 cursor-pointer">Already have an account? 
+                    className="text-base text-gray-800 font-bold mt-3 cursor-pointer">Already have an account? 
                     <span className="text-indigo-600 underline">Log in</span> 
                   </NavLink>
                 </div>

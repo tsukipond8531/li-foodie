@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lily+Script+One&family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+
 html{
     scroll-behavior: smooth;
 }
@@ -26,4 +34,53 @@ body{
     width: 100vw;
     overflow: overlay;
     overflow-x: hidden;
+}
+
+.facebook {color: #3b5998;}
+.instagram {color: #d633ad;}
+.twitter {color: #2ab3f3;}
+.whatsapp{color:#19da43}
+.profile { color: white;}
+
+
+.txt1{
+    font-family: "Jost", sans-serif;
+}
+.txt2{
+    font-family: 'Patrick Hand', cursive;
+    letter-spacing: .5px;
+}
+.txt3{
+    background: -webkit-linear-gradient(45deg,#4e2ce2, #FC427B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Kaushan Script', cursive;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+.txt4{
+    background: -webkit-linear-gradient(45deg,#4e2ce2, #FC427B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Kaushan Script', cursive;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+.txt5{
+    font-family: 'Lily Script One', cursive;
+}
+.txt6{
+    font-family: 'Lily Script One', cursive;
+    animation: name 2s linear infinite;
+}
+@keyframes name{0%{letter-spacing: .5px;}50%{letter-spacing: 1px;}100%{letter-spacing: .5px;}}
+.txt7{
+    font-family: 'Ubuntu', sans-serif;
+}
+.txt8{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.1em;
+}
+.txt9{
+    font-family: 'Poppins', sans-serif;
 }
