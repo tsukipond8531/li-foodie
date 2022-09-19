@@ -3,10 +3,13 @@ import { Link } from 'react-router-dom'
 import { Blob } from '../components/_COMPONENT'
 import { useData } from '../Context/DataContext';
 
-const Profile = () => {
+const Profile = ({setProgress}) => {
 
     const { getUser } = useData();
     const userData = getUser();
+    React.useEffect(() => {
+        setProgress(100)
+    },[])
 
     return(
     <>

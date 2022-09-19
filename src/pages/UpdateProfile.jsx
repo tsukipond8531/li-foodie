@@ -19,7 +19,7 @@ const Theme = createTheme({
     }
   })  
 
-const UpdateProfile = () => {
+const UpdateProfile = ({setProgress}) => {
 
     const navigate = useNavigate();
     const state = useLocation().state;
@@ -29,6 +29,7 @@ const UpdateProfile = () => {
     const [address, setAddress] = useState('')
    
     useEffect(() => {
+        setProgress(100)
         if(!state) {
             navigate('/profile')
         } else {

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { IconButton,TextField,Alert, createTheme, ThemeProvider, Button, Tooltip} from '@mui/material';
 import { Visibility, VisibilityOff, AddAPhoto, ArrowCircleRightSharp } from "@mui/icons-material";
@@ -17,7 +17,7 @@ const Theme = createTheme({
   }
 })  
 
-const Signup = () => {
+const Signup = ({setProgress}) => {
 
   const emailRef = useRef() 
   const passRef = useRef() 
@@ -32,6 +32,10 @@ const Signup = () => {
   const [disable, setDisable] = useState(false)
   const [img, setImg] = useState(null)
   const [showPassword, setShowPassword] = useState(false)
+
+  useEffect(() => {
+    setProgress(100)
+  },[])
 
 
   async function handleSubmit(e) {

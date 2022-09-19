@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { TextField, Alert, ThemeProvider, createTheme, Button } from '@mui/material';
 import { RandomImg, Blob} from "../components/_COMPONENT";
@@ -15,13 +15,17 @@ const Theme = createTheme({
   }
 })  
 
-const ForgotPassword = () => {
+const ForgotPassword = ({setProgress}) => {
 
   const emailRef = useRef() 
   const { resetPassword } = useAuth()
   const [error, setError] = useState('')
   const [message, setMessage] = useState('')
   const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    setProgress(100)
+  },[])
   
   
   async function handleSubmit(e) {

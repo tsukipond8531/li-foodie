@@ -1,5 +1,5 @@
 import React from "react";
-import { Instagram, Facebook, Twitter, WhatsappOutlined } from "@mui/icons-material";
+import { Instagram, Facebook, Twitter, WhatsApp } from "@mui/icons-material";
 import Tooltip from '@mui/material/Tooltip';
 
 
@@ -31,7 +31,7 @@ const SocialMedia = () =>{
             <li className='mx-4 cursor-pointer'>
                 <a href='https://api.whatsapp.com/send?phone=+919804139678&text=Hi' target='_blank' rel="noreferrer">
                     <Tooltip title="whatsapp" placement="bottom">
-                        <WhatsappOutlined className='whatsapp text-2x'/>
+                        <WhatsApp className='whatsapp text-2x'/>
                     </Tooltip>
                 </a>
             </li>

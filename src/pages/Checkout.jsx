@@ -23,7 +23,7 @@ const Theme = createTheme({
     }
 })  
 
-export function Checkout() {
+export function Checkout({setProgress}) {
 
     const state = useLocation().state;
     const navigate = useNavigate()
@@ -32,6 +32,7 @@ export function Checkout() {
     const { getItems, product, getUser } = useData();
     const x = getItems();
     useEffect(() => {
+        setProgress(100)
         if(!state) {
             navigate('/restaurant')
         }else if(x.length <1){

@@ -14,7 +14,7 @@ const Theme = createTheme({
     }
   })  
 
-const Activity = () => {
+const Activity = ({setProgress}) => {
 
     const { getPrevActivity } = useOrder_Review();
     const { currentUser } = useAuth()
@@ -24,6 +24,7 @@ const Activity = () => {
     
     useEffect(() => {
        currentUser && setActivity(currentUser.uid)
+       setProgress(100)
     },[])
 
     async function setActivity(uid) {
@@ -38,11 +39,13 @@ const Activity = () => {
     function orders () {
         setShowReview(false)
         setShowOrder(true)
+        setProgress(100)
     }
 
     function reviews () {
         setShowOrder(false)
         setShowReview(true)
+        setProgress(100)
     }
    
     return(

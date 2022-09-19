@@ -10,7 +10,11 @@ import { OrderTotal, OrderCard, UpdateCart, Blob } from '../components/_COMPONEN
 import { Svg8 } from '../svg/svg'; 
 import { useData } from '../Context/DataContext'
 
-export const Cart = () => {
+export const Cart = ({setProgress}) => {
+
+    useEffect(() => {
+        setProgress(100)
+    },[])
    
     const { getItems, product, setItems } = useData();
     let order = getItems();

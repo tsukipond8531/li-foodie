@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Svg2 } from "../svg/svg";
 
-const Branches = () => {
+const Branches = ({setProgress}) => {
+  useEffect(() => {
+    setProgress(100)
+  },[])
   return (
     <>
       <section className="container px-5 mx-auto flex flex-col">
@@ -16,8 +19,8 @@ const Branches = () => {
         <section className="flex flex-wrap -m-4">
           <div className="xl:w-1/3 md:w-1/2 p-4 transition duration-300 hover:-translate-y-2 ease-in-out">
             <div className="p-6 rounded-xl bg-zinc-900 bg-opacity-90 shadow-2xl shadow-black">
-              <div className="w-10 h-10 inline-flex items-center justify-center mb-4">
-                <img src='./icon/icon.png' className='h-14 w-24' alt='logo'/>
+              <div className="inline-flex items-center justify-center mb-4">
+                <img src='./icon/icon.png' className='h-12 w-14' alt='logo'/>
               </div>
               <h2 className="text-2xl txt3 font-bold mb-2">
                 Shooting Stars
@@ -29,8 +32,8 @@ const Branches = () => {
           </div>
           <div className="xl:w-1/3 md:w-1/2 p-4 transition duration-300 hover:-translate-y-2 ease-in-out">
             <div className="p-6 rounded-xl bg-zinc-900 bg-opacity-90 shadow-2xl shadow-black">
-              <div className="w-10 h-10 inline-flex items-center justify-center mb-4">
-                <img src='./icon/icon.png' className='h-14 w-24' alt='logo'/>
+              <div className="inline-flex items-center justify-center mb-4">
+                <img src='./icon/icon.png' className='h-12 w-14' alt='logo'/>
               </div>
               <h2 className="text-2xl txt3 font-bold mb-2">
                 The Catalyzer
@@ -42,8 +45,8 @@ const Branches = () => {
           </div>
           <div className="xl:w-1/3 md:w-1/2 p-4 transition duration-300 hover:-translate-y-2 ease-in-out">
             <div className="p-6 rounded-xl bg-zinc-900 bg-opacity-90 shadow-2xl shadow-black">
-              <div className="w-10 h-10 inline-flex items-center justify-center mb-4">
-                <img src='./icon/icon.png' className='h-14 w-24' alt='logo'/>
+              <div className="inline-flex items-center justify-center mb-4">
+                <img src='./icon/icon.png' className='h-12 w-14' alt='logo'/>
               </div>
               <h2 className="text-2xl txt3 font-bold mb-2">
                 Neptune
@@ -55,8 +58,8 @@ const Branches = () => {
           </div>
           <div className="xl:w-1/3 md:w-1/2 p-4 transition duration-300 hover:-translate-y-2 ease-in-out">
             <div className="p-6 rounded-xl bg-zinc-900 bg-opacity-90 shadow-2xl shadow-black">
-              <div className="w-10 h-10 inline-flex items-center justify-center mb-4">
-                <img src='./icon/icon.png' className='h-14 w-24' alt='logo'/>
+              <div className="inline-flex items-center justify-center mb-4">
+                <img src='./icon/icon.png' className='h-12 w-14' alt='logo'/>
               </div>
               <h2 className="text-2xl txt3 font-bold mb-2">
                 Melanchole
@@ -68,8 +71,8 @@ const Branches = () => {
           </div>
           <div className="xl:w-1/3 md:w-1/2 p-4 transition duration-300 hover:-translate-y-2 ease-in-out">
             <div className="p-6 rounded-xl bg-zinc-900 bg-opacity-90 shadow-2xl shadow-black">
-              <div className="w-10 h-10 inline-flex items-center justify-center mb-4">
-                <img src='./icon/icon.png' className='h-14 w-24' alt='logo'/>
+              <div className="inline-flex items-center justify-center mb-4">
+                <img src='./icon/icon.png' className='h-12 w-14' alt='logo'/>
               </div>
               <h2 className="text-2xl txt3 font-bold mb-2">
                 Bunker
@@ -81,8 +84,8 @@ const Branches = () => {
           </div>
           <div className="xl:w-1/3 md:w-1/2 p-4 transition duration-300 hover:-translate-y-2 ease-in-out">
             <div className="p-6 rounded-xl bg-zinc-900 bg-opacity-90 shadow-2xl shadow-black">
-              <div className="w-10 h-10 inline-flex items-center justify-center mb-4">
-                <img src='./icon/icon.png' className='h-14 w-24' alt='logo'/>
+              <div className="inline-flex items-center justify-center mb-4">
+                <img src='./icon/icon.png' className='h-12 w-14' alt='logo'/>
               </div>
               <h2 className="text-2xl txt3 font-bold mb-2">
                 Ramona Falls

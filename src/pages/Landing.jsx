@@ -1,9 +1,12 @@
-import React from 'react'
+import React,{ useEffect } from 'react'
 import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax'
 import { LandingComponent1, LandingComponent2, LandingComponent3, LandingComponent4, LandingComponent5, LandingComponent6 } from '../components/_COMPONENT'
 import { Svg8 } from '../svg/svg'
 
-export function Landing() {
+export function Landing({setProgress}) {
+    useEffect(() => {
+        setProgress(100)
+    },[])
     return (
         <>
            <ParallaxProvider>

@@ -16,7 +16,7 @@ const Theme = createTheme({
   }
 })  
 
-const Login = () => {
+const Login = ({setProgress}) => {
 
   const emailRef = useRef() 
   const passRef = useRef() 
@@ -30,6 +30,7 @@ const Login = () => {
     if(currentUser) {
       navigate('/restaurant')
     }
+    setProgress(100)
   },[])
   
   async function emailAuth(e) {

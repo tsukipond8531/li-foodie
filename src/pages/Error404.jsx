@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Tilt from 'react-parallax-tilt'
 import { useNavigate } from 'react-router-dom'
 
-export function Error404() {
+export function Error404({setProgress}) {
+
+  useEffect(() => {
+    setProgress(100)
+  },[])
 
   const navigate = useNavigate()
 

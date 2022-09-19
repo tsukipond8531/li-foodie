@@ -1,4 +1,4 @@
-import React, { useRef, useState, forwardRef} from 'react';
+import React, { useRef, useState, forwardRef, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SocialMedia } from '../components/_COMPONENT';
 import { Button, ThemeProvider, createTheme, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Slide, Alert} from '@mui/material';
@@ -19,13 +19,17 @@ const Transition = forwardRef(function Transition(props, ref) {
   });
   
 
-const Contact = () => {
+const Contact = ({setProgress}) => {
 
     const navigate = useNavigate();
     const nameRef = useRef();
     const emailRef = useRef();
     const msgRef = useRef();
     const [error, setError] = useState('')
+
+    useEffect(() => {
+        setProgress(100)
+    },[])
 
     async function handelSubmit(e) {
         e.preventDefault();

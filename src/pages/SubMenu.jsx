@@ -6,7 +6,7 @@ import { Tooltip, Badge } from "@mui/material";
 import { Link } from 'react-router-dom';
 import { useData } from '../Context/DataContext'
 
-export function SubMenu() {
+export function SubMenu({setProgress}) {
 
     const state = useLocation().state;
     const navigate = useNavigate()
@@ -25,6 +25,7 @@ export function SubMenu() {
             filter(temp)
             setSearch(temp.split(""))
         }
+        setProgress(100)
     },[])
 
     // hl4        add items into cart     

@@ -1,9 +1,9 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "../css/Category.css";
 import { FoodCard, FoodFilter } from "../components/_COMPONENT";
 import { useData } from '../Context/DataContext'
 
-const Restaurant = () =>{
+const Restaurant = ({setProgress}) =>{
 
     const { getItems, product, setItems } = useData();
     const [food, setFood] = useState([]);
@@ -14,6 +14,13 @@ const Restaurant = () =>{
     const cart_arr =  getItems(); // receive array from cart or receive an empty arr while starting
     const [list, setList] = useState(cart_arr);  //cart
     const [count, setCount] = useState(cart_arr.length);  //cart item count
+
+    useEffect(() => {
+        setProgress(100)
+    },[])
+    useEffect(() => {
+        setProgress(100)
+    },[food])
     
     const setShowItems = () =>{
         if(!showItems) {

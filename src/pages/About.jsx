@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Svg1 } from "../svg/svg";
 
 
-const About = () => {
+const About = ({setProgress}) => {
+  useEffect(() => {
+    setProgress(100)
+  },[])
   return (
     <React.Fragment>
       <section className="xl:py-36 lg:py-36 md:py-24 sm:py-24 py-24">

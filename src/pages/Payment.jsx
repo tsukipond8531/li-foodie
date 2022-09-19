@@ -1,7 +1,7 @@
 import React, { useState, forwardRef , useRef, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Button, Tooltip ,TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Slide, Alert} from '@mui/material';
-import { Facebook, GitHub, Email, Phone, LinkedIn, QuestionMark, DynamicFeed, WhatsappOutlined } from '@mui/icons-material';
+import { Facebook, GitHub, Email, Phone, LinkedIn, QuestionMark, DynamicFeed, WhatsApp } from '@mui/icons-material';
 import { Svg8 } from '../svg/svg';
 import { useData } from '../Context/DataContext';
 import { useOrder_Review } from '../Context/Order_and_ReviewContext';
@@ -11,7 +11,7 @@ const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
 });
 
-export function Payment() {
+export function Payment({setProgress}) {
   
   const state = useLocation().state;
   const navigate = useNavigate()
@@ -20,6 +20,7 @@ export function Payment() {
   const { getItems, getUser } = useData();
   const items =  getItems();
   useEffect(() => {
+      setProgress(100)
       if(!state) {
         navigate('/restaurant')
       } else if(items.length <1){
@@ -123,7 +124,7 @@ export function Payment() {
               </a>
               <a href='https://api.whatsapp.com/send?phone=+919804139678&text=Hi' target='_blank' rel="noreferrer">
                 <Tooltip title="whatsapp">
-                    <WhatsappOutlined/>
+                    <WhatsApp/>
                 </Tooltip>
               </a>
             </div>
