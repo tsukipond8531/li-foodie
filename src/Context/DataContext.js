@@ -65,7 +65,7 @@ export function DataProvider ({children}) {
 
 
     //hl5   for products.
-    //this useEffect` for fetch product information before everything starts, As for now i am not changing the backend a lot so i don't fetch the api every time, but for actual use the if statement must be bypassed, and uncomment the first line od function clearItem() .
+    //this useEffect` for fetch product information before everything starts, As for now i am not changing the backend a lot so i don't fetch the api every time, but for actual use the if statement must be bypassed, and uncomment the first line of function clearItem() .
     useEffect(() => {
         const pd = product()
         if(pd === null) {
