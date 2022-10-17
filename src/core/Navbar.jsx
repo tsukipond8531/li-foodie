@@ -1,4 +1,4 @@
-import React,{ useEffect, useRef } from 'react'
+import React,{ useRef } from 'react'
 import { NavLink, useNavigate} from 'react-router-dom';
 import { MenuOpen, Logout, AssignmentInd, Update, ShoppingCart, Cancel, Login } from '@mui/icons-material';
 import { Tooltip } from '@mui/material';
@@ -111,7 +111,7 @@ const Navbar = () =>{
                     </ul>
                 </section>
                  {/* HL2 hamburger button and side things */}
-                <section className='lg:ml-4 min-h-full hidden md:flex justify-center items-center'>
+                <section className='lg:ml-4 min-h-full hidden md:flex justify-center items-center mr-1'>
                     <button onClick={handleLoginLogout} className='mr-2 px-1 border border-pink-500 hover:bg-pink-500 rounded-lg transition-all text-pink-500 hover:text-slate-800 hover:shadow-lg hover:shadow-pink-600'>
                        <span className='txt7 text-lg font-bold '>{currentUser?'Logout':"Login"}</span>
                     </button>

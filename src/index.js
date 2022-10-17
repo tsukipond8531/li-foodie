@@ -1,8 +1,8 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css'
+import './css/global.css'
 import { BrowserRouter } from 'react-router-dom';
-import LiFoodie from './Lifoodie';
+import LiFoodie from './Lifoodie_App';
 
 const Root = createRoot(document.querySelector('#root'))
 

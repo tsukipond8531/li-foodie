@@ -98,9 +98,9 @@ const Restaurant = ({setProgress}) =>{
     },[list])
 
 //HL5       offer list              
-    const offer_List = Food.filter((elm) => {
+    const offer_List = Array.isArray(Food) ? Food.filter((elm) => {
         return elm.offer > 1;
-    })
+    }) : [] ;
 
     return(
         <React.Fragment>

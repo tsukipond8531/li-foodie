@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Help, OfferSlide, Blob } from './_COMPONENT'
 
 export function WelcomeTuts(props) {

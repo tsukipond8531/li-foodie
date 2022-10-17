@@ -2,13 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lily+Script+One&family=Varela+Round&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
-
+@font-face {
+    font-family: 'Jost';
+    font-style: normal;
+    src: url(../../public/fonts/Jost-SemiBold.ttf);
+}
+@font-face {
+    font-family: 'Patrick Hand';
+    font-style: normal;
+    src: url(../../public/fonts/PatrickHand-Regular.ttf);
+}
+@font-face {
+    font-family: 'Kaushan Script';
+    font-style: normal;
+    src: url(../../public/fonts/KaushanScript-Regular.ttf);
+}
+@font-face {
+    font-family: 'Lily Script One';
+    font-style: normal;
+    src: url(../../public/fonts/LilyScriptOne-Regular.ttf);
+}
+@font-face {
+    font-family: 'Ubuntu';
+    font-style: normal;
+    src: url(../../public/fonts/Ubuntu-Regular.ttf);
+}
+@font-face {
+    font-family: 'Varela Round';
+    font-style: normal;
+    src: url(../../public/fonts/VarelaRound-Regular.ttf);
+}
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    src: url(../../public/fonts/Poppins-SemiBold.ttf);
+}
 
 html{
     scroll-behavior: smooth;
@@ -74,6 +102,7 @@ body{
     animation: name 2s linear infinite;
 }
 @keyframes name{0%{letter-spacing: .5px;}50%{letter-spacing: 1px;}100%{letter-spacing: .5px;}}
+
 .txt7{
     font-family: 'Ubuntu', sans-serif;
 }

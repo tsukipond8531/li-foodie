@@ -1,4 +1,4 @@
-import React,{ useContext, useEffect } from 'react'
+import React,{ useContext, useEffect, useState } from 'react'
 import { db } from '../Firebase';
 import { doc, getDoc } from "firebase/firestore";
 import { useAuth } from './AuthContext';
@@ -65,20 +65,26 @@ export function DataProvider ({children}) {
 
 
     //hl5   for products.
+    const [productState, setProductState] = useState(false)
+
     //this useEffect` for fetch product information before everything starts, As for now i am not changing the backend a lot so i don't fetch the api every time, but for actual use the if statement must be bypassed, and uncomment the first line of function clearItem() .
     useEffect(() => {
-        const pd = product()
+        const pd = localStorage.getItem('product')
         if(pd === null) {
-            getApiProduct()
-        }
+            setProductState(getApiProduct())
+        } else {
+            setProductState(true)
+        }   
     },[])
 
     function product() {
         const pd = localStorage.getItem('product')
         if(pd === null) {
-            return null;
+            setProductState(getApiProduct())
+            const newPd = localStorage.getItem('product')
+            return JSON.parse(newPd);
         } else {
-            return JSON.parse(pd);
+            return JSON.parse(pd)  
         }    
     }
 
@@ -98,7 +104,7 @@ export function DataProvider ({children}) {
     }
     return(
         <DataContext.Provider value={value}>
-            {children}
+            {productState && children}
         </DataContext.Provider>
     )
 }

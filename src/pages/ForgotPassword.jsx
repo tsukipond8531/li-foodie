@@ -82,13 +82,13 @@ const ForgotPassword = ({setProgress}) => {
                 </ThemeProvider>
                 <div className="w-full mt-2 text-center">
                   <NavLink to="/login"
-                    className="text-base text-gray-500 mt-3 cursor-pointer">Want to?
+                    className="txt7 text-gray-800 mt-3 cursor-pointer font-bold">Want to?
                     <span className="text-indigo-500 hover:underline">Log in</span> 
                   </NavLink>
                 </div>
                 <div className="w-full mt-2 text-center">
                   <NavLink to="/signup"
-                    className="text-base text-gray-500 mt-3 cursor-pointer">Need an account? 
+                    className="txt7 text-gray-800 mt-3 cursor-pointer font-bold">Need an account? 
                     <span className="text-indigo-500">Sign up</span> 
                   </NavLink>
                 </div>

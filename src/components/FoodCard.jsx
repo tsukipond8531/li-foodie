@@ -44,7 +44,7 @@ const FoodCard = (props) =>{
                 <div className="w-full h-auto pl-4 pr-10 pb-4 flex justify-between">
                         {/* <!-- prise --> */}
                     <h1 className="mx-2 font-bold text-2xl">
-                        <del className={(props.offer < 1)?'txt3 px-3':'txt1 mr-2 text-rose-500 des'}>{"₹"+props.rate}</del>
+                        <span className={(props.offer < 1)?'txt3 px-3':'txt1 mr-2 text-rose-500 line-through'}>{"₹"+props.rate}</span>
                         <span className={(props.offer > 0)?'txt3 px-1':'hidden'}>{"₹"+prise}</span>
                     </h1>
                     <Tooltip title={check?'Item Added':'Add To Cart'} placement='right'>
