@@ -49,7 +49,7 @@ Also, while logged in I found my previous activities like my previous order and 
 
 
 ## Used Dependencies <a id='dependencies'></a>
-<a href='https://www.npmjs.com/package/react-toastify' target='_blank'>react-Toastify</a> <br/>
+<a href='https://www.npmjs.com/package/react-toastify' target='_blank'>react-toastify</a> <br/>
 <a href='https://www.npmjs.com/package/react-typing-effect' target='_blank'>react-typing-effect</a> <br/>
 <a href='https://www.npmjs.com/package/react-parallax' target='_blank'>react-parallax</a> <br/>
 <a href='https://www.npmjs.com/package/react-parallax-tilt' target='_blank'>react-parallax-tilt</a><br/>
@@ -69,4 +69,4 @@ Also, while logged in I found my previous activities like my previous order and 
 ### Api Server : <a href='https://www.heroku.com/platform' target='_blank'>heroku</a>
 
 ## Limitations<a id='Limitations'></a>
-It is hard to say but this project is totally crashed on Firefox browser but perfectly working on Chrome, Edge and Safari. I have no idea why. Its show some wired error on console, has no solution on web too. If you are a react pro and willing to fix my project, you are welcome. Any type of help will be appreciated from bottom of my heart.
+It is hard to say but sometimes this project is totally crashed on Firefox browser but there is no issue on browser like Chrome, Edge and Safari etc. I have no idea why. Its show some wired error on console, has no solution on web too. If you are a react pro and willing to fix my project, you are welcome. Any type of help will be appreciated from bottom of my heart.
