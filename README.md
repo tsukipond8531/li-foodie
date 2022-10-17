@@ -21,7 +21,7 @@ Live Version: [LiFoodie](https://lifoodie-dev.web.app/)
 - [Limitations](#Limitations)
 ## Getting Started with Create React App <a id="gettingStarted"></a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created with [Create React App](https://github.com/facebook/create-react-app).
 
 To get started you need to:
 
