@@ -1,4 +1,5 @@
-![Screenshot (203)](https://user-images.githubusercontent.com/99950805/188583085-4138cf64-eb9d-4c90-9ac8-9db504d2ca0f.png)
+![lifoodie-1](https://user-images.githubusercontent.com/99950805/196952873-940f6184-f358-489e-abdb-31ab3fb7b871.png)
+
 # LiFoodie
 
 ## LiFoodie is an online restaurant website and a ``pwa (progressive web app)`` installable in any device with browser.
@@ -54,8 +55,8 @@ Also, while logged in I found my previous activities like my previous order and 
 <a href='https://www.npmjs.com/package/react-parallax' target='_blank'>react-parallax</a> <br/>
 <a href='https://www.npmjs.com/package/react-parallax-tilt' target='_blank'>react-parallax-tilt</a><br/>
 <a href='https://www.npmjs.com/package/axios' target='_blank'>axios</a><br/>
-<a href='https://www.npmjs.com/package/react-router' target='_blank'>react-router</a>
-<a href='https://www.npmjs.com/package/axios' target='_blank'>axios</a>
+<a href='https://www.npmjs.com/package/react-router' target='_blank'>react-router-dom</a>
+
 
 
 ## Designing And Styling  <a id='design'></a>
