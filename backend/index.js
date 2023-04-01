@@ -46,4 +46,4 @@ app.get('/Lifoodie-getAllFood', async (req, res) => {
 
 
 app.listen(port);
-
+console.log(`app is running at ${port}`);
