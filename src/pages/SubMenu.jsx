@@ -6,14 +6,14 @@ import { Tooltip, Badge } from "@mui/material";
 import { Link } from 'react-router-dom';
 import { useData } from '../Context/DataContext'
 
-export function SubMenu({setProgress}) {
+export async function SubMenu({setProgress}) {
 
     const state = useLocation().state;
     const navigate = useNavigate()
     const { getItems, product, setItems } = useData();
     const cart_arr =  getItems(); // receive array from cart or receive an empty arr while starting
     const [search, setSearch] = useState([]);
-    const [food, setFood] = useState(product());
+    const [food, setFood] = useState(await product());
     const [list, setList] = useState(cart_arr);  //cart
     const [count, setCount] = useState(cart_arr.length);  //cart item count
 

@@ -2,11 +2,7 @@
 
 # dependencies
 /node_modules
-/build
 /.pnp
-/.vscode
-/.firebase
-*/node_modules
 .pnp.js
 
 # testing
@@ -14,7 +10,6 @@
 
 # production
 /build
-/images
 
 # misc
 .DS_Store

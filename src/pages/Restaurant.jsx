@@ -3,11 +3,11 @@ import "../css/Category.css";
 import { FoodCard, FoodFilter } from "../components/_COMPONENT";
 import { useData } from '../Context/DataContext'
 
-const Restaurant = ({setProgress}) =>{
+const Restaurant = async ({setProgress}) =>{
 
     const { getItems, product, setItems } = useData();
     const [food, setFood] = useState([]);
-    const Food = product();
+    const Food = await product();
     const [showMenu, toggleShowMenu] = useState(false);
     const [showItems,toggleShowItems] = useState(false);
     const [showHelp, toggleShowHelp] = useState(true);

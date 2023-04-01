@@ -12,17 +12,19 @@
 import axios from "axios"
 
 
-async function getApiProduct () {
+async function getApiProduct() {
     //console.log("api called")
     axios.get(process.env.REACT_APP_LIFOODIE_PRODUCT_API)
-    .then(res => {
-       localStorage.setItem('product', JSON.stringify(res.data.data))
-       return true
-    })
-    .catch(err => {
-        console.log(err)
-        return false
-    })
+        .then(res => {
+            localStorage.setItem('product', JSON.stringify(res.data.data))
+            console.log(res.data.data)
+
+            return true
+        })
+        .catch(err => {
+            console.log(err)
+            return false
+        })
 }
 
 // hl7  if require i will use this but not for now.
@@ -38,4 +40,4 @@ async function getApiProduct () {
 // }
 
 
-export {getApiProduct}
+export { getApiProduct }
