@@ -18,7 +18,7 @@ export function WelcomeTuts(props) {
           />
         </div>
         <div className="min-w-full flex flex-col lg:flex-row">
-          <div className='ml-12 sm:ml-20 mt-20 sm:mt-56'>
+          <div className='ml-12 sm:ml-20 mt-20 sm:mt-40'>
             <Help key='menu-help'
               menu = {props.menu}
               offer = {props.offer}

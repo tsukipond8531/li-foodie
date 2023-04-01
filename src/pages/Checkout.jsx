@@ -155,8 +155,8 @@ export function Checkout({setProgress}) {
   
     return (
         <>
-            {show && <section className='relative w-full min-h-screen flex justify-center sm:px-4 px-2'>
-                <div className='sm:mt-36 mt-24 flex-1 h-full max-w-4xl mx-auto shadow-2xl bg-gradient-to-br from-pink-300 via-cyan-300 to-green-400 shadow-zinc-900 rounded-2xl overflow-hidden py-2 '>
+            {show && <section className='relative w-full min-h-screen flex justify-center items-center sm:px-4 px-2'>
+                <div className='flex-1 h-full max-w-4xl mx-auto shadow-2xl bg-gradient-to-br from-pink-300 via-cyan-300 to-green-400 shadow-zinc-900 rounded-2xl overflow-hidden py-2 '>
                     <div className="flex w-full h-auto justify-center text-2xl mt-2">
                         <h1 className='txt1 text-bold'>Order Summary</h1>
                     </div>

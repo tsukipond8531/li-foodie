@@ -12,7 +12,7 @@ export function Landing({setProgress}) {
            <ParallaxProvider>
                 <ParallaxBanner layers={[{image: require(`../images/others/girl.jpg`), opacity: [1,0.5]},
                     {children:<LandingComponent1></LandingComponent1>, opacity: [1,0.9]}]} 
-                    style={{height: '850px', marginTop: '80px'}}/>
+                    style={{height: '850px'}}/>
                 
                 <LandingComponent2/>
                 

@@ -3,11 +3,11 @@ import "../css/Category.css";
 import { FoodCard, FoodFilter } from "../components/_COMPONENT";
 import { useData } from '../Context/DataContext'
 
-const Restaurant = async ({setProgress}) =>{
+const Restaurant = ({setProgress}) =>{
 
     const { getItems, product, setItems } = useData();
     const [food, setFood] = useState([]);
-    const Food = await product();
+    const Food = product();
     const [showMenu, toggleShowMenu] = useState(false);
     const [showItems,toggleShowItems] = useState(false);
     const [showHelp, toggleShowHelp] = useState(true);
@@ -119,8 +119,8 @@ const Restaurant = async ({setProgress}) =>{
                 offer_List = {offer_List}
             />
             <section className={showItems?"":"hidden"}>
-                <div className="pb-20 h-auto w-full absolute top-40 flex justify-center items-center px-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-16">
+                <div className="pb-20 h-auto w-full absolute top-32 flex justify-center items-center px-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-10">
                         {food.map((currElm)=>{
                             return(
                                 <FoodCard 

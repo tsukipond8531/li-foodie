@@ -25,8 +25,8 @@ export function OfferSlide(props) {
                 {
                     list.map((currElm) => {
                         return(                          
-                            <SwiperSlide className='flex justify-center mb-12' key={currElm.id}>
-                               <div className='flex flex-col bg-gradient-to-br from-slate-200 via-teal-300 to-amber-300 rounded-lg' key={currElm.id}>
+                            <SwiperSlide className='flex justify-center mb-12 group' key={currElm.id}>
+                               <div className='flex flex-col bg-gradient-to-br from-slate-200 via-teal-300 to-amber-300 rounded-lg overflow-hidden'>
                                     <h1 className='txt7 text-3xl ml-4 font-extrabold capitalize text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-indigo-500 to-violet-600 my-1'>{currElm.name}</h1>
                                     <img className='w-80 sm:w-96 h-56 sm:h-64' src={require(`../images/product-images/${currElm.imgName}`)} alt={currElm.id}/>
                                     <h1 className='text-xl txt5 ml-4'>

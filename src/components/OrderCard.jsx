@@ -33,8 +33,8 @@ const OrderCard = (props) => {
 
     return(
     <>
-        <div className='h-auto w-80 sm:w-96 rounded-lg overflow-hidden sm:hover:shadow-2xl shadow-neutral-900 transform transition duration-500 sm:hover:scale-105'>
-            <img className="w-full h-44 sm:h-56" src={require(`../images/product-images/${props.img}`)} alt={props.name}></img>                
+        <div className='h-auto w-80 sm:w-96 rounded-lg overflow-hidden group'>
+            <img className="w-full h-44 sm:h-56 group-hover:scale-105 transition ease-in-out duration-700" src={require(`../images/product-images/${props.img}`)} alt={props.name}></img>                
             <div className='w-full flex justify-between bg-gradient-to-br from-slate-100 to-cyan-300'>
                 <div>
                     <h2 className='txt5 text-3xl capitalize m-2 text-indigo-900'>

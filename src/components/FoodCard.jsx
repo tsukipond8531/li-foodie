@@ -14,29 +14,29 @@ const FoodCard = (props) =>{
     const prise = props.rate - (props.rate*(props.offer/100));
 
     return(
-        <section className="2xl:w-80 w-72 rounded-xl overflow-hidden sm:hover:shadow-xl shadow-neutral-900 h-full transform transition duration-500 sm:hover:scale-105 bg-gradient-to-br from-slate-200 via-teal-300 to-amber-100 bg-opacity-90">
+        <section className="2xl:w-72 w-64  rounded-xl overflow-hidden sm:hover:shadow-xl shadow-neutral-900 h-full group bg-gradient-to-br from-slate-200 via-teal-300 to-amber-100 hover:from-pink-600 hover:via-indigo-400 hover:to-cyan-300 transition duration-500 ease-in-out bg-opacity-90">
             {/* <!-- Card info --> */}
             <div className="px-6 py-2">
-                <h1 className="txt6 capitalize text-indigo-900 sm:text-3xl text-2xl">
+                <h1 className="txt6 capitalize text-indigo-900 group-hover:text-white 2xl:text-2xl text-xl">
                     {props.name}
                 </h1>
             </div>    
-            <img className="w-full sm:h-52 h-44" src={require(`../images/product-images/${props.img}`)} alt={props.name} loading='lazy'/>
+            <img className="w-full 2xl:h-48  h-44 group-hover:scale-105 transition duration-700" src={require(`../images/product-images/${props.img}`)} alt={props.name} loading='lazy'/>
             <div>
                 <div className="px-2 py-4">
-                    <div className="w-fit inline-block bg-slate-200 bg-opacity-80 rounded-full px-3 py-1 text-base font-semibold text-sky-400 mb-2">
+                    <div className="w-fit inline-block bg-slate-100 group-hover:bg-slate-900 bg-opacity-80 rounded-full px-3 py-1 text-sky-400 mb-2">
                         {/* <!-- tag 1 --> */}
                         {'#'+props.tag1}
                     </div>
-                    <div className="w-fit inline-block bg-slate-200 bg-opacity-80 rounded-full px-3 py-1 text-base font-semibold text-orange-500 mb-2">
+                    <div className="w-fit inline-block bg-slate-100 group-hover:bg-slate-900 bg-opacity-80 rounded-full px-3 py-1 text-orange-500 mb-2">
                         {/* <!-- tag 2 --> */}
                         {'#'+props.tag2}
                     </div>
-                    <div className={(props.offer > 0)?'w-fit inline-block bg-slate-200 bg-opacity-80 rounded-full px-3 py-1 text-base font-semibold text-rose-500 mb-2':'hidden'}>
+                    <div className={(props.offer > 0)?'w-fit inline-block font-semibold bg-yellow-400 bg-opacity-80 rounded-full px-3 py-1 text-rose-500 mb-2':'hidden'}>
                         {props.offer+'% off'}
                     </div>
                     <br/>
-                    <p className="txt8 text-slate-600 text-base mx-2">
+                    <p className="txt8 text-slate-600 text-xs mx-2">
                         {/* <!-- details --> */}
                         {props.des}
                     </p>
