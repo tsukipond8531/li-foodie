@@ -23,17 +23,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       Data.push(JSON.parse(currFile))
     }
   
-    // const origin = req.headers.origin;
-    // console.log(origin)
-    await NextCors(req, res, {
-        methods: ['GET'],
-        origin: allowedOrigins,
-        optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-     });
+
+    // await NextCors(req, res, {
+    //     methods: ['GET'],
+    //     origin: '*',
+    //     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+    // });
   
-    // if (allowedOrigins.includes(origin)) {
-    //      res.setHeader('Access-Control-Allow-Origin', origin);
-    // }
+    
+    res.setHeader('Access-Control-Allow-Origin', allowedOrigins);
+    
   
     res.status(200).json(Data)
 }
