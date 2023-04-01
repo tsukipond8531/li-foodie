@@ -11,7 +11,7 @@ type Data = file[]
 const allowedOrigins:string[]  = [ 'http://localhost:3000', 'https://lifoodie-dev.web.app'];
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-    let dir: string[] = await fs.promises.readdir('./public/json')
+    let dir: string[] = await fs.promises.readdir('/json')
 
     let Data:file[] = []
     let currFile:string;
@@ -19,7 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     for (let index = 0; index < dir.length; index++) {
       const curr:string = dir[index]  
         
-      currFile = await fs.promises.readFile(('./public/json/' + curr), 'utf-8')
+      currFile = await fs.promises.readFile(('/json/' + curr), 'utf-8')
       Data.push(JSON.parse(currFile))
     }
   
