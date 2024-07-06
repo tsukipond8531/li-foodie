@@ -14,6 +14,7 @@
     "axios": "^0.27.2",
     "firebase": "^9.7.0",
     "react": "^18.0.0",
+    "react-animated-cursor": "^2.11.2",
     "react-dom": "^18.0.0",
     "react-firebase-hooks": "^5.0.3",
     "react-google-button": "^0.7.2",
